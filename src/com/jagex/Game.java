@@ -43,7 +43,7 @@ public class Game extends GameApplet {
         }
     }
 
-    public void method16(int i, Buffer buffer, int j) {
+    public void registerNewPlayers(int i, Buffer buffer, int j) {
         while(buffer.bitPosition + 10 < j * 8) {
             int k = buffer.readBits(11);
             if(k == 2047)
@@ -626,7 +626,7 @@ label0:
                 anInt995 = (anInt995 + 1) % 4;
                 aBoolean887 = true;
                 aBoolean993 = true;
-                outgoingVector.createPacket(50);
+                outgoingVector.writeOpcode(50);
                 outgoingVector.putByte(anInt995);
                 outgoingVector.putByte(anInt1103);
                 outgoingVector.putByte(anInt1195);
@@ -636,7 +636,7 @@ label0:
                 anInt1103 = (anInt1103 + 1) % 3;
                 aBoolean887 = true;
                 aBoolean993 = true;
-                outgoingVector.createPacket(50);
+                outgoingVector.writeOpcode(50);
                 outgoingVector.putByte(anInt995);
                 outgoingVector.putByte(anInt1103);
                 outgoingVector.putByte(anInt1195);
@@ -646,7 +646,7 @@ label0:
                 anInt1195 = (anInt1195 + 1) % 3;
                 aBoolean887 = true;
                 aBoolean993 = true;
-                outgoingVector.createPacket(50);
+                outgoingVector.writeOpcode(50);
                 outgoingVector.putByte(anInt995);
                 outgoingVector.putByte(anInt1103);
                 outgoingVector.putByte(anInt1195);
@@ -711,7 +711,7 @@ label0:
         if(anInt931 > 173)
         {
             anInt931 = 0;
-            outgoingVector.createPacket(132);
+            outgoingVector.writeOpcode(132);
             outgoingVector.putTribyte(0x1123f0);
         }
         j = anInt1296 * 128 + 64;
@@ -1061,7 +1061,7 @@ label0:
     {
         if(i != 0)
             currentOpcode = incommingVector.getUnsignedByte();
-        outgoingVector.createPacket(245);
+        outgoingVector.writeOpcode(245);
         if(anInt951 != -1)
         {
             method15((byte)6, anInt951);
@@ -1475,7 +1475,7 @@ label0:
                 return true;
             }
             if(currentOpcode == 166) {
-                parseUpdatePlayers(opcodeSize, incommingVector);
+                updatePlayers(opcodeSize, incommingVector);
                 aBoolean1163 = false;
                 currentOpcode = -1;
                 return true;
@@ -3493,7 +3493,7 @@ label0:
             if(anInt1019 != -1 && anInt1019 == tabId)
             {
                 anInt1019 = -1;
-                outgoingVector.createPacket(218);
+                outgoingVector.writeOpcode(218);
                 outgoingVector.putByte(tabId);
             }
             aBoolean1188 = false;
@@ -3701,7 +3701,7 @@ label0:
             if(anInt1207 > 118)
             {
                 anInt1207 = 0;
-                outgoingVector.createPacket(110);
+                outgoingVector.writeOpcode(110);
                 outgoingVector.putByte(183);
             }
             Class39_Sub3_Sub4_Sub1.method488(0);
@@ -3724,7 +3724,7 @@ label0:
 
             Class22 class22 = new Class22((byte)102, 104, 104, aByteArrayArrayArray1076, anIntArrayArrayArray1179);
             int k2 = aByteArrayArray1239.length;
-            outgoingVector.createPacket(30);
+            outgoingVector.writeOpcode(30);
             if(!aBoolean1102)
             {
                 for(int i3 = 0; i3 < k2; i3++)
@@ -3749,10 +3749,10 @@ label0:
                 if(anInt894 > 155)
                 {
                     anInt894 = 0;
-                    outgoingVector.createPacket(160);
+                    outgoingVector.writeOpcode(160);
                     outgoingVector.putTribyte(0x132620);
                 }
-                outgoingVector.createPacket(30);
+                outgoingVector.writeOpcode(30);
                 for(int i6 = 0; i6 < k2; i6++)
                 {
                     byte abyte1[] = aByteArrayArray1167[i6];
@@ -3811,7 +3811,7 @@ label0:
 
                 }
 
-                outgoingVector.createPacket(30);
+                outgoingVector.writeOpcode(30);
                 for(int l6 = 0; l6 < 4; l6++)
                 {
                     for(int i8 = 0; i8 < 13; i8++)
@@ -3842,14 +3842,14 @@ label0:
                 }
 
             }
-            outgoingVector.createPacket(30);
+            outgoingVector.writeOpcode(30);
             class22.method260(aClass3Array964, aClass31_868, -2206);
             if(aClass14_844 != null)
             {
                 aClass14_844.method207(-5281);
                 Class39_Sub3_Sub4_Sub1.anIntArray1680 = anIntArray1317;
             }
-            outgoingVector.createPacket(30);
+            outgoingVector.writeOpcode(30);
             int k3 = Class22.anInt300;
             if(k3 > myHeightLevel)
                 k3 = myHeightLevel;
@@ -3872,7 +3872,7 @@ label0:
         Class27.aClass35_404.method363();
         if(super.aFrame_Sub1_18 != null)
         {
-            outgoingVector.createPacket(239);
+            outgoingVector.writeOpcode(239);
             outgoingVector.putInt(0x3f008edd);
         }
         if(highMemory && Signlink.cache_dat != null)
@@ -3976,11 +3976,11 @@ label0:
                 {
                     if(Signlink.reporterror)
                     {
-                        outgoingVector.createPacket(142);
+                        outgoingVector.writeOpcode(142);
                         outgoingVector.putShort(anIntArray1199[j] & 0x7fff);
                     } else
                     {
-                        outgoingVector.createPacket(142);
+                        outgoingVector.writeOpcode(142);
                         outgoingVector.putShort(-1);
                     }
                 }
@@ -4936,7 +4936,7 @@ label0:
         }
     }
 
-    public void updateThisPlayerMovement(Buffer buffer) {
+    public void parsePlayerMovement(Buffer buffer) {
         buffer.initBitAccess();
         int k = buffer.readBits(1);
         if(k == 0)
@@ -5353,7 +5353,7 @@ label0:
         }
     }
 
-    public void method82(int i, int j, Buffer class39_sub3_sub3)
+    public void parseTrackedPlayerSyncMasks(int i, int j, Buffer class39_sub3_sub3)
     {
         if(i != -26716)
             aBoolean1124 = !aBoolean1124;
@@ -6088,7 +6088,7 @@ label0:
                 for(int k = j; k < anInt1168; k++)
                     aLongArray879[k] = aLongArray879[k + 1];
 
-                outgoingVector.createPacket(202);
+                outgoingVector.writeOpcode(202);
                 outgoingVector.putLong(l);
                 break;
             }
@@ -6164,7 +6164,7 @@ label0:
         anInt1203 = 2;
         Class22.anInt306 = myHeightLevel;
         method53(aByte957);
-        outgoingVector.createPacket(92);
+        outgoingVector.writeOpcode(92);
         if(byte0 == 8)
             byte0 = 0;
         else
@@ -7409,13 +7409,13 @@ label0:
 
     }
 
-    public void parseUpdatePlayers(int blockSize, Buffer buffer) {
+    public void updatePlayers(int blockSize, Buffer buffer) {
         anInt917 = 0;
         anInt876 = 0;
-        updateThisPlayerMovement(buffer);
-        updateThisPlayer(buffer, blockSize);
-        method16(anInt1058, buffer, blockSize);
-        method82(-26716, blockSize, buffer);
+        parsePlayerMovement(buffer);
+        parseTrackedPlayerMovement(buffer, blockSize);
+        registerNewPlayers(anInt1058, buffer, blockSize);
+        parseTrackedPlayerSyncMasks(-26716, blockSize, buffer);
         for(int count = 0; count < anInt917; count++) {
             int l = anIntArray918[count];
             if(((Class39_Sub3_Sub2_Sub5) (players[l])).anInt1648 != loopCycle)
@@ -7477,7 +7477,7 @@ label0:
                 anIntArray895[anInt1190] = 0;
                 anInt1190++;
                 needDrawTabArea = true;
-                outgoingVector.createPacket(73);
+                outgoingVector.writeOpcode(73);
                 outgoingVector.putLong(l);
                 return;
             }
@@ -7582,7 +7582,7 @@ label0:
         }
         if(k == 326)
         {
-            outgoingVector.createPacket(140);
+            outgoingVector.writeOpcode(140);
             outgoingVector.putByte(aBoolean1286 ? 0 : 1);
             for(int j1 = 0; j1 < 7; j1++)
                 outgoingVector.putByte(anIntArray1117[j1]);
@@ -7599,7 +7599,7 @@ label0:
             method34(0);
             if(aString1012.length() > 0)
             {
-                outgoingVector.createPacket(187);
+                outgoingVector.writeOpcode(187);
                 outgoingVector.putLong(Class37.stringToLong(aString1012));
                 outgoingVector.putByte(k - 601);
                 outgoingVector.putByte(aBoolean1319 ? 1 : 0);
@@ -7718,7 +7718,7 @@ label0:
         }
         if(i1 == 695 && method124(l, j1, k, -41819))
         {
-            outgoingVector.createPacket(106);
+            outgoingVector.writeOpcode(106);
             outgoingVector.putLEShortA(anInt908);
             outgoingVector.putShort(l + anInt990);
             outgoingVector.putLEShort(k + anInt989);
@@ -7736,7 +7736,7 @@ label0:
                 anInt920 = super.anInt31;
                 anInt922 = 2;
                 anInt921 = 0;
-                outgoingVector.createPacket(190);
+                outgoingVector.writeOpcode(190);
                 outgoingVector.putShortA(anInt1324);
                 outgoingVector.putLEShortA(j1);
             }
@@ -7751,7 +7751,7 @@ label0:
                 anInt920 = super.anInt31;
                 anInt922 = 2;
                 anInt921 = 0;
-                outgoingVector.createPacket(169);
+                outgoingVector.writeOpcode(169);
                 outgoingVector.putLEShort(j1);
             }
         }
@@ -7808,11 +7808,11 @@ label0:
                     anInt1171++;
                 if(anInt1171 >= 106)
                 {
-                    outgoingVector.createPacket(32);
+                    outgoingVector.writeOpcode(32);
                     outgoingVector.putShort(55586);
                     anInt1171 = 0;
                 }
-                outgoingVector.createPacket(18);
+                outgoingVector.writeOpcode(18);
                 outgoingVector.putShortA(j1);
             }
         }
@@ -7829,11 +7829,11 @@ label0:
                 anInt1335 += j1;
                 if(anInt1335 >= 89)
                 {
-                    outgoingVector.createPacket(85);
+                    outgoingVector.writeOpcode(85);
                     outgoingVector.putInt(0);
                     anInt1335 = 0;
                 }
-                outgoingVector.createPacket(113);
+                outgoingVector.writeOpcode(113);
                 outgoingVector.putShort(j1);
             }
         }
@@ -7847,7 +7847,7 @@ label0:
                 anInt920 = super.anInt31;
                 anInt922 = 2;
                 anInt921 = 0;
-                outgoingVector.createPacket(105);
+                outgoingVector.writeOpcode(105);
                 outgoingVector.putShort(j1);
             }
         }
@@ -7861,7 +7861,7 @@ label0:
                 anInt920 = super.anInt31;
                 anInt922 = 2;
                 anInt921 = 0;
-                outgoingVector.createPacket(138);
+                outgoingVector.writeOpcode(138);
                 outgoingVector.putLEShort(j1);
             }
         }
@@ -7894,17 +7894,17 @@ label0:
                 anInt1290 += j1;
                 if(anInt1290 >= 132)
                 {
-                    outgoingVector.createPacket(20);
+                    outgoingVector.writeOpcode(20);
                     outgoingVector.putInt(0);
                     anInt1290 = 0;
                 }
-                outgoingVector.createPacket(148);
+                outgoingVector.writeOpcode(148);
                 outgoingVector.putLEShortA(j1);
             }
         }
         if(i1 == 125)
         {
-            outgoingVector.createPacket(90);
+            outgoingVector.writeOpcode(90);
             outgoingVector.putLEShortA(j1);
             outgoingVector.putLEShort(k);
             outgoingVector.putLEShort(l);
@@ -7921,7 +7921,7 @@ label0:
             method34(0);
         if(i1 == 183 && method124(l, j1, k, -41819))
         {
-            outgoingVector.createPacket(55);
+            outgoingVector.writeOpcode(55);
             outgoingVector.putLEShortA(j1 >> 14 & 0x7fff);
             outgoingVector.putShort(k + anInt989);
             outgoingVector.putLEShort(l + anInt990);
@@ -7946,7 +7946,7 @@ label0:
         }
         if(i1 == 322 && !aBoolean896)
         {
-            outgoingVector.createPacket(185);
+            outgoingVector.writeOpcode(185);
             outgoingVector.putShort(l);
             aBoolean896 = true;
         }
@@ -7959,14 +7959,14 @@ label0:
             anInt920 = super.anInt31;
             anInt922 = 2;
             anInt921 = 0;
-            outgoingVector.createPacket(172);
+            outgoingVector.writeOpcode(172);
             outgoingVector.putLEShortA(j1);
             outgoingVector.putLEShortA(k + anInt989);
             outgoingVector.putShort(l + anInt990);
         }
         if(i1 == 551)
         {
-            outgoingVector.createPacket(8);
+            outgoingVector.writeOpcode(8);
             outgoingVector.putShortA(j1);
             outgoingVector.putLEShort(k);
             outgoingVector.putShort(l);
@@ -7995,7 +7995,7 @@ label0:
                 anInt920 = super.anInt31;
                 anInt922 = 2;
                 anInt921 = 0;
-                outgoingVector.createPacket(75);
+                outgoingVector.writeOpcode(75);
                 outgoingVector.putLEShort(j1);
             }
         }
@@ -8008,7 +8008,7 @@ label0:
             anInt920 = super.anInt31;
             anInt922 = 2;
             anInt921 = 0;
-            outgoingVector.createPacket(119);
+            outgoingVector.writeOpcode(119);
             outgoingVector.putShortA(k + anInt989);
             outgoingVector.putLEShortA(j1);
             outgoingVector.putLEShortA(l + anInt990);
@@ -8023,14 +8023,14 @@ label0:
                 anInt920 = super.anInt31;
                 anInt922 = 2;
                 anInt921 = 0;
-                outgoingVector.createPacket(57);
+                outgoingVector.writeOpcode(57);
                 outgoingVector.putLEShortA(j1);
             }
         }
         if(i1 == 1103)
         {
             method124(l, j1, k, -41819);
-            outgoingVector.createPacket(109);
+            outgoingVector.writeOpcode(109);
             outgoingVector.putLEShort(l + anInt990);
             outgoingVector.putLEShort(k + anInt989);
             outgoingVector.putShortA(j1 >> 14 & 0x7fff);
@@ -8045,7 +8045,7 @@ label0:
                 anInt920 = super.anInt31;
                 anInt922 = 2;
                 anInt921 = 0;
-                outgoingVector.createPacket(49);
+                outgoingVector.writeOpcode(49);
                 outgoingVector.putShortA(j1);
             }
         }
@@ -8067,7 +8067,7 @@ label0:
                 flag7 = method107(class34_1, 1203);
             if(flag7)
             {
-                outgoingVector.createPacket(211);
+                outgoingVector.writeOpcode(211);
                 outgoingVector.putShort(l);
             }
         }
@@ -8080,7 +8080,7 @@ label0:
             anInt920 = super.anInt31;
             anInt922 = 2;
             anInt921 = 0;
-            outgoingVector.createPacket(86);
+            outgoingVector.writeOpcode(86);
             outgoingVector.putShort(anInt906);
             outgoingVector.putLEShortA(j1);
             outgoingVector.putLEShort(anInt908);
@@ -8094,12 +8094,12 @@ label0:
                 anInt1276++;
             if(anInt1276 >= 107)
             {
-                outgoingVector.createPacket(156);
+                outgoingVector.writeOpcode(156);
                 outgoingVector.putInt(0);
                 anInt1276 = 0;
             }
             method124(l, j1, k, -41819);
-            outgoingVector.createPacket(7);
+            outgoingVector.writeOpcode(7);
             outgoingVector.putLEShort(l + anInt990);
             outgoingVector.putLEShort(j1 >> 14 & 0x7fff);
             outgoingVector.putShort(k + anInt989);
@@ -8114,7 +8114,7 @@ label0:
                 anInt920 = super.anInt31;
                 anInt922 = 2;
                 anInt921 = 0;
-                outgoingVector.createPacket(130);
+                outgoingVector.writeOpcode(130);
                 outgoingVector.putShort(anInt907);
                 outgoingVector.putLEShortA(j1);
                 outgoingVector.putLEShortA(anInt908);
@@ -8130,7 +8130,7 @@ label0:
             anInt920 = super.anInt31;
             anInt922 = 2;
             anInt921 = 0;
-            outgoingVector.createPacket(192);
+            outgoingVector.writeOpcode(192);
             outgoingVector.putLEShortA(l + anInt990);
             outgoingVector.putLEShortA(k + anInt989);
             outgoingVector.putLEShortA(j1);
@@ -8145,7 +8145,7 @@ label0:
                 anInt920 = super.anInt31;
                 anInt922 = 2;
                 anInt921 = 0;
-                outgoingVector.createPacket(235);
+                outgoingVector.writeOpcode(235);
                 outgoingVector.putLEShortA(anInt907);
                 outgoingVector.putLEShortA(anInt906);
                 outgoingVector.putLEShortA(j1);
@@ -8154,7 +8154,7 @@ label0:
         }
         if(i1 == 840)
         {
-            outgoingVector.createPacket(131);
+            outgoingVector.writeOpcode(131);
             outgoingVector.putLEShortA(k);
             outgoingVector.putShort(l);
             outgoingVector.putShortA(j1);
@@ -8191,19 +8191,19 @@ label0:
             anInt1164 += l;
             if(anInt1164 >= 97)
             {
-                outgoingVector.createPacket(16);
+                outgoingVector.writeOpcode(16);
                 outgoingVector.putShort(43274);
                 anInt1164 = 0;
             }
             method124(l, j1, k, -41819);
-            outgoingVector.createPacket(145);
+            outgoingVector.writeOpcode(145);
             outgoingVector.putLEShortA(k + anInt989);
             outgoingVector.putLEShort(l + anInt990);
             outgoingVector.putLEShort(j1 >> 14 & 0x7fff);
         }
         if(i1 == 682)
         {
-            outgoingVector.createPacket(211);
+            outgoingVector.writeOpcode(211);
             outgoingVector.putShort(l);
             RSInterface class34_2 = RSInterface.getInterface(l);
             if(class34_2.anIntArrayArray654 != null && class34_2.anIntArrayArray654[0][0] == 5)
@@ -8216,7 +8216,7 @@ label0:
         }
         if(i1 == 330)
         {
-            outgoingVector.createPacket(78);
+            outgoingVector.writeOpcode(78);
             outgoingVector.putShort(j1);
             outgoingVector.putLEShort(l);
             outgoingVector.putShort(k);
@@ -8242,11 +8242,11 @@ label0:
                 anInt1002 += j1;
                 if(anInt1002 >= 88)
                 {
-                    outgoingVector.createPacket(163);
+                    outgoingVector.writeOpcode(163);
                     outgoingVector.putShort(5996);
                     anInt1002 = 0;
                 }
-                outgoingVector.createPacket(99);
+                outgoingVector.writeOpcode(99);
                 outgoingVector.putShort(j1);
             }
         }
@@ -8255,11 +8255,11 @@ label0:
             anInt1236 += j1;
             if(anInt1236 >= 119)
             {
-                outgoingVector.createPacket(205);
+                outgoingVector.writeOpcode(205);
                 outgoingVector.putShort(11544);
                 anInt1236 = 0;
             }
-            outgoingVector.createPacket(242);
+            outgoingVector.writeOpcode(242);
             outgoingVector.putShortA(k);
             outgoingVector.putLEShort(j1);
             outgoingVector.putLEShort(l);
@@ -8274,7 +8274,7 @@ label0:
         }
         if(i1 == 261)
         {
-            outgoingVector.createPacket(183);
+            outgoingVector.writeOpcode(183);
             outgoingVector.putShortA(k);
             outgoingVector.putShortA(l);
             outgoingVector.putLEShortA(j1);
@@ -8322,11 +8322,11 @@ label0:
                 anInt1221++;
             if(anInt1221 >= 78)
             {
-                outgoingVector.createPacket(72);
+                outgoingVector.writeOpcode(72);
                 outgoingVector.putByte(127);
                 anInt1221 = 0;
             }
-            outgoingVector.createPacket(28);
+            outgoingVector.writeOpcode(28);
             outgoingVector.putLEShortA(l);
             outgoingVector.putLEShort(j1);
             outgoingVector.putLEShortA(k);
@@ -8348,7 +8348,7 @@ label0:
             anInt920 = super.anInt31;
             anInt922 = 2;
             anInt921 = 0;
-            outgoingVector.createPacket(250);
+            outgoingVector.writeOpcode(250);
             outgoingVector.putLEShortA(anInt1324);
             outgoingVector.putLEShort(k + anInt989);
             outgoingVector.putLEShort(l + anInt990);
@@ -8385,16 +8385,16 @@ label0:
                         anInt1002 += j1;
                         if(anInt1002 >= 88)
                         {
-                            outgoingVector.createPacket(163);
+                            outgoingVector.writeOpcode(163);
                             outgoingVector.putShort(5996);
                             anInt1002 = 0;
                         }
-                        outgoingVector.createPacket(99);
+                        outgoingVector.writeOpcode(99);
                         outgoingVector.putShort(playerIndices[k3]);
                     }
                     if(i1 == 875)
                     {
-                        outgoingVector.createPacket(75);
+                        outgoingVector.writeOpcode(75);
                         outgoingVector.putLEShort(playerIndices[k3]);
                     }
                     flag8 = true;
@@ -8407,7 +8407,7 @@ label0:
         }
         if(i1 == 813)
         {
-            outgoingVector.createPacket(243);
+            outgoingVector.writeOpcode(243);
             outgoingVector.putShort(l);
             outgoingVector.putShortA(k);
             outgoingVector.putShortA(j1);
@@ -8436,7 +8436,7 @@ label0:
         }
         if(i1 == 548)
         {
-            outgoingVector.createPacket(211);
+            outgoingVector.writeOpcode(211);
             outgoingVector.putShort(l);
             RSInterface class34_3 = RSInterface.getInterface(l);
             if(class34_3.anIntArrayArray654 != null && class34_3.anIntArrayArray654[0][0] == 5)
@@ -8453,14 +8453,14 @@ label0:
         if(i1 == 301)
         {
             method124(l, j1, k, -41819);
-            outgoingVector.createPacket(41);
+            outgoingVector.writeOpcode(41);
             outgoingVector.putShortA(j1 >> 14 & 0x7fff);
             outgoingVector.putLEShort(l + anInt990);
             outgoingVector.putShortA(k + anInt989);
         }
         if(i1 == 773)
         {
-            outgoingVector.createPacket(35);
+            outgoingVector.writeOpcode(35);
             outgoingVector.putLEShortA(k);
             outgoingVector.putLEShort(l);
             outgoingVector.putShortA(j1);
@@ -8479,11 +8479,11 @@ label0:
                 anInt1328++;
             if(anInt1328 >= 93)
             {
-                outgoingVector.createPacket(144);
+                outgoingVector.writeOpcode(144);
                 outgoingVector.putInt(0);
                 anInt1328 = 0;
             }
-            outgoingVector.createPacket(33);
+            outgoingVector.writeOpcode(33);
             outgoingVector.putLEShort(j1);
             outgoingVector.putLEShortA(k);
             outgoingVector.putShort(l);
@@ -8505,7 +8505,7 @@ label0:
             anInt920 = super.anInt31;
             anInt922 = 2;
             anInt921 = 0;
-            outgoingVector.createPacket(27);
+            outgoingVector.writeOpcode(27);
             outgoingVector.putLEShort(j1);
             outgoingVector.putLEShort(k + anInt989);
             outgoingVector.putLEShort(l + anInt990);
@@ -8513,14 +8513,14 @@ label0:
         if(i1 == 652)
         {
             method124(l, j1, k, -41819);
-            outgoingVector.createPacket(189);
+            outgoingVector.writeOpcode(189);
             outgoingVector.putLEShort(j1 >> 14 & 0x7fff);
             outgoingVector.putShort(l + anInt990);
             outgoingVector.putLEShort(k + anInt989);
         }
         if(i1 == 612)
         {
-            outgoingVector.createPacket(69);
+            outgoingVector.writeOpcode(69);
             outgoingVector.putLEShort(anInt908);
             outgoingVector.putLEShort(l);
             outgoingVector.putLEShort(anInt906);
@@ -8546,7 +8546,7 @@ label0:
                 anInt920 = super.anInt31;
                 anInt922 = 2;
                 anInt921 = 0;
-                outgoingVector.createPacket(83);
+                outgoingVector.writeOpcode(83);
                 outgoingVector.putLEShortA(j1);
                 outgoingVector.putLEShortA(anInt1324);
             }
@@ -8560,14 +8560,14 @@ label0:
             anInt920 = super.anInt31;
             anInt922 = 2;
             anInt921 = 0;
-            outgoingVector.createPacket(100);
+            outgoingVector.writeOpcode(100);
             outgoingVector.putShort(j1);
             outgoingVector.putLEShortA(k + anInt989);
             outgoingVector.putLEShort(l + anInt990);
         }
         if(i1 == 616)
         {
-            outgoingVector.createPacket(24);
+            outgoingVector.writeOpcode(24);
             outgoingVector.putLEShortA(j1);
             outgoingVector.putLEShort(k);
             outgoingVector.putLEShort(l);
@@ -8607,7 +8607,7 @@ label0:
             {
                 if(super.anInt29 != 0 || aClass8_1151.anInt157 >= 40)
                 {
-                    outgoingVector.createPacket(80);
+                    outgoingVector.writeOpcode(80);
                     outgoingVector.putByte(0);
                     int k2 = outgoingVector.currentOffset;
                     int k3 = 0;
@@ -8707,7 +8707,7 @@ label0:
             if(super.anInt29 == 2)
                 k5 = 1;
             int i6 = (int)l;
-            outgoingVector.createPacket(48);
+            outgoingVector.writeOpcode(48);
             outgoingVector.method467((i6 << 20) + (k5 << 19) + l4);
         }
         if(anInt1227 > 0)
@@ -8718,20 +8718,20 @@ label0:
         {
             anInt1227 = 20;
             aBoolean1228 = false;
-            outgoingVector.createPacket(23);
+            outgoingVector.writeOpcode(23);
             outgoingVector.putLEShort(anInt928);
             outgoingVector.putLEShortA(anInt927);
         }
         if(super.aBoolean20 && !aBoolean1287)
         {
             aBoolean1287 = true;
-            outgoingVector.createPacket(240);
+            outgoingVector.writeOpcode(240);
             outgoingVector.putByte(1);
         }
         if(!super.aBoolean20 && aBoolean1287)
         {
             aBoolean1287 = false;
-            outgoingVector.createPacket(240);
+            outgoingVector.writeOpcode(240);
             outgoingVector.putByte(0);
         }
         method92(-14);
@@ -8747,7 +8747,7 @@ label0:
         if(anInt1186 > 1465)
         {
             anInt1186 = 0;
-            outgoingVector.createPacket(2);
+            outgoingVector.writeOpcode(2);
             outgoingVector.putByte(0);
             int k = outgoingVector.currentOffset;
             outgoingVector.putByte(49);
@@ -8836,7 +8836,7 @@ label0:
                         {
                             class34.method355(anInt1013, anInt1331, false);
                         }
-                        outgoingVector.createPacket(207);
+                        outgoingVector.writeOpcode(207);
                         outgoingVector.putShort(anInt1013);
                         outgoingVector.putShortA(anInt1331);
                         outgoingVector.putByte(k1);
@@ -8856,7 +8856,7 @@ label0:
         if(anInt838 > 61)
         {
             anInt838 = 0;
-            outgoingVector.createPacket(166);
+            outgoingVector.writeOpcode(166);
         }
         if(Class31.anInt511 != -1)
         {
@@ -8916,7 +8916,7 @@ label0:
         {
             anInt1176 = 250;
             super.anInt21 -= 500;
-            outgoingVector.createPacket(46);
+            outgoingVector.writeOpcode(46);
         }
         anInt1060++;
         if(anInt1060 > 500)
@@ -8962,7 +8962,7 @@ label0:
             anInt882 = -1;
         anInt1175++;
         if(anInt1175 > 50)
-            outgoingVector.createPacket(30);
+            outgoingVector.writeOpcode(30);
         try
         {
             if(socket != null && outgoingVector.currentOffset > 0)
@@ -9744,7 +9744,7 @@ label0:
                     aLongArray1050[j] = aLongArray1050[j + 1];
                 }
 
-                outgoingVector.createPacket(176);
+                outgoingVector.writeOpcode(176);
                 outgoingVector.putLong(l);
                 break;
             }
@@ -9759,7 +9759,7 @@ label0:
         }
     }
 
-    public void updateThisPlayer(Buffer class39_sub3_sub3, int i) {
+    public void parseTrackedPlayerMovement(Buffer class39_sub3_sub3, int i) {
         int j = class39_sub3_sub3.readBits(8);
         if(j < playerCount)
         {
@@ -10086,7 +10086,7 @@ label0:
         if(anInt855 > 1496)
         {
             anInt855 = 0;
-            outgoingVector.createPacket(26);
+            outgoingVector.writeOpcode(26);
             outgoingVector.putByte(0);
             int j1 = outgoingVector.currentOffset;
             outgoingVector.putShort((int)(Math.random() * 65536D));
@@ -10852,17 +10852,17 @@ label0:
             int i7 = anIntArray1223[i4];
             if(i2 == 0)
             {
-                outgoingVector.createPacket(66);
+                outgoingVector.writeOpcode(66);
                 outgoingVector.putByte(k4 + k4 + 3);
             }
             if(i2 == 1)
             {
-                outgoingVector.createPacket(77);
+                outgoingVector.writeOpcode(77);
                 outgoingVector.putByte(k4 + k4 + 3 + 14);
             }
             if(i2 == 2)
             {
-                outgoingVector.createPacket(213);
+                outgoingVector.writeOpcode(213);
                 outgoingVector.putByte(k4 + k4 + 3);
             }
             anInt1218 = anIntArray1222[0];
@@ -11535,7 +11535,7 @@ label0:
                     }
                     if(anInt1180 == 3 && aString1023.length() > 0)
                     {
-                        outgoingVector.createPacket(56);
+                        outgoingVector.writeOpcode(56);
                         outgoingVector.putByte(0);
                         int k = outgoingVector.currentOffset;
                         outgoingVector.putLong(aLong841);
@@ -11548,7 +11548,7 @@ label0:
                         {
                             anInt1103 = 1;
                             aBoolean887 = true;
-                            outgoingVector.createPacket(50);
+                            outgoingVector.writeOpcode(50);
                             outgoingVector.putByte(anInt995);
                             outgoingVector.putByte(anInt1103);
                             outgoingVector.putByte(anInt1195);
@@ -11588,7 +11588,7 @@ label0:
                             i1 = Integer.parseInt(aString958);
                         }
                         catch(Exception _ex) { }
-                        outgoingVector.createPacket(175);
+                        outgoingVector.writeOpcode(175);
                         outgoingVector.putInt(i1);
                     }
                     anInt1169 = 0;
@@ -11611,7 +11611,7 @@ label0:
                 {
                     if(aString958.length() > 0)
                     {
-                        outgoingVector.createPacket(147);
+                        outgoingVector.writeOpcode(147);
                         outgoingVector.putLong(Class37.stringToLong(aString958));
                     }
                     anInt1169 = 0;
@@ -11678,7 +11678,7 @@ label0:
                     }
                     if(aString1125.startsWith("::"))
                     {
-                        outgoingVector.createPacket(225);
+                        outgoingVector.writeOpcode(225);
                         outgoingVector.putByte(aString1125.length() - 1);
                         outgoingVector.putString(aString1125.substring(2));
                     } else
@@ -11772,7 +11772,7 @@ label0:
                             i3 = 5;
                             aString1125 = aString1125.substring(6);
                         }
-                        outgoingVector.createPacket(91);
+                        outgoingVector.writeOpcode(91);
                         outgoingVector.putByte(0);
                         int j3 = outgoingVector.currentOffset;
                         outgoingVector.putByteA(i3);
@@ -11798,7 +11798,7 @@ label0:
                         {
                             anInt995 = 3;
                             aBoolean887 = true;
-                            outgoingVector.createPacket(50);
+                            outgoingVector.writeOpcode(50);
                             outgoingVector.putByte(anInt995);
                             outgoingVector.putByte(anInt1103);
                             outgoingVector.putByte(anInt1195);
@@ -11947,7 +11947,7 @@ label0:
             {
                 aLongArray879[anInt1168++] = l;
                 needDrawTabArea = true;
-                outgoingVector.createPacket(195);
+                outgoingVector.writeOpcode(195);
                 outgoingVector.putLong(l);
                 return;
             }

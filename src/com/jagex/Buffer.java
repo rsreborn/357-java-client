@@ -64,7 +64,7 @@ public class Buffer extends Class39_Sub3 {
         currentOffset = 0;
     }
 
-    public void createPacket(int opcode) {
+    public void writeOpcode(int opcode) {
         payload[currentOffset++] = (byte) (opcode + encrypter.getNextKey());
     }
 
