@@ -63,10 +63,10 @@ public class Class39_Sub3_Sub4_Sub4 extends Class39_Sub3_Sub4
         aBoolean1730 = true;
         Buffer class39_sub3_sub3 = new Buffer(class10.method193(s + ".dat", null));
         Buffer class39_sub3_sub3_1 = new Buffer(class10.method193("index.dat", null));
-        class39_sub3_sub3_1.currentOffset = class39_sub3_sub3.getShort();
-        anInt1736 = class39_sub3_sub3_1.getShort();
-        anInt1737 = class39_sub3_sub3_1.getShort();
-        int j = class39_sub3_sub3_1.getUnsignedByte();
+        class39_sub3_sub3_1.currentOffset = class39_sub3_sub3.readShort();
+        anInt1736 = class39_sub3_sub3_1.readShort();
+        anInt1737 = class39_sub3_sub3_1.readShort();
+        int j = class39_sub3_sub3_1.readUByte();
         int ai[] = new int[j];
         for(int k = 0; k < j - 1; k++)
         {
@@ -78,21 +78,21 @@ public class Class39_Sub3_Sub4_Sub4 extends Class39_Sub3_Sub4
         for(int l = 0; l < i; l++)
         {
             class39_sub3_sub3_1.currentOffset += 2;
-            class39_sub3_sub3.currentOffset += class39_sub3_sub3_1.getShort() * class39_sub3_sub3_1.getShort();
+            class39_sub3_sub3.currentOffset += class39_sub3_sub3_1.readShort() * class39_sub3_sub3_1.readShort();
             class39_sub3_sub3_1.currentOffset++;
         }
 
-        anInt1734 = class39_sub3_sub3_1.getUnsignedByte();
-        anInt1735 = class39_sub3_sub3_1.getUnsignedByte();
-        anInt1732 = class39_sub3_sub3_1.getShort();
-        anInt1733 = class39_sub3_sub3_1.getShort();
-        int i1 = class39_sub3_sub3_1.getUnsignedByte();
+        anInt1734 = class39_sub3_sub3_1.readUByte();
+        anInt1735 = class39_sub3_sub3_1.readUByte();
+        anInt1732 = class39_sub3_sub3_1.readShort();
+        anInt1733 = class39_sub3_sub3_1.readShort();
+        int i1 = class39_sub3_sub3_1.readUByte();
         int j1 = anInt1732 * anInt1733;
         anIntArray1731 = new int[j1];
         if(i1 == 0)
         {
             for(int k1 = 0; k1 < j1; k1++)
-                anIntArray1731[k1] = ai[class39_sub3_sub3.getUnsignedByte()];
+                anIntArray1731[k1] = ai[class39_sub3_sub3.readUByte()];
 
             return;
         }
@@ -101,7 +101,7 @@ public class Class39_Sub3_Sub4_Sub4 extends Class39_Sub3_Sub4
             for(int l1 = 0; l1 < anInt1732; l1++)
             {
                 for(int i2 = 0; i2 < anInt1733; i2++)
-                    anIntArray1731[l1 + i2 * anInt1732] = ai[class39_sub3_sub3.getUnsignedByte()];
+                    anIntArray1731[l1 + i2 * anInt1732] = ai[class39_sub3_sub3.readUByte()];
 
             }
 

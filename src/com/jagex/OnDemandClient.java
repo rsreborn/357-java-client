@@ -182,7 +182,7 @@ public class OnDemandClient extends Class21
             anIntArrayArray1374[i] = new int[j];
             aByteArrayArray1347[i] = new byte[j];
             for(int l = 0; l < j; l++)
-                anIntArrayArray1374[i][l] = class39_sub3_sub3.getShort();
+                anIntArrayArray1374[i][l] = class39_sub3_sub3.readShort();
 
         }
 
@@ -218,10 +218,10 @@ public class OnDemandClient extends Class21
         anIntArray1377 = new int[j1];
         for(int i2 = 0; i2 < j1; i2++)
         {
-            anIntArray1355[i2] = class39_sub3_sub3_2.getShort();
-            anIntArray1338[i2] = class39_sub3_sub3_2.getShort();
-            anIntArray1343[i2] = class39_sub3_sub3_2.getShort();
-            anIntArray1377[i2] = class39_sub3_sub3_2.getUnsignedByte();
+            anIntArray1355[i2] = class39_sub3_sub3_2.readShort();
+            anIntArray1338[i2] = class39_sub3_sub3_2.readShort();
+            anIntArray1343[i2] = class39_sub3_sub3_2.readShort();
+            anIntArray1377[i2] = class39_sub3_sub3_2.readUByte();
         }
 
         abyte2 = class10.method193("anim_index", null);
@@ -229,14 +229,14 @@ public class OnDemandClient extends Class21
         j1 = abyte2.length / 2;
         anIntArray1363 = new int[j1];
         for(int j2 = 0; j2 < j1; j2++)
-            anIntArray1363[j2] = class39_sub3_sub3_2.getShort();
+            anIntArray1363[j2] = class39_sub3_sub3_2.readShort();
 
         abyte2 = class10.method193("midi_index", null);
         class39_sub3_sub3_2 = new Buffer(abyte2);
         j1 = abyte2.length;
         anIntArray1344 = new int[j1];
         for(int k2 = 0; k2 < j1; k2++)
-            anIntArray1344[k2] = class39_sub3_sub3_2.getUnsignedByte();
+            anIntArray1344[k2] = class39_sub3_sub3_2.readUByte();
 
         aGame1346 = game1;
         aBoolean1352 = true;

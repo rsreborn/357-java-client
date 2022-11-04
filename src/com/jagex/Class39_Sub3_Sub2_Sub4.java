@@ -51,20 +51,20 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
         class39_sub3_sub3.currentOffset = abyte0.length - 18;
         Class25 class25_1 = aClass25Array1560[j] = new Class25();
         class25_1.aByteArray334 = abyte0;
-        class25_1.anInt335 = class39_sub3_sub3.getShort();
-        class25_1.anInt336 = class39_sub3_sub3.getShort();
-        class25_1.anInt337 = class39_sub3_sub3.getUnsignedByte();
-        int k = class39_sub3_sub3.getUnsignedByte();
-        int l = class39_sub3_sub3.getUnsignedByte();
-        int i1 = class39_sub3_sub3.getUnsignedByte();
-        int j1 = class39_sub3_sub3.getUnsignedByte();
+        class25_1.anInt335 = class39_sub3_sub3.readShort();
+        class25_1.anInt336 = class39_sub3_sub3.readShort();
+        class25_1.anInt337 = class39_sub3_sub3.readUByte();
+        int k = class39_sub3_sub3.readUByte();
+        int l = class39_sub3_sub3.readUByte();
+        int i1 = class39_sub3_sub3.readUByte();
+        int j1 = class39_sub3_sub3.readUByte();
         if(i != 4)
             aBoolean1512 = !aBoolean1512;
-        int k1 = class39_sub3_sub3.getUnsignedByte();
-        int l1 = class39_sub3_sub3.getShort();
-        int i2 = class39_sub3_sub3.getShort();
-        int j2 = class39_sub3_sub3.getShort();
-        int k2 = class39_sub3_sub3.getShort();
+        int k1 = class39_sub3_sub3.readUByte();
+        int l1 = class39_sub3_sub3.readShort();
+        int i2 = class39_sub3_sub3.readShort();
+        int j2 = class39_sub3_sub3.readShort();
+        int k2 = class39_sub3_sub3.readShort();
         int l2 = 0;
         class25_1.anInt338 = l2;
         l2 += class25_1.anInt335;
@@ -208,7 +208,7 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
             throw new NullPointerException();
         for(int i1 = 0; i1 < anInt1526; i1++)
         {
-            int j1 = class39_sub3_sub3.getUnsignedByte();
+            int j1 = class39_sub3_sub3.readUByte();
             int l1 = 0;
             if((j1 & 1) != 0)
                 l1 = class39_sub3_sub3_1.method448();
@@ -225,7 +225,7 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
             k = anIntArray1528[i1];
             l = anIntArray1529[i1];
             if(anIntArray1554 != null)
-                anIntArray1554[i1] = class39_sub3_sub3_4.getUnsignedByte();
+                anIntArray1554[i1] = class39_sub3_sub3_4.readUByte();
         }
 
         class39_sub3_sub3.currentOffset = class25.anInt345;
@@ -235,15 +235,15 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
         class39_sub3_sub3_4.currentOffset = class25.anInt349;
         for(int k1 = 0; k1 < anInt1530; k1++)
         {
-            anIntArray1540[k1] = class39_sub3_sub3.getShort();
+            anIntArray1540[k1] = class39_sub3_sub3.readShort();
             if(anIntArray1537 != null)
-                anIntArray1537[k1] = class39_sub3_sub3_1.getUnsignedByte();
+                anIntArray1537[k1] = class39_sub3_sub3_1.readUByte();
             if(anIntArray1538 != null)
-                anIntArray1538[k1] = class39_sub3_sub3_2.getUnsignedByte();
+                anIntArray1538[k1] = class39_sub3_sub3_2.readUByte();
             if(anIntArray1539 != null)
-                anIntArray1539[k1] = class39_sub3_sub3_3.getUnsignedByte();
+                anIntArray1539[k1] = class39_sub3_sub3_3.readUByte();
             if(anIntArray1555 != null)
-                anIntArray1555[k1] = class39_sub3_sub3_4.getUnsignedByte();
+                anIntArray1555[k1] = class39_sub3_sub3_4.readUByte();
         }
 
         class39_sub3_sub3.currentOffset = class25.anInt343;
@@ -254,7 +254,7 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
         int j3 = 0;
         for(int k3 = 0; k3 < anInt1530; k3++)
         {
-            int l3 = class39_sub3_sub3_1.getUnsignedByte();
+            int l3 = class39_sub3_sub3_1.readUByte();
             if(l3 == 1)
             {
                 i2 = class39_sub3_sub3.method448() + j3;
@@ -303,9 +303,9 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
         class39_sub3_sub3.currentOffset = class25.anInt350;
         for(int i4 = 0; i4 < anInt1542; i4++)
         {
-            anIntArray1543[i4] = class39_sub3_sub3.getShort();
-            anIntArray1544[i4] = class39_sub3_sub3.getShort();
-            anIntArray1545[i4] = class39_sub3_sub3.getShort();
+            anIntArray1543[i4] = class39_sub3_sub3.readShort();
+            anIntArray1544[i4] = class39_sub3_sub3.readShort();
+            anIntArray1545[i4] = class39_sub3_sub3.readShort();
         }
 
     }

@@ -2,30 +2,30 @@ package com.jagex;// Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-public class Class39_Sub3_Sub2_Sub5_Sub1 extends Class39_Sub3_Sub2_Sub5
+public class Player extends Class39_Sub3_Sub2_Sub5
 {
 
-    public void method418(boolean flag, Buffer class39_sub3_sub3)
+    public void syncAppearance(boolean flag, Buffer class39_sub3_sub3)
     {
         class39_sub3_sub3.currentOffset = 0;
-        anInt1748 = class39_sub3_sub3.getUnsignedByte();
+        anInt1748 = class39_sub3_sub3.readUByte();
         anInt1765 = class39_sub3_sub3.getByte();
         anInt1764 = class39_sub3_sub3.getByte();
         aClass47_1756 = null;
         anInt1753 = 0;
         for(int i = 0; i < 12; i++)
         {
-            int j = class39_sub3_sub3.getUnsignedByte();
+            int j = class39_sub3_sub3.readUByte();
             if(j == 0)
             {
                 anIntArray1760[i] = 0;
                 continue;
             }
-            int l = class39_sub3_sub3.getUnsignedByte();
+            int l = class39_sub3_sub3.readUByte();
             anIntArray1760[i] = (j << 8) + l;
             if(i == 0 && anIntArray1760[0] == 65535)
             {
-                aClass47_1756 = Class47.method598(class39_sub3_sub3.getShort());
+                aClass47_1756 = Class47.method598(class39_sub3_sub3.readShort());
                 break;
             }
             if(anIntArray1760[i] >= 512 && anIntArray1760[i] - 512 < Class4.anInt92)
@@ -38,40 +38,40 @@ public class Class39_Sub3_Sub2_Sub5_Sub1 extends Class39_Sub3_Sub2_Sub5
 
         for(int k = 0; k < 5; k++)
         {
-            int i1 = class39_sub3_sub3.getUnsignedByte();
+            int i1 = class39_sub3_sub3.readUByte();
             if(i1 < 0 || i1 >= Game.anIntArrayArray1020[k].length)
                 i1 = 0;
             anIntArray1746[k] = i1;
         }
 
-        super.anInt1640 = class39_sub3_sub3.getShort();
+        super.anInt1640 = class39_sub3_sub3.readShort();
         if(super.anInt1640 == 65535)
             super.anInt1640 = -1;
-        super.anInt1641 = class39_sub3_sub3.getShort();
+        super.anInt1641 = class39_sub3_sub3.readShort();
         if(super.anInt1641 == 65535)
             super.anInt1641 = -1;
-        super.anInt1644 = class39_sub3_sub3.getShort();
+        super.anInt1644 = class39_sub3_sub3.readShort();
         if(super.anInt1644 == 65535)
             super.anInt1644 = -1;
-        super.anInt1645 = class39_sub3_sub3.getShort();
+        super.anInt1645 = class39_sub3_sub3.readShort();
         if(super.anInt1645 == 65535)
             super.anInt1645 = -1;
-        super.anInt1646 = class39_sub3_sub3.getShort();
+        super.anInt1646 = class39_sub3_sub3.readShort();
         if(super.anInt1646 == 65535)
             super.anInt1646 = -1;
-        super.anInt1647 = class39_sub3_sub3.getShort();
+        super.anInt1647 = class39_sub3_sub3.readShort();
         if(super.anInt1647 == 65535)
             super.anInt1647 = -1;
-        super.anInt1603 = class39_sub3_sub3.getShort();
+        super.anInt1603 = class39_sub3_sub3.readShort();
         if(super.anInt1603 == 65535)
             super.anInt1603 = -1;
         aString1754 = Class37.method372(Class37.method369(-39, class39_sub3_sub3.getLong()), false);
-        anInt1768 = class39_sub3_sub3.getUnsignedByte();
+        anInt1768 = class39_sub3_sub3.readUByte();
         if(flag)
         {
             for(int j1 = 1; j1 > 0; j1++);
         }
-        anInt1759 = class39_sub3_sub3.getShort();
+        anInt1759 = class39_sub3_sub3.readShort();
         aBoolean1755 = true;
         aLong1758 = 0L;
         int k1 = anIntArray1760[5];
@@ -359,7 +359,7 @@ public class Class39_Sub3_Sub2_Sub5_Sub1 extends Class39_Sub3_Sub2_Sub5
         return aBoolean1755;
     }
 
-    public Class39_Sub3_Sub2_Sub5_Sub1()
+    public Player()
     {
         anInt1744 = 42698;
         aBoolean1745 = false;

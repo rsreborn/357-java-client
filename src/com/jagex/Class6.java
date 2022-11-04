@@ -15,7 +15,7 @@ public class Class6
         {
             for(int i = 1; i > 0; i++);
         }
-        anInt121 = class39_sub3_sub3.getShort();
+        anInt121 = class39_sub3_sub3.readShort();
         if(aClass6Array122 == null)
             aClass6Array122 = new Class6[anInt121];
         for(int j = 0; j < anInt121; j++)
@@ -37,14 +37,14 @@ public class Class6
             return;
         do
         {
-            int k = class39_sub3_sub3.getUnsignedByte();
+            int k = class39_sub3_sub3.readUByte();
             if(k == 0)
                 return;
             if(k == 1)
             {
-                anInt124 = class39_sub3_sub3.getShort();
-                anInt125 = class39_sub3_sub3.getUnsignedByte();
-                anInt126 = class39_sub3_sub3.getUnsignedByte();
+                anInt124 = class39_sub3_sub3.readShort();
+                anInt125 = class39_sub3_sub3.readUByte();
+                anInt126 = class39_sub3_sub3.readUByte();
             } else
             if(k == 10)
                 aString123 = class39_sub3_sub3.getRs2String();

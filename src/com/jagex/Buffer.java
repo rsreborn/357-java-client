@@ -137,7 +137,7 @@ public class Buffer extends Class39_Sub3 {
         payload[currentOffset - offset - 1] = (byte) offset;
     }
 
-    public int getUnsignedByte() {
+    public int readUByte() {
         return payload[currentOffset++] & 0xff;
     }
 
@@ -145,7 +145,7 @@ public class Buffer extends Class39_Sub3 {
         return payload[currentOffset++];
     }
 
-    public int getShort() {
+    public int readShort() {
         currentOffset += 2;
         return ((payload[currentOffset - 2] & 0xff) << 8) + (payload[currentOffset - 1] & 0xff);
     }
@@ -190,7 +190,7 @@ public class Buffer extends Class39_Sub3 {
         return abyte0;
     }
 
-    public void getBytes(int length, int offset, byte data[]) {
+    public void readBytes(byte[] data, int length, int offset) {
         for (int i = offset; i < offset + length; i++) {
             data[i] = payload[currentOffset++];
         }
@@ -228,24 +228,24 @@ public class Buffer extends Class39_Sub3 {
     {
         int i = payload[currentOffset] & 0xff;
         if (i < 128)
-            return getUnsignedByte() - 64;
+            return readUByte() - 64;
         else
-            return getShort() - 49152;
+            return readShort() - 49152;
     }
 
     public int getByteOrShortC() {
         int i = payload[currentOffset] & 0xff;
         if (i < 128)
-            return getUnsignedByte();
+            return readUByte();
         else
-            return getShort() - 32768;
+            return readShort() - 32768;
     }
 
     public void encrypt(BigInteger key, BigInteger modulus) {
         int length = currentOffset;
         currentOffset = 0;
         byte data[] = new byte[length];
-        getBytes(length, 0, data);
+        readBytes(data, length, 0);
         BigInteger raw = new BigInteger(data);
         BigInteger encrypted = raw.modPow(key, modulus);
         byte finalData[] = encrypted.toByteArray();
@@ -289,7 +289,7 @@ public class Buffer extends Class39_Sub3 {
         payload[currentOffset++] = (byte) (j >> 8);
     }
 
-    public int getLEShort() {
+    public int readShortLE() {
         currentOffset += 2;
         return ((payload[currentOffset - 1] & 0xff) << 8) + (payload[currentOffset - 2] & 0xff);
     }

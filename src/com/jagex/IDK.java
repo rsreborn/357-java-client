@@ -8,7 +8,7 @@ public class IDK
     public static void initialize(byte byte0, Class10 class10)
     {
         Buffer class39_sub3_sub3 = new Buffer(class10.method193("idk.dat", null));
-        anInt229 = class39_sub3_sub3.getShort();
+        anInt229 = class39_sub3_sub3.readShort();
         if(byte0 != 6)
         {
             for(int i = 1; i > 0; i++);
@@ -30,31 +30,31 @@ public class IDK
             anInt225 = 54;
         do
         {
-            int j = class39_sub3_sub3.getUnsignedByte();
+            int j = class39_sub3_sub3.readUByte();
             if(j == 0)
                 return;
             if(j == 1)
-                anInt231 = class39_sub3_sub3.getUnsignedByte();
+                anInt231 = class39_sub3_sub3.readUByte();
             else
             if(j == 2)
             {
-                int k = class39_sub3_sub3.getUnsignedByte();
+                int k = class39_sub3_sub3.readUByte();
                 anIntArray232 = new int[k];
                 for(int l = 0; l < k; l++)
-                    anIntArray232[l] = class39_sub3_sub3.getShort();
+                    anIntArray232[l] = class39_sub3_sub3.readShort();
 
             } else
             if(j == 3)
                 aBoolean236 = true;
             else
             if(j >= 40 && j < 50)
-                anIntArray233[j - 40] = class39_sub3_sub3.getShort();
+                anIntArray233[j - 40] = class39_sub3_sub3.readShort();
             else
             if(j >= 50 && j < 60)
-                anIntArray234[j - 50] = class39_sub3_sub3.getShort();
+                anIntArray234[j - 50] = class39_sub3_sub3.readShort();
             else
             if(j >= 60 && j < 70)
-                anIntArray235[j - 60] = class39_sub3_sub3.getShort();
+                anIntArray235[j - 60] = class39_sub3_sub3.readShort();
             else
                 System.out.println("Error unrecognised config code: " + j);
         } while(true);

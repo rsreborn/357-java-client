@@ -8,13 +8,13 @@ public class Class27 {
     {
         aClass39_Sub3_Sub3_370 = new Buffer(class10.method193("loc.dat", null));
         Buffer class39_sub3_sub3 = new Buffer(class10.method193("loc.idx", null));
-        anInt385 = class39_sub3_sub3.getShort();
+        anInt385 = class39_sub3_sub3.readShort();
         anIntArray401 = new int[anInt385];
         int i = 2;
         for(int j = 0; j < anInt385; j++)
         {
             anIntArray401[j] = i;
-            i += class39_sub3_sub3.getShort();
+            i += class39_sub3_sub3.readShort();
         }
 
         aClass27Array409 = new Class27[20];
@@ -208,12 +208,12 @@ label0:
             int k;
             do
             {
-                k = class39_sub3_sub3.getUnsignedByte();
+                k = class39_sub3_sub3.readUByte();
                 if(k == 0)
                     break label0;
                 if(k == 1)
                 {
-                    int l = class39_sub3_sub3.getUnsignedByte();
+                    int l = class39_sub3_sub3.readUByte();
                     if(l > 0)
                         if(anIntArray400 == null || aBoolean375)
                         {
@@ -221,8 +221,8 @@ label0:
                             anIntArray400 = new int[l];
                             for(int l1 = 0; l1 < l; l1++)
                             {
-                                anIntArray400[l1] = class39_sub3_sub3.getShort();
-                                anIntArray407[l1] = class39_sub3_sub3.getUnsignedByte();
+                                anIntArray400[l1] = class39_sub3_sub3.readShort();
+                                anIntArray407[l1] = class39_sub3_sub3.readUByte();
                             }
 
                         } else
@@ -238,14 +238,14 @@ label0:
                 else
                 if(k == 5)
                 {
-                    int i1 = class39_sub3_sub3.getUnsignedByte();
+                    int i1 = class39_sub3_sub3.readUByte();
                     if(i1 > 0)
                         if(anIntArray400 == null || aBoolean375)
                         {
                             anIntArray407 = null;
                             anIntArray400 = new int[i1];
                             for(int i2 = 0; i2 < i1; i2++)
-                                anIntArray400[i2] = class39_sub3_sub3.getShort();
+                                anIntArray400[i2] = class39_sub3_sub3.readShort();
 
                         } else
                         {
@@ -253,10 +253,10 @@ label0:
                         }
                 } else
                 if(k == 14)
-                    anInt405 = class39_sub3_sub3.getUnsignedByte();
+                    anInt405 = class39_sub3_sub3.readUByte();
                 else
                 if(k == 15)
-                    anInt395 = class39_sub3_sub3.getUnsignedByte();
+                    anInt395 = class39_sub3_sub3.readUByte();
                 else
                 if(k == 17)
                     aBoolean390 = false;
@@ -266,7 +266,7 @@ label0:
                 else
                 if(k == 19)
                 {
-                    j = class39_sub3_sub3.getUnsignedByte();
+                    j = class39_sub3_sub3.readUByte();
                     if(j == 1)
                         aBoolean377 = true;
                 } else
@@ -281,12 +281,12 @@ label0:
                 else
                 if(k == 24)
                 {
-                    anInt368 = class39_sub3_sub3.getShort();
+                    anInt368 = class39_sub3_sub3.readShort();
                     if(anInt368 == 65535)
                         anInt368 = -1;
                 } else
                 if(k == 28)
-                    anInt376 = class39_sub3_sub3.getUnsignedByte();
+                    anInt376 = class39_sub3_sub3.readUByte();
                 else
                 if(k == 29)
                     aByte408 = class39_sub3_sub3.getByte();
@@ -304,18 +304,18 @@ label0:
                 } else
                 if(k == 40)
                 {
-                    int j1 = class39_sub3_sub3.getUnsignedByte();
+                    int j1 = class39_sub3_sub3.readUByte();
                     anIntArray379 = new int[j1];
                     anIntArray373 = new int[j1];
                     for(int j2 = 0; j2 < j1; j2++)
                     {
-                        anIntArray379[j2] = class39_sub3_sub3.getShort();
-                        anIntArray373[j2] = class39_sub3_sub3.getShort();
+                        anIntArray379[j2] = class39_sub3_sub3.readShort();
+                        anIntArray373[j2] = class39_sub3_sub3.readShort();
                     }
 
                 } else
                 if(k == 60)
-                    anInt398 = class39_sub3_sub3.getShort();
+                    anInt398 = class39_sub3_sub3.readShort();
                 else
                 if(k == 62)
                     aBoolean382 = true;
@@ -324,19 +324,19 @@ label0:
                     aBoolean410 = false;
                 else
                 if(k == 65)
-                    anInt383 = class39_sub3_sub3.getShort();
+                    anInt383 = class39_sub3_sub3.readShort();
                 else
                 if(k == 66)
-                    anInt397 = class39_sub3_sub3.getShort();
+                    anInt397 = class39_sub3_sub3.readShort();
                 else
                 if(k == 67)
-                    anInt393 = class39_sub3_sub3.getShort();
+                    anInt393 = class39_sub3_sub3.readShort();
                 else
                 if(k == 68)
-                    anInt394 = class39_sub3_sub3.getShort();
+                    anInt394 = class39_sub3_sub3.readShort();
                 else
                 if(k == 69)
-                    anInt399 = class39_sub3_sub3.getUnsignedByte();
+                    anInt399 = class39_sub3_sub3.readUByte();
                 else
                 if(k == 70)
                     anInt388 = class39_sub3_sub3.getSmart();
@@ -357,21 +357,21 @@ label0:
                 {
                     if(k != 75)
                         continue;
-                    anInt366 = class39_sub3_sub3.getUnsignedByte();
+                    anInt366 = class39_sub3_sub3.readUByte();
                 }
                 continue label0;
             } while(k != 77);
-            anInt363 = class39_sub3_sub3.getShort();
+            anInt363 = class39_sub3_sub3.readShort();
             if(anInt363 == 65535)
                 anInt363 = -1;
-            anInt403 = class39_sub3_sub3.getShort();
+            anInt403 = class39_sub3_sub3.readShort();
             if(anInt403 == 65535)
                 anInt403 = -1;
-            int k1 = class39_sub3_sub3.getUnsignedByte();
+            int k1 = class39_sub3_sub3.readUByte();
             anIntArray367 = new int[k1 + 1];
             for(int k2 = 0; k2 <= k1; k2++)
             {
-                anIntArray367[k2] = class39_sub3_sub3.getShort();
+                anIntArray367[k2] = class39_sub3_sub3.readShort();
                 if(anIntArray367[k2] == 65535)
                     anIntArray367[k2] = -1;
             }

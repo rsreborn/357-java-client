@@ -225,7 +225,7 @@ public class Class32
         aClass36_542.method364(5, class39_sub3_sub3);
         aClass36_543 = new Class36();
         aClass36_543.method364(5, class39_sub3_sub3);
-        int j = class39_sub3_sub3.getUnsignedByte();
+        int j = class39_sub3_sub3.readUByte();
         if(j != 0)
         {
             class39_sub3_sub3.currentOffset--;
@@ -234,7 +234,7 @@ public class Class32
             aClass36_545 = new Class36();
             aClass36_545.method364(5, class39_sub3_sub3);
         }
-        j = class39_sub3_sub3.getUnsignedByte();
+        j = class39_sub3_sub3.readUByte();
         if(j != 0)
         {
             class39_sub3_sub3.currentOffset--;
@@ -243,7 +243,7 @@ public class Class32
             aClass36_547 = new Class36();
             aClass36_547.method364(5, class39_sub3_sub3);
         }
-        j = class39_sub3_sub3.getUnsignedByte();
+        j = class39_sub3_sub3.readUByte();
         if(j != 0)
         {
             class39_sub3_sub3.currentOffset--;
@@ -264,8 +264,8 @@ public class Class32
 
         anInt553 = class39_sub3_sub3.getByteOrShortC();
         anInt554 = class39_sub3_sub3.getByteOrShortC();
-        anInt557 = class39_sub3_sub3.getShort();
-        anInt558 = class39_sub3_sub3.getShort();
+        anInt557 = class39_sub3_sub3.readShort();
+        anInt558 = class39_sub3_sub3.readShort();
         aClass46_555 = new Class46();
         aClass36_556 = new Class36();
         if(i < 5 || i > 5)

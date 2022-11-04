@@ -8,7 +8,7 @@ public class Class45
     public static void method584(byte byte0, Class10 class10)
     {
         Buffer class39_sub3_sub3 = new Buffer(class10.method193("flo.dat", null));
-        anInt753 = class39_sub3_sub3.getShort();
+        anInt753 = class39_sub3_sub3.readShort();
         if(byte0 != 6)
             return;
         if(aClass45Array754 == null)
@@ -30,7 +30,7 @@ public class Class45
         }
         do
         {
-            int k = class39_sub3_sub3.getUnsignedByte();
+            int k = class39_sub3_sub3.readUByte();
             if(k == 0)
                 return;
             if(k == 1)
@@ -39,7 +39,7 @@ public class Class45
                 method586(anInt756, 548);
             } else
             if(k == 2)
-                anInt757 = class39_sub3_sub3.getUnsignedByte();
+                anInt757 = class39_sub3_sub3.readUByte();
             else
             if(k == 3)
                 aBoolean758 = true;

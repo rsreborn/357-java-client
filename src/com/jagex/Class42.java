@@ -9,7 +9,7 @@ public class Class42
     {
         Buffer class39_sub3_sub3 = new Buffer(class10.method193("varp.dat", null));
         anInt711 = 0;
-        anInt709 = class39_sub3_sub3.getShort();
+        anInt709 = class39_sub3_sub3.readShort();
         if(byte0 != 6)
             return;
         if(aClass42Array710 == null)
@@ -33,14 +33,14 @@ public class Class42
             aBoolean708 = !aBoolean708;
         do
         {
-            int k = class39_sub3_sub3.getUnsignedByte();
+            int k = class39_sub3_sub3.readUByte();
             if(k == 0)
                 return;
             if(k == 1)
-                anInt714 = class39_sub3_sub3.getUnsignedByte();
+                anInt714 = class39_sub3_sub3.readUByte();
             else
             if(k == 2)
-                anInt715 = class39_sub3_sub3.getUnsignedByte();
+                anInt715 = class39_sub3_sub3.readUByte();
             else
             if(k == 3)
             {
@@ -51,7 +51,7 @@ public class Class42
                 aBoolean717 = false;
             else
             if(k == 5)
-                anInt718 = class39_sub3_sub3.getShort();
+                anInt718 = class39_sub3_sub3.readShort();
             else
             if(k == 6)
                 aBoolean719 = true;

@@ -252,13 +252,13 @@ public class Class4
     {
         aClass39_Sub3_Sub3_62 = new Buffer(class10.method193("obj.dat", null));
         Buffer class39_sub3_sub3 = new Buffer(class10.method193("obj.idx", null));
-        anInt92 = class39_sub3_sub3.getShort();
+        anInt92 = class39_sub3_sub3.readShort();
         anIntArray64 = new int[anInt92];
         int i = 2;
         for(int j = 0; j < anInt92; j++)
         {
             anIntArray64[j] = i;
-            i += class39_sub3_sub3.getShort();
+            i += class39_sub3_sub3.readShort();
         }
 
         aClass4Array68 = new Class4[10];
@@ -442,11 +442,11 @@ public class Class4
             throw new NullPointerException();
         do
         {
-            int j = class39_sub3_sub3.getUnsignedByte();
+            int j = class39_sub3_sub3.readUByte();
             if(j == 0)
                 return;
             if(j == 1)
-                anInt78 = class39_sub3_sub3.getShort();
+                anInt78 = class39_sub3_sub3.readShort();
             else
             if(j == 2)
                 aString105 = class39_sub3_sub3.getRs2String();
@@ -455,28 +455,28 @@ public class Class4
                 aByteArray85 = class39_sub3_sub3.getRs2StringBytes();
             else
             if(j == 4)
-                anInt81 = class39_sub3_sub3.getShort();
+                anInt81 = class39_sub3_sub3.readShort();
             else
             if(j == 5)
-                anInt97 = class39_sub3_sub3.getShort();
+                anInt97 = class39_sub3_sub3.readShort();
             else
             if(j == 6)
-                anInt112 = class39_sub3_sub3.getShort();
+                anInt112 = class39_sub3_sub3.readShort();
             else
             if(j == 7)
             {
-                anInt100 = class39_sub3_sub3.getShort();
+                anInt100 = class39_sub3_sub3.readShort();
                 if(anInt100 > 32767)
                     anInt100 -= 0x10000;
             } else
             if(j == 8)
             {
-                anInt94 = class39_sub3_sub3.getShort();
+                anInt94 = class39_sub3_sub3.readShort();
                 if(anInt94 > 32767)
                     anInt94 -= 0x10000;
             } else
             if(j == 10)
-                anInt67 = class39_sub3_sub3.getShort();
+                anInt67 = class39_sub3_sub3.readShort();
             else
             if(j == 11)
                 aBoolean91 = true;
@@ -489,19 +489,19 @@ public class Class4
             else
             if(j == 23)
             {
-                anInt110 = class39_sub3_sub3.getShort();
+                anInt110 = class39_sub3_sub3.readShort();
                 aByte88 = class39_sub3_sub3.getByte();
             } else
             if(j == 24)
-                anInt75 = class39_sub3_sub3.getShort();
+                anInt75 = class39_sub3_sub3.readShort();
             else
             if(j == 25)
             {
-                anInt90 = class39_sub3_sub3.getShort();
+                anInt90 = class39_sub3_sub3.readShort();
                 aByte76 = class39_sub3_sub3.getByte();
             } else
             if(j == 26)
-                anInt71 = class39_sub3_sub3.getShort();
+                anInt71 = class39_sub3_sub3.readShort();
             else
             if(j >= 30 && j < 35)
             {
@@ -519,42 +519,42 @@ public class Class4
             } else
             if(j == 40)
             {
-                int k = class39_sub3_sub3.getUnsignedByte();
+                int k = class39_sub3_sub3.readUByte();
                 anIntArray104 = new int[k];
                 anIntArray106 = new int[k];
                 for(int l = 0; l < k; l++)
                 {
-                    anIntArray104[l] = class39_sub3_sub3.getShort();
-                    anIntArray106[l] = class39_sub3_sub3.getShort();
+                    anIntArray104[l] = class39_sub3_sub3.readShort();
+                    anIntArray106[l] = class39_sub3_sub3.readShort();
                 }
 
             } else
             if(j == 78)
-                anInt98 = class39_sub3_sub3.getShort();
+                anInt98 = class39_sub3_sub3.readShort();
             else
             if(j == 79)
-                anInt96 = class39_sub3_sub3.getShort();
+                anInt96 = class39_sub3_sub3.readShort();
             else
             if(j == 90)
-                anInt109 = class39_sub3_sub3.getShort();
+                anInt109 = class39_sub3_sub3.readShort();
             else
             if(j == 91)
-                anInt101 = class39_sub3_sub3.getShort();
+                anInt101 = class39_sub3_sub3.readShort();
             else
             if(j == 92)
-                anInt86 = class39_sub3_sub3.getShort();
+                anInt86 = class39_sub3_sub3.readShort();
             else
             if(j == 93)
-                anInt102 = class39_sub3_sub3.getShort();
+                anInt102 = class39_sub3_sub3.readShort();
             else
             if(j == 95)
-                anInt74 = class39_sub3_sub3.getShort();
+                anInt74 = class39_sub3_sub3.readShort();
             else
             if(j == 97)
-                anInt66 = class39_sub3_sub3.getShort();
+                anInt66 = class39_sub3_sub3.readShort();
             else
             if(j == 98)
-                anInt77 = class39_sub3_sub3.getShort();
+                anInt77 = class39_sub3_sub3.readShort();
             else
             if(j >= 100 && j < 110)
             {
@@ -563,17 +563,17 @@ public class Class4
                     anIntArray108 = new int[10];
                     anIntArray73 = new int[10];
                 }
-                anIntArray108[j - 100] = class39_sub3_sub3.getShort();
-                anIntArray73[j - 100] = class39_sub3_sub3.getShort();
+                anIntArray108[j - 100] = class39_sub3_sub3.readShort();
+                anIntArray73[j - 100] = class39_sub3_sub3.readShort();
             } else
             if(j == 110)
-                anInt99 = class39_sub3_sub3.getShort();
+                anInt99 = class39_sub3_sub3.readShort();
             else
             if(j == 111)
-                anInt72 = class39_sub3_sub3.getShort();
+                anInt72 = class39_sub3_sub3.readShort();
             else
             if(j == 112)
-                anInt82 = class39_sub3_sub3.getShort();
+                anInt82 = class39_sub3_sub3.readShort();
             else
             if(j == 113)
                 anInt60 = class39_sub3_sub3.getByte();
@@ -582,7 +582,7 @@ public class Class4
                 anInt87 = class39_sub3_sub3.getByte() * 5;
             else
             if(j == 115)
-                anInt93 = class39_sub3_sub3.getUnsignedByte();
+                anInt93 = class39_sub3_sub3.readUByte();
         } while(true);
     }
 

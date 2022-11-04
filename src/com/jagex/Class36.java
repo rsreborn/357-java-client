@@ -7,7 +7,7 @@ public class Class36
 
     public void method364(int i, Buffer class39_sub3_sub3)
     {
-        anInt671 = class39_sub3_sub3.getUnsignedByte();
+        anInt671 = class39_sub3_sub3.readUByte();
         anInt669 = class39_sub3_sub3.readIntBE();
         if(i < 5 || i > 5)
         {
@@ -22,13 +22,13 @@ public class Class36
 
     public void method365(int i, Buffer class39_sub3_sub3)
     {
-        anInt666 = class39_sub3_sub3.getUnsignedByte();
+        anInt666 = class39_sub3_sub3.readUByte();
         anIntArray667 = new int[anInt666];
         anIntArray668 = new int[anInt666];
         for(int j = 0; j < anInt666; j++)
         {
-            anIntArray667[j] = class39_sub3_sub3.getShort();
-            anIntArray668[j] = class39_sub3_sub3.getShort();
+            anIntArray667[j] = class39_sub3_sub3.readShort();
+            anIntArray668[j] = class39_sub3_sub3.readShort();
         }
 
         if(i == 0);

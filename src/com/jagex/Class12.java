@@ -25,7 +25,7 @@ public class Class12
         Class32.method342();
         do
         {
-            int j = class39_sub3_sub3.getShort();
+            int j = class39_sub3_sub3.readShort();
             if(j == 65535)
                 return;
             aClass12Array202[j] = new Class12(0);
@@ -52,7 +52,7 @@ public class Class12
     {
         for(int j = 0; j < 10; j++)
         {
-            int k = class39_sub3_sub3.getUnsignedByte();
+            int k = class39_sub3_sub3.readUByte();
             if(k != 0)
             {
                 class39_sub3_sub3.currentOffset--;
@@ -61,8 +61,8 @@ public class Class12
             }
         }
 
-        anInt207 = class39_sub3_sub3.getShort();
-        anInt208 = class39_sub3_sub3.getShort();
+        anInt207 = class39_sub3_sub3.readShort();
+        anInt208 = class39_sub3_sub3.readShort();
         if(i < 5 || i > 5)
             throw new NullPointerException();
         else

@@ -31,10 +31,10 @@ public class Class44
         anIntArray750 = new int[j];
         for(int k = 0; k < j; k++)
         {
-            anIntArray750[k] = class39_sub3_sub3.getUnsignedByte();
-            char ac[] = new char[class39_sub3_sub3.getUnsignedByte()];
+            anIntArray750[k] = class39_sub3_sub3.readUByte();
+            char ac[] = new char[class39_sub3_sub3.readUByte()];
             for(int l = 0; l < ac.length; l++)
-                ac[l] = (char)class39_sub3_sub3.getUnsignedByte();
+                ac[l] = (char)class39_sub3_sub3.readUByte();
 
             aCharArrayArray749[k] = ac;
         }
@@ -67,7 +67,7 @@ public class Class44
             for(int i = 1; i > 0; i++);
         }
         for(int j = 0; j < anIntArray745.length; j++)
-            anIntArray745[j] = class39_sub3_sub3.getShort();
+            anIntArray745[j] = class39_sub3_sub3.readShort();
 
     }
 
@@ -76,16 +76,16 @@ public class Class44
             anInt744 = -194;
         for(int i = 0; i < ac.length; i++)
         {
-            char ac1[] = new char[class39_sub3_sub3.getUnsignedByte()];
+            char ac1[] = new char[class39_sub3_sub3.readUByte()];
             for(int j = 0; j < ac1.length; j++)
-                ac1[j] = (char)class39_sub3_sub3.getUnsignedByte();
+                ac1[j] = (char)class39_sub3_sub3.readUByte();
 
             ac[i] = ac1;
-            byte abyte1[][] = new byte[class39_sub3_sub3.getUnsignedByte()][2];
+            byte abyte1[][] = new byte[class39_sub3_sub3.readUByte()][2];
             for(int k = 0; k < abyte1.length; k++)
             {
-                abyte1[k][0] = (byte)class39_sub3_sub3.getUnsignedByte();
-                abyte1[k][1] = (byte)class39_sub3_sub3.getUnsignedByte();
+                abyte1[k][0] = (byte)class39_sub3_sub3.readUByte();
+                abyte1[k][1] = (byte)class39_sub3_sub3.readUByte();
             }
 
             if(abyte1.length > 0)
@@ -100,9 +100,9 @@ public class Class44
             return;
         for(int j = 0; j < ac.length; j++)
         {
-            char ac1[] = new char[class39_sub3_sub3.getUnsignedByte()];
+            char ac1[] = new char[class39_sub3_sub3.readUByte()];
             for(int k = 0; k < ac1.length; k++)
-                ac1[k] = (char)class39_sub3_sub3.getUnsignedByte();
+                ac1[k] = (char)class39_sub3_sub3.readUByte();
 
             ac[j] = ac1;
         }

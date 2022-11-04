@@ -142,7 +142,7 @@ public class Class22
 	    int i_38_ = i_36_ & 0x3f;
 	    int i_39_ = i_36_ >> 6 & 0x3f;
 	    int i_40_ = i_36_ >> 12;
-	    int i_41_ = class39_sub3_sub3.getUnsignedByte ();
+	    int i_41_ = class39_sub3_sub3.readUByte();
 	    int i_42_ = i_41_ >> 2;
 	    int i_43_ = i_41_ & 0x3;
 	    if (i_40_ == i_28_ && i_39_ >= i && i_39_ < i + 8 && i_38_ >= i_27_
@@ -215,7 +215,7 @@ public class Class22
 	aByteArrayArrayArray316[i][i_56_][i_54_] = (byte) 0;
 	for (;;)
 	  {
-	    int i_58_ = class39_sub3_sub3.getUnsignedByte ();
+	    int i_58_ = class39_sub3_sub3.readUByte();
 	    if (i_58_ == 0)
 	      {
 		if (i == 0)
@@ -232,7 +232,7 @@ public class Class22
 	      }
 	    if (i_58_ == 1)
 	      {
-		int i_59_ = class39_sub3_sub3.getUnsignedByte ();
+		int i_59_ = class39_sub3_sub3.readUByte();
 		if (i_59_ == 1)
 		  i_59_ = 0;
 		if (i == 0)
@@ -265,16 +265,16 @@ public class Class22
       {
 	for (;;)
 	  {
-	    int i_60_ = class39_sub3_sub3.getUnsignedByte ();
+	    int i_60_ = class39_sub3_sub3.readUByte();
 	    if (i_60_ == 0)
 	      break;
 	    if (i_60_ == 1)
 	      {
-		class39_sub3_sub3.getUnsignedByte ();
+		class39_sub3_sub3.readUByte();
 		break;
 	      }
 	    if (i_60_ <= 49)
-	      class39_sub3_sub3.getUnsignedByte ();
+	      class39_sub3_sub3.readUByte();
 	  }
       }
   }
@@ -308,7 +308,7 @@ public class Class22
 		int i_65_ = class39_sub3_sub3.getByteOrShortC ();
 		if (i_65_ == 0)
 		  break;
-		class39_sub3_sub3.getUnsignedByte ();
+		class39_sub3_sub3.readUByte();
 	      }
 	  }
       }
@@ -343,7 +343,7 @@ public class Class22
 	    int i_72_ = i_70_ & 0x3f;
 	    int i_73_ = i_70_ >> 6 & 0x3f;
 	    int i_74_ = i_70_ >> 12;
-	    int i_75_ = class39_sub3_sub3.getUnsignedByte ();
+	    int i_75_ = class39_sub3_sub3.readUByte();
 	    int i_76_ = i_75_ >> 2;
 	    int i_77_ = i_75_ & 0x3;
 	    int i_78_ = i_73_ + i_66_;
@@ -1839,7 +1839,7 @@ public class Class22
 		int i_278_ = class39_sub3_sub3.getByteOrShortC ();
 		if (i_278_ == 0)
 		  break;
-		class39_sub3_sub3.getUnsignedByte ();
+		class39_sub3_sub3.readUByte();
 	      }
 	    else
 	      {
@@ -1849,7 +1849,7 @@ public class Class22
 		i_276_ += i_279_ - 1;
 		int i_280_ = i_276_ & 0x3f;
 		int i_281_ = i_276_ >> 6 & 0x3f;
-		int i_282_ = class39_sub3_sub3.getUnsignedByte () >> 2;
+		int i_282_ = class39_sub3_sub3.readUByte() >> 2;
 		int i_283_ = i_281_ + i_273_;
 		int i_284_ = i_280_ + i_272_;
 		if (i_283_ > 0 && i_284_ > 0 && i_283_ < 103 && i_284_ < 103)

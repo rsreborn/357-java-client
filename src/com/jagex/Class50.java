@@ -11,7 +11,7 @@ public class Class50
         int l = -1;
         for(int i1 = 0; i1 < i; i1++)
         {
-            int j1 = class39_sub3_sub3.getUnsignedByte();
+            int j1 = class39_sub3_sub3.readUByte();
             int k1 = j1 >> 4 & 0xf;
             if(l == -1)
             {

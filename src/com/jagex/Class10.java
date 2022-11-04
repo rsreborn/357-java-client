@@ -32,7 +32,7 @@ public class Class10
             aByteArray179 = abyte0;
             aBoolean185 = false;
         }
-        anInt180 = class39_sub3_sub3.getShort();
+        anInt180 = class39_sub3_sub3.readShort();
         anIntArray181 = new int[anInt180];
         anIntArray182 = new int[anInt180];
         anIntArray183 = new int[anInt180];

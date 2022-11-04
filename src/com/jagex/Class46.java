@@ -81,22 +81,22 @@ public class Class46
 
     public void method592(Buffer class39_sub3_sub3, Class36 class36, int i)
     {
-        int j = class39_sub3_sub3.getUnsignedByte();
+        int j = class39_sub3_sub3.readUByte();
         anIntArray770[0] = j >> 4;
         anIntArray770[1] = j & 0xf;
         if(i != 0)
             aBoolean766 = !aBoolean766;
         if(j != 0)
         {
-            anIntArray773[0] = class39_sub3_sub3.getShort();
-            anIntArray773[1] = class39_sub3_sub3.getShort();
-            int k = class39_sub3_sub3.getUnsignedByte();
+            anIntArray773[0] = class39_sub3_sub3.readShort();
+            anIntArray773[1] = class39_sub3_sub3.readShort();
+            int k = class39_sub3_sub3.readUByte();
             for(int l = 0; l < 2; l++)
             {
                 for(int i1 = 0; i1 < anIntArray770[l]; i1++)
                 {
-                    anIntArrayArrayArray771[l][0][i1] = class39_sub3_sub3.getShort();
-                    anIntArrayArrayArray772[l][0][i1] = class39_sub3_sub3.getShort();
+                    anIntArrayArrayArray771[l][0][i1] = class39_sub3_sub3.readShort();
+                    anIntArrayArrayArray772[l][0][i1] = class39_sub3_sub3.readShort();
                 }
 
             }
@@ -106,8 +106,8 @@ public class Class46
                 for(int k1 = 0; k1 < anIntArray770[j1]; k1++)
                     if((k & 1 << j1 * 4 << k1) != 0)
                     {
-                        anIntArrayArrayArray771[j1][1][k1] = class39_sub3_sub3.getShort();
-                        anIntArrayArrayArray772[j1][1][k1] = class39_sub3_sub3.getShort();
+                        anIntArrayArrayArray771[j1][1][k1] = class39_sub3_sub3.readShort();
+                        anIntArrayArrayArray772[j1][1][k1] = class39_sub3_sub3.readShort();
                     } else
                     {
                         anIntArrayArrayArray771[j1][1][k1] = anIntArrayArrayArray771[j1][0][k1];

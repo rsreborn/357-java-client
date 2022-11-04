@@ -5,14 +5,14 @@ package com.jagex;// Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.
 public abstract class Class39_Sub3_Sub2_Sub5 extends Class39_Sub3_Sub2
 {
 
-    public void method413(int i, int j, int k, boolean flag)
+    public void method413(int y, int j, int x, boolean flag)
     {
         if(anInt1615 != -1 && SEQ.aClass20Array271[anInt1615].anInt284 == 1)
             anInt1615 = -1;
         if(!flag)
         {
-            int l = i - anIntArray1629[0];
-            int i1 = k - anIntArray1630[0];
+            int l = y - anIntArray1629[0];
+            int i1 = x - anIntArray1630[0];
             if(l >= -8 && l <= 8 && i1 >= -8 && i1 <= 8)
             {
                 if(anInt1604 < 9)
@@ -24,8 +24,8 @@ public abstract class Class39_Sub3_Sub2_Sub5 extends Class39_Sub3_Sub2
                     aBooleanArray1613[j1] = aBooleanArray1613[j1 - 1];
                 }
 
-                anIntArray1629[0] = i;
-                anIntArray1630[0] = k;
+                anIntArray1629[0] = y;
+                anIntArray1630[0] = x;
                 aBooleanArray1613[0] = false;
                 return;
             }
@@ -35,8 +35,8 @@ public abstract class Class39_Sub3_Sub2_Sub5 extends Class39_Sub3_Sub2
         if(j != -9787)
             aBoolean1596 = !aBoolean1596;
         anInt1602 = 0;
-        anIntArray1629[0] = i;
-        anIntArray1630[0] = k;
+        anIntArray1629[0] = y;
+        anIntArray1630[0] = x;
         anInt1621 = anIntArray1629[0] * 128 + anInt1608 * 64;
         anInt1622 = anIntArray1630[0] * 128 + anInt1608 * 64;
     }

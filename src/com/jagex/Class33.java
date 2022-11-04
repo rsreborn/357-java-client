@@ -18,10 +18,10 @@ public class Class33
     {
         Buffer class39_sub3_sub3 = new Buffer(abyte0);
         class39_sub3_sub3.currentOffset = abyte0.length - 8;
-        int i = class39_sub3_sub3.getShort();
-        int j = class39_sub3_sub3.getShort();
-        int k = class39_sub3_sub3.getShort();
-        int l = class39_sub3_sub3.getShort();
+        int i = class39_sub3_sub3.readShort();
+        int j = class39_sub3_sub3.readShort();
+        int k = class39_sub3_sub3.readShort();
+        int l = class39_sub3_sub3.readShort();
         int i1 = 0;
         Buffer class39_sub3_sub3_1 = new Buffer(abyte0);
         if(byte0 != -111)
@@ -40,23 +40,23 @@ public class Class33
         Buffer class39_sub3_sub3_5 = new Buffer(abyte0);
         class39_sub3_sub3_5.currentOffset = i1;
         Class49 class49 = new Class49(453, class39_sub3_sub3_5);
-        int j1 = class39_sub3_sub3_1.getShort();
+        int j1 = class39_sub3_sub3_1.readShort();
         int ai[] = new int[500];
         int ai1[] = new int[500];
         int ai2[] = new int[500];
         int ai3[] = new int[500];
         for(int k1 = 0; k1 < j1; k1++)
         {
-            int l1 = class39_sub3_sub3_1.getShort();
+            int l1 = class39_sub3_sub3_1.readShort();
             Class33 class33 = aClass33Array568[l1] = new Class33();
-            class33.anInt569 = class39_sub3_sub3_4.getUnsignedByte();
+            class33.anInt569 = class39_sub3_sub3_4.readUByte();
             class33.aClass49_570 = class49;
-            int i2 = class39_sub3_sub3_1.getUnsignedByte();
+            int i2 = class39_sub3_sub3_1.readUByte();
             int j2 = -1;
             int k2 = 0;
             for(int l2 = 0; l2 < i2; l2++)
             {
-                int i3 = class39_sub3_sub3_2.getUnsignedByte();
+                int i3 = class39_sub3_sub3_2.readUByte();
                 if(i3 > 0)
                 {
                     if(class49.anIntArray830[l2] != 0)

@@ -9,7 +9,7 @@ public class SEQ
     public static void initialize(byte byte0, Class10 class10)
     {
         Buffer class39_sub3_sub3 = new Buffer(class10.method193("seq.dat", null));
-        anInt270 = class39_sub3_sub3.getShort();
+        anInt270 = class39_sub3_sub3.readShort();
         if(byte0 != 6)
             anInt269 = 72;
         if(aClass20Array271 == null)
@@ -45,34 +45,34 @@ public class SEQ
             aBoolean268 = !aBoolean268;
         do
         {
-            int j = class39_sub3_sub3.getUnsignedByte();
+            int j = class39_sub3_sub3.readUByte();
             if(j == 0)
                 break;
             if(j == 1)
             {
-                anInt272 = class39_sub3_sub3.getUnsignedByte();
+                anInt272 = class39_sub3_sub3.readUByte();
                 anIntArray273 = new int[anInt272];
                 anIntArray274 = new int[anInt272];
                 anIntArray275 = new int[anInt272];
                 for(int k = 0; k < anInt272; k++)
                 {
-                    anIntArray273[k] = class39_sub3_sub3.getShort();
-                    anIntArray274[k] = class39_sub3_sub3.getShort();
+                    anIntArray273[k] = class39_sub3_sub3.readShort();
+                    anIntArray274[k] = class39_sub3_sub3.readShort();
                     if(anIntArray274[k] == 65535)
                         anIntArray274[k] = -1;
-                    anIntArray275[k] = class39_sub3_sub3.getShort();
+                    anIntArray275[k] = class39_sub3_sub3.readShort();
                 }
 
             } else
             if(j == 2)
-                anInt276 = class39_sub3_sub3.getShort();
+                anInt276 = class39_sub3_sub3.readShort();
             else
             if(j == 3)
             {
-                int l = class39_sub3_sub3.getUnsignedByte();
+                int l = class39_sub3_sub3.readUByte();
                 anIntArray277 = new int[l + 1];
                 for(int i1 = 0; i1 < l; i1++)
-                    anIntArray277[i1] = class39_sub3_sub3.getUnsignedByte();
+                    anIntArray277[i1] = class39_sub3_sub3.readUByte();
 
                 anIntArray277[l] = 0x98967f;
             } else
@@ -80,25 +80,25 @@ public class SEQ
                 aBoolean278 = true;
             else
             if(j == 5)
-                anInt279 = class39_sub3_sub3.getUnsignedByte();
+                anInt279 = class39_sub3_sub3.readUByte();
             else
             if(j == 6)
-                anInt280 = class39_sub3_sub3.getShort();
+                anInt280 = class39_sub3_sub3.readShort();
             else
             if(j == 7)
-                anInt281 = class39_sub3_sub3.getShort();
+                anInt281 = class39_sub3_sub3.readShort();
             else
             if(j == 8)
-                anInt282 = class39_sub3_sub3.getUnsignedByte();
+                anInt282 = class39_sub3_sub3.readUByte();
             else
             if(j == 9)
-                anInt283 = class39_sub3_sub3.getUnsignedByte();
+                anInt283 = class39_sub3_sub3.readUByte();
             else
             if(j == 10)
-                anInt284 = class39_sub3_sub3.getUnsignedByte();
+                anInt284 = class39_sub3_sub3.readUByte();
             else
             if(j == 11)
-                anInt285 = class39_sub3_sub3.getUnsignedByte();
+                anInt285 = class39_sub3_sub3.readUByte();
             else
             if(j == 12)
                 anInt286 = class39_sub3_sub3.readIntBE();

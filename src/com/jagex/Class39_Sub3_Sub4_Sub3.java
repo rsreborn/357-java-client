@@ -18,10 +18,10 @@ public class Class39_Sub3_Sub4_Sub3 extends Class39_Sub3_Sub4
         aBoolean1714 = true;
         Buffer class39_sub3_sub3 = new Buffer(class10.method193(s + ".dat", null));
         Buffer class39_sub3_sub3_1 = new Buffer(class10.method193("index.dat", null));
-        class39_sub3_sub3_1.currentOffset = class39_sub3_sub3.getShort();
-        anInt1721 = class39_sub3_sub3_1.getShort();
-        anInt1722 = class39_sub3_sub3_1.getShort();
-        int j = class39_sub3_sub3_1.getUnsignedByte();
+        class39_sub3_sub3_1.currentOffset = class39_sub3_sub3.readShort();
+        anInt1721 = class39_sub3_sub3_1.readShort();
+        anInt1722 = class39_sub3_sub3_1.readShort();
+        int j = class39_sub3_sub3_1.readUByte();
         anIntArray1716 = new int[j];
         for(int k = 0; k < j - 1; k++)
             anIntArray1716[k + 1] = class39_sub3_sub3_1.getTribyte();
@@ -29,15 +29,15 @@ public class Class39_Sub3_Sub4_Sub3 extends Class39_Sub3_Sub4
         for(int l = 0; l < i; l++)
         {
             class39_sub3_sub3_1.currentOffset += 2;
-            class39_sub3_sub3.currentOffset += class39_sub3_sub3_1.getShort() * class39_sub3_sub3_1.getShort();
+            class39_sub3_sub3.currentOffset += class39_sub3_sub3_1.readShort() * class39_sub3_sub3_1.readShort();
             class39_sub3_sub3_1.currentOffset++;
         }
 
-        anInt1719 = class39_sub3_sub3_1.getUnsignedByte();
-        anInt1720 = class39_sub3_sub3_1.getUnsignedByte();
-        anInt1717 = class39_sub3_sub3_1.getShort();
-        anInt1718 = class39_sub3_sub3_1.getShort();
-        int i1 = class39_sub3_sub3_1.getUnsignedByte();
+        anInt1719 = class39_sub3_sub3_1.readUByte();
+        anInt1720 = class39_sub3_sub3_1.readUByte();
+        anInt1717 = class39_sub3_sub3_1.readShort();
+        anInt1718 = class39_sub3_sub3_1.readShort();
+        int i1 = class39_sub3_sub3_1.readUByte();
         int j1 = anInt1717 * anInt1718;
         aByteArray1715 = new byte[j1];
         if(i1 == 0)
