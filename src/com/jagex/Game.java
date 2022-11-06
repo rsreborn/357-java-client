@@ -9199,7 +9199,12 @@ label0:
 
     private void loadRSAKeys() {
         try {
-            final ObjectInputStream oin = new ObjectInputStream(new FileInputStream("./data/public.key"));
+            // final ObjectInputStream oin = new ObjectInputStream(new FileInputStream("./data/public.key"));
+            InputStream is = getClass().getResourceAsStream("/data/public.key");
+            if (is == null) {
+                is = new FileInputStream("./data/public.key");
+            }
+            final ObjectInputStream oin = new ObjectInputStream(is);
             rsaModulus = (BigInteger) oin.readObject();
             rsaKey = (BigInteger) oin.readObject();
         } catch (final Exception ex) {
@@ -10327,7 +10332,11 @@ label0:
             System.out.println("RS2 user client - release #" + Constants.BUILD_NUMBER);
             if(args.length != 5) {
                 System.out.println("Usage: node-id, port-offset, [lowmem/highmem], [free/members], storeid");
-                return;
+                System.out.println("Using defaults: 1 0 highmem members 32");
+                // return;
+                args = new String[] {
+                        "1", "0", "highmem", "members", "32"
+                };
             }
             nodeId = Integer.parseInt(args[0]);
             portOffset = Integer.parseInt(args[1]);
