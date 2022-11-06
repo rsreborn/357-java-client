@@ -231,7 +231,7 @@ label0:
                         }
                 } else
                 if(k == 2)
-                    aString392 = class39_sub3_sub3.getRs2String();
+                    aString392 = class39_sub3_sub3.readString();
                 else
                 if(k == 3)
                     aByteArray406 = class39_sub3_sub3.getRs2StringBytes();
@@ -298,7 +298,7 @@ label0:
                 {
                     if(aStringArray380 == null)
                         aStringArray380 = new String[5];
-                    aStringArray380[k - 30] = class39_sub3_sub3.getRs2String();
+                    aStringArray380[k - 30] = class39_sub3_sub3.readString();
                     if(aStringArray380[k - 30].equalsIgnoreCase("hidden"))
                         aStringArray380[k - 30] = null;
                 } else

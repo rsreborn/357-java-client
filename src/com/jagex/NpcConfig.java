@@ -2,10 +2,10 @@ package com.jagex;// Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-public class Class47
+public class NpcConfig
 {
 
-    public Class47 method593(int i)
+    public NpcConfig method593(int i)
     {
         if(i != 0)
         {
@@ -26,7 +26,7 @@ public class Class47
         if(k < 0 || k >= anIntArray785.length || anIntArray785[k] == -1)
             return null;
         else
-            return method598(anIntArray785[k]);
+            return getDefinition(anIntArray785[k]);
     }
 
     public void method594(int i, Buffer class39_sub3_sub3)
@@ -49,7 +49,7 @@ public class Class47
 
             } else
             if(k == 2)
-                aString821 = class39_sub3_sub3.getRs2String();
+                aString821 = class39_sub3_sub3.readString();
             else
             if(k == 3)
                 aByteArray789 = class39_sub3_sub3.getRs2StringBytes();
@@ -74,7 +74,7 @@ public class Class47
             {
                 if(aStringArray790 == null)
                     aStringArray790 = new String[5];
-                aStringArray790[k - 30] = class39_sub3_sub3.getRs2String();
+                aStringArray790[k - 30] = class39_sub3_sub3.readString();
                 if(aStringArray790[k - 30].equalsIgnoreCase("hidden"))
                     aStringArray790[k - 30] = null;
             } else
@@ -163,7 +163,7 @@ public class Class47
         anIntArray801 = null;
         if(i != -29497)
             anInt819 = -52;
-        aClass47Array795 = null;
+        aNpcConfigArray795 = null;
         aClass39_Sub3_Sub3_814 = null;
     }
 
@@ -180,9 +180,9 @@ public class Class47
             i += class39_sub3_sub3.readShort();
         }
 
-        aClass47Array795 = new Class47[20];
+        aNpcConfigArray795 = new NpcConfig[20];
         for(int k = 0; k < 20; k++)
-            aClass47Array795[k] = new Class47();
+            aNpcConfigArray795[k] = new NpcConfig();
 
     }
 
@@ -190,11 +190,11 @@ public class Class47
     {
         if(anIntArray785 != null)
         {
-            Class47 class47 = method593(0);
-            if(class47 == null)
+            NpcConfig npcConfig = method593(0);
+            if(npcConfig == null)
                 return null;
             else
-                return class47.method597(i, j, anInt782, ai);
+                return npcConfig.method597(i, j, anInt782, ai);
         }
         Class39_Sub3_Sub2_Sub4 class39_sub3_sub2_sub4 = (Class39_Sub3_Sub2_Sub4)aClass35_816.method361(aLong780);
         if(class39_sub3_sub2_sub4 == null)
@@ -243,18 +243,18 @@ public class Class47
         return class39_sub3_sub2_sub4_1;
     }
 
-    public static Class47 method598(int i)
+    public static NpcConfig getDefinition(int i)
     {
         for(int j = 0; j < 20; j++)
-            if(aClass47Array795[j].aLong780 == (long)i)
-                return aClass47Array795[j];
+            if(aNpcConfigArray795[j].aLong780 == (long)i)
+                return aNpcConfigArray795[j];
 
         anInt783 = (anInt783 + 1) % 20;
-        Class47 class47 = aClass47Array795[anInt783] = new Class47();
+        NpcConfig npcConfig = aNpcConfigArray795[anInt783] = new NpcConfig();
         aClass39_Sub3_Sub3_814.currentOffset = anIntArray801[i];
-        class47.aLong780 = i;
-        class47.method594(5, aClass39_Sub3_Sub3_814);
-        return class47;
+        npcConfig.aLong780 = i;
+        npcConfig.method594(5, aClass39_Sub3_Sub3_814);
+        return npcConfig;
     }
 
     public boolean method599(byte byte0)
@@ -286,11 +286,11 @@ public class Class47
             throw new NullPointerException();
         if(anIntArray785 != null)
         {
-            Class47 class47 = method593(0);
-            if(class47 == null)
+            NpcConfig npcConfig = method593(0);
+            if(npcConfig == null)
                 return null;
             else
-                return class47.method600(anInt797);
+                return npcConfig.method600(anInt797);
         }
         if(anIntArray809 == null)
             return null;
@@ -319,7 +319,7 @@ public class Class47
         return class39_sub3_sub2_sub4;
     }
 
-    public Class47()
+    public NpcConfig()
     {
         aBoolean778 = false;
         aLong780 = -1L;
@@ -366,7 +366,7 @@ public class Class47
     public int anInt792;
     public int anInt793;
     public int anInt794;
-    public static Class47 aClass47Array795[];
+    public static NpcConfig aNpcConfigArray795[];
     public int anInt796;
     public int anInt797;
     public int anInt798;

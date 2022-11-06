@@ -65,7 +65,7 @@ public class Class42
                 aBoolean722 = true;
             } else
             if(k == 10)
-                aString713 = class39_sub3_sub3.getRs2String();
+                aString713 = class39_sub3_sub3.readString();
             else
             if(k == 11)
                 aBoolean722 = true;

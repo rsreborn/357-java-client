@@ -53,7 +53,7 @@ public class RSInterface
         if(i == 1)
             class39_sub3_sub2_sub4 = Class39_Sub3_Sub2_Sub4.method387(j);
         if(i == 2)
-            class39_sub3_sub2_sub4 = Class47.method598(j).method600(anInt633);
+            class39_sub3_sub2_sub4 = NpcConfig.getDefinition(j).method600(anInt633);
         if(i == 3)
             class39_sub3_sub2_sub4 = Game.myPlayer.method420(0);
         if(i == 4)
@@ -158,7 +158,7 @@ public class RSInterface
                 {
                     class34.anIntArray583[i2] = class39_sub3_sub3.getSmart();
                     class34.anIntArray577[i2] = class39_sub3_sub3.getSmart();
-                    String s1 = class39_sub3_sub3.getRs2String();
+                    String s1 = class39_sub3_sub3.readString();
                     if(s1.length() > 0)
                     {
                         int l4 = s1.lastIndexOf(",");
@@ -170,7 +170,7 @@ public class RSInterface
             class34.aStringArray630 = new String[5];
             for(int k3 = 0; k3 < 5; k3++)
             {
-                class34.aStringArray630[k3] = class39_sub3_sub3.getRs2String();
+                class34.aStringArray630[k3] = class39_sub3_sub3.readString();
                 if(class34.aStringArray630[k3].length() == 0)
                     class34.aStringArray630[k3] = null;
             }
@@ -188,8 +188,8 @@ public class RSInterface
         }
         if(class34.anInt638 == 4)
         {
-            class34.message = class39_sub3_sub3.getRs2String();
-            class34.aString601 = class39_sub3_sub3.getRs2String();
+            class34.message = class39_sub3_sub3.readString();
+            class34.aString601 = class39_sub3_sub3.readString();
         }
         if(class34.anInt638 == 1 || class34.anInt638 == 3 || class34.anInt638 == 4)
             class34.anInt594 = class39_sub3_sub3.readIntBE();
@@ -201,13 +201,13 @@ public class RSInterface
         }
         if(class34.anInt638 == 5)
         {
-            String s = class39_sub3_sub3.getRs2String();
+            String s = class39_sub3_sub3.readString();
             if(s.length() > 0)
             {
                 int l3 = s.lastIndexOf(",");
                 class34.aClass39_Sub3_Sub4_Sub4_626 = method352(s.substring(0, l3), true, Integer.parseInt(s.substring(l3 + 1)));
             }
-            s = class39_sub3_sub3.getRs2String();
+            s = class39_sub3_sub3.readString();
             if(s.length() > 0)
             {
                 int i4 = s.lastIndexOf(",");
@@ -258,23 +258,23 @@ public class RSInterface
             class34.aStringArray630 = new String[5];
             for(int j4 = 0; j4 < 5; j4++)
             {
-                class34.aStringArray630[j4] = class39_sub3_sub3.getRs2String();
+                class34.aStringArray630[j4] = class39_sub3_sub3.readString();
                 if(class34.aStringArray630[j4].length() == 0)
                     class34.aStringArray630[j4] = null;
             }
 
         }
         if(class34.anInt638 == 8)
-            class34.message = class39_sub3_sub3.getRs2String();
+            class34.message = class39_sub3_sub3.readString();
         if(class34.anInt621 == 2 || class34.anInt638 == 2)
         {
-            class34.aString611 = class39_sub3_sub3.getRs2String();
-            class34.aString591 = class39_sub3_sub3.getRs2String();
+            class34.aString611 = class39_sub3_sub3.readString();
+            class34.aString591 = class39_sub3_sub3.readString();
             class34.anInt629 = class39_sub3_sub3.readShort();
         }
         if(class34.anInt621 == 1 || class34.anInt621 == 4 || class34.anInt621 == 5 || class34.anInt621 == 6)
         {
-            class34.aString634 = class39_sub3_sub3.getRs2String();
+            class34.aString634 = class39_sub3_sub3.readString();
             if(class34.aString634.length() == 0)
             {
                 if(class34.anInt621 == 1)

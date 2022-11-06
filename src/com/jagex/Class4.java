@@ -449,7 +449,7 @@ public class Class4
                 anInt78 = class39_sub3_sub3.readShort();
             else
             if(j == 2)
-                aString105 = class39_sub3_sub3.getRs2String();
+                aString105 = class39_sub3_sub3.readString();
             else
             if(j == 3)
                 aByteArray85 = class39_sub3_sub3.getRs2StringBytes();
@@ -507,7 +507,7 @@ public class Class4
             {
                 if(aStringArray83 == null)
                     aStringArray83 = new String[5];
-                aStringArray83[j - 30] = class39_sub3_sub3.getRs2String();
+                aStringArray83[j - 30] = class39_sub3_sub3.readString();
                 if(aStringArray83[j - 30].equalsIgnoreCase("hidden"))
                     aStringArray83[j - 30] = null;
             } else
@@ -515,7 +515,7 @@ public class Class4
             {
                 if(aStringArray84 == null)
                     aStringArray84 = new String[5];
-                aStringArray84[j - 35] = class39_sub3_sub3.getRs2String();
+                aStringArray84[j - 35] = class39_sub3_sub3.readString();
             } else
             if(j == 40)
             {

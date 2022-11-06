@@ -11,7 +11,7 @@ public class Player extends Class39_Sub3_Sub2_Sub5
         anInt1748 = class39_sub3_sub3.readUByte();
         anInt1765 = class39_sub3_sub3.getByte();
         anInt1764 = class39_sub3_sub3.getByte();
-        aClass47_1756 = null;
+        aNpcConfig_1756 = null;
         anInt1753 = 0;
         for(int i = 0; i < 12; i++)
         {
@@ -25,7 +25,7 @@ public class Player extends Class39_Sub3_Sub2_Sub5
             anIntArray1760[i] = (j << 8) + l;
             if(i == 0 && anIntArray1760[0] == 65535)
             {
-                aClass47_1756 = Class47.method598(class39_sub3_sub3.readShort());
+                aNpcConfig_1756 = NpcConfig.getDefinition(class39_sub3_sub3.readShort());
                 break;
             }
             if(anIntArray1760[i] >= 512 && anIntArray1760[i] - 512 < Class4.anInt92)
@@ -107,7 +107,7 @@ public class Player extends Class39_Sub3_Sub2_Sub5
         {
             for(int j = 1; j > 0; j++);
         }
-        if(aClass47_1756 != null)
+        if(aNpcConfig_1756 != null)
         {
             int k = -1;
             if(super.anInt1615 >= 0 && super.anInt1618 == 0)
@@ -115,7 +115,7 @@ public class Player extends Class39_Sub3_Sub2_Sub5
             else
             if(super.anInt1624 >= 0)
                 k = SEQ.aClass20Array271[super.anInt1624].anIntArray273[super.anInt1625];
-            Class39_Sub3_Sub2_Sub4 class39_sub3_sub2_sub4 = aClass47_1756.method597(-1, k, anInt1766, null);
+            Class39_Sub3_Sub2_Sub4 class39_sub3_sub2_sub4 = aNpcConfig_1756.method597(-1, k, anInt1766, null);
             return class39_sub3_sub2_sub4;
         }
         long l = aLong1758;
@@ -225,8 +225,8 @@ public class Player extends Class39_Sub3_Sub2_Sub5
     {
         if(!aBoolean1755)
             return null;
-        if(aClass47_1756 != null)
-            return aClass47_1756.method600(anInt1767);
+        if(aNpcConfig_1756 != null)
+            return aNpcConfig_1756.method600(anInt1767);
         boolean flag = false;
         for(int j = 0; j < 12; j++)
         {
@@ -391,7 +391,7 @@ public class Player extends Class39_Sub3_Sub2_Sub5
     public int anInt1753;
     public String aString1754;
     public boolean aBoolean1755;
-    public Class47 aClass47_1756;
+    public NpcConfig aNpcConfig_1756;
     public boolean aBoolean1757;
     public long aLong1758;
     public int anInt1759;

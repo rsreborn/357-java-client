@@ -174,7 +174,7 @@ public class Buffer extends Class39_Sub3 {
         return (l << 32) + l1;
     }
 
-    public String getRs2String() {
+    public String readString() {
         int i = currentOffset;
         while (payload[currentOffset++] != 10) ;
         return new String(payload, i, currentOffset - i - 1);

@@ -47,7 +47,7 @@ public class Class6
                 anInt126 = class39_sub3_sub3.readUByte();
             } else
             if(k == 10)
-                aString123 = class39_sub3_sub3.getRs2String();
+                aString123 = class39_sub3_sub3.readString();
             else
             if(k == 2)
                 aBoolean127 = true;
