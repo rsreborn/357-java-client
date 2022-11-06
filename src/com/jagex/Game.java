@@ -73,7 +73,7 @@ public class Game extends GameApplet {
             outgoingVector.putByte(200);
     }
 
-    public void method17(Buffer buffer) {
+    public void parseTrackedNpcMovement(Buffer buffer) {
         buffer.initBitAccess();
         int j = buffer.readBits(8); //Change 1 to 8.
         if(j < anInt900) {
@@ -404,7 +404,7 @@ public class Game extends GameApplet {
             anInt897 = 0;
     }
 
-    public void method23(boolean flag, Buffer class39_sub3_sub3, int i)
+    public void registerNewNpcs(boolean flag, Buffer class39_sub3_sub3, int i)
     {
         while(class39_sub3_sub3.bitPosition + 21 < i * 8)
         {
@@ -1991,7 +1991,7 @@ label0:
                 return true;
             }
             if(currentOpcode == 208) {
-                parseNPCUpdating(5, opcodeSize, incommingVector);
+                updateNpcs(opcodeSize, incommingVector);
                 currentOpcode = -1;
                 return true;
             }
@@ -2745,7 +2745,7 @@ label0:
         return " " + s;
     }
 
-    public void handleNPCMasks(Buffer class39_sub3_sub3, int i, byte byte0)
+    public void parseTrackedNpcUpdateMasks(Buffer class39_sub3_sub3, int i, byte byte0)
     {
         if(byte0 != 5)
             return;
@@ -4829,28 +4829,26 @@ label0:
         opcodeSize += i;
     }
 
-    public void parseNPCUpdating(int i, int j, Buffer class39_sub3_sub3)
+    public void updateNpcs(int j, Buffer buffer)
     {
         anInt917 = 0;
         anInt876 = 0;
-        if(i < 5 || i > 5)
-            aBoolean916 = !aBoolean916;
-        method17(class39_sub3_sub3);
-        method23(false, class39_sub3_sub3, j);
-        handleNPCMasks(class39_sub3_sub3, j, (byte)5);
+        parseTrackedNpcMovement(buffer);
+        registerNewNpcs(false, buffer, j);
+        parseTrackedNpcUpdateMasks(buffer, j, (byte)5);
         for(int k = 0; k < anInt917; k++)
         {
             int l = anIntArray918[k];
-            if(((Class39_Sub3_Sub2_Sub5) (aClass39_Sub3_Sub2_Sub5_Sub2Array899[l])).anInt1648 != loopCycle)
+            if(aClass39_Sub3_Sub2_Sub5_Sub2Array899[l].anInt1648 != loopCycle)
             {
                 aClass39_Sub3_Sub2_Sub5_Sub2Array899[l].aClass47_1772 = null;
                 aClass39_Sub3_Sub2_Sub5_Sub2Array899[l] = null;
             }
         }
 
-        if(class39_sub3_sub3.currentOffset != j)
+        if(buffer.currentOffset != j)
         {
-            Signlink.reporterror(enteredUsername + " size mismatch in getnpcpos - pos:" + class39_sub3_sub3.currentOffset + " psize:" + j);
+            Signlink.reporterror(enteredUsername + " size mismatch in getnpcpos - pos:" + buffer.currentOffset + " psize:" + j);
             throw new RuntimeException("eek");
         }
         for(int i1 = 0; i1 < anInt900; i1++)
@@ -5353,7 +5351,7 @@ label0:
         }
     }
 
-    public void parseTrackedPlayerSyncMasks(int i, int j, Buffer class39_sub3_sub3)
+    public void parseTrackedPlayerUpdateMasks(int i, int j, Buffer class39_sub3_sub3)
     {
         if(i != -26716)
             aBoolean1124 = !aBoolean1124;
@@ -7415,10 +7413,10 @@ label0:
         parsePlayerMovement(buffer);
         parseTrackedPlayerMovement(buffer, blockSize);
         registerNewPlayers(anInt1058, buffer, blockSize);
-        parseTrackedPlayerSyncMasks(-26716, blockSize, buffer);
+        parseTrackedPlayerUpdateMasks(-26716, blockSize, buffer);
         for(int count = 0; count < anInt917; count++) {
             int l = anIntArray918[count];
-            if(((Class39_Sub3_Sub2_Sub5) (players[l])).anInt1648 != loopCycle)
+            if(players[l].anInt1648 != loopCycle)
                 players[l] = null;
         }
 
