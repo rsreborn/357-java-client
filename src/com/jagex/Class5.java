@@ -139,7 +139,7 @@ public class Class5
     }
 
     public int getUnsignedByteS(Buffer buffer) {
-	    return 128 - buffer.payload[buffer.position++] & 0xff;
+	    return buffer.payload[buffer.position++] & 0xff;
 	}
 
 	public boolean aBoolean113;

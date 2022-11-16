@@ -66,7 +66,7 @@ public class Game extends GameApplet {
             int k1 = buffer.readBits(5);
             if(k1 > 15)
                 k1 -= 32;
-            player.method413(((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0] + l, -9787, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0] + k1, j1 == 1);
+            player.method413(myPlayer.anIntArray1629[0] + l, -9787, myPlayer.anIntArray1630[0] + k1, j1 == 1);
         }
         buffer.finishBitAccess();
         if(i <= 0)
@@ -394,8 +394,8 @@ public class Game extends GameApplet {
         if(i <= 0)
             anInt1274 = 398;
         anInt897 = 0;
-        int j = (((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 >> 7) + anInt989;
-        int k = (((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 >> 7) + anInt990;
+        int j = (myPlayer.anInt1621 >> 7) + anInt989;
+        int k = (myPlayer.anInt1622 >> 7) + anInt990;
         if(j >= 3053 && j <= 3156 && k >= 3056 && k <= 3136)
             anInt897 = 1;
         if(j >= 3072 && j <= 3118 && k >= 9492 && k <= 9535)
@@ -434,7 +434,7 @@ public class Game extends GameApplet {
             npc.anInt1646 = npc.aNpcConfig_1772.anInt811;
             npc.anInt1647 = npc.aNpcConfig_1772.anInt807;
             npc.anInt1640 = npc.aNpcConfig_1772.anInt817;
-            npc.method413(((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0] + k, -9787, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0] + i1, j1 == 1);
+            npc.method413(myPlayer.anIntArray1629[0] + k, -9787, myPlayer.anIntArray1630[0] + i1, j1 == 1);
         }
         class39_sub3_sub3.finishBitAccess();
         if(flag)
@@ -461,7 +461,7 @@ public class Game extends GameApplet {
             byte0 = 0;
         else
             return;
-        String as[] = new String[100];
+        String[] as = new String[100];
         int i = 0;
         do
         {
@@ -771,8 +771,8 @@ label0:
             return;
         try
         {
-            int j = ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 + anInt1048;
-            int k = ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 + anInt1093;
+            int j = myPlayer.anInt1621 + anInt1048;
+            int k = myPlayer.anInt1622 + anInt1093;
             if(anInt1225 - j < -500 || anInt1225 - j > 500 || anInt1226 - k < -500 || anInt1226 - k > 500)
             {
                 anInt1225 = j;
@@ -841,7 +841,7 @@ label0:
         }
         catch(Exception _ex)
         {
-            Signlink.reporterror("glfc_ex " + ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 + "," + ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 + "," + anInt1225 + "," + anInt1226 + "," + anInt1088 + "," + anInt1089 + "," + anInt989 + "," + anInt990);
+            Signlink.reporterror("glfc_ex " + myPlayer.anInt1621 + "," + myPlayer.anInt1622 + "," + anInt1225 + "," + anInt1226 + "," + anInt1088 + "," + anInt1089 + "," + anInt989 + "," + anInt990);
             throw new RuntimeException("eek");
         }
     }
@@ -1269,9 +1269,7 @@ label0:
                 anInt1089 = k10;
                 anInt989 = (anInt1088 - 6) * 8;
                 anInt990 = (anInt1089 - 6) * 8;
-                aBoolean1156 = false;
-                if((anInt1088 / 8 == 48 || anInt1088 / 8 == 49) && anInt1089 / 8 == 48)
-                    aBoolean1156 = true;
+                aBoolean1156 = (anInt1088 / 8 == 48 || anInt1088 / 8 == 49) && anInt1089 / 8 == 48;
                 if(anInt1088 / 8 == 48 && anInt1089 / 8 == 148)
                     aBoolean1156 = true;
                 anInt1203 = 1;
@@ -1321,7 +1319,7 @@ label0:
                 if(currentOpcode == 30)
                 {
                     int i17 = 0;
-                    int ai[] = new int[676];
+                    int[] ai = new int[676];
                     for(int l25 = 0; l25 < 4; l25++)
                     {
                         for(int l27 = 0; l27 < 13; l27++)
@@ -1381,8 +1379,8 @@ label0:
                     {
                         for(int k30 = 0; k30 < 10; k30++)
                         {
-                            ((Class39_Sub3_Sub2_Sub5) (npc)).anIntArray1629[k30] -= j17;
-                            ((Class39_Sub3_Sub2_Sub5) (npc)).anIntArray1630[k30] -= k22;
+                            npc.anIntArray1629[k30] -= j17;
+                            npc.anIntArray1630[k30] -= k22;
                         }
 
                         npc.anInt1621 -= j17 * 128;
@@ -1397,8 +1395,8 @@ label0:
                     {
                         for(int j32 = 0; j32 < 10; j32++)
                         {
-                            ((Class39_Sub3_Sub2_Sub5) (player)).anIntArray1629[j32] -= j17;
-                            ((Class39_Sub3_Sub2_Sub5) (player)).anIntArray1630[j32] -= k22;
+                            player.anIntArray1629[j32] -= j17;
+                            player.anIntArray1630[j32] -= k22;
                         }
 
                         player.anInt1621 -= j17 * 128;
@@ -1461,7 +1459,7 @@ label0:
             if(currentOpcode == 163)
             {
                 int j1 = incommingVector.readUShortBE();
-                int l10 = incommingVector.aClass5_1450.getUnsignedByteS(incommingVector);
+                int l10 = incommingVector.readUByte();
                 if(j1 == 65535)
                     j1 = -1;
                 if(tabInterfaceIds[l10] != j1)
@@ -1639,7 +1637,7 @@ label0:
             if(currentOpcode == 26)
             {
                 String s = incommingVector.readString();
-                int l11 = incommingVector.aClass5_1450.getUnsignedByteS(incommingVector);
+                int l11 = Buffer.aClass5_1450.getUnsignedByteS(incommingVector);
                 int l17 = incommingVector.readUByte();
                 if(l17 >= 1 && l17 <= 5)
                 {
@@ -1823,7 +1821,7 @@ label0:
             if(currentOpcode == 102)
             {
                 anInt1313 = incommingVector.readUByte();
-                anInt1314 = incommingVector.aClass5_1450.getUnsignedByteS(incommingVector);
+                anInt1314 = Buffer.aClass5_1450.getUnsignedByteS(incommingVector);
                 currentOpcode = -1;
                 return true;
             }
@@ -1936,7 +1934,7 @@ label0:
             {
                 needDrawTabArea = true;
                 int i5 = incommingVector.readUByte();
-                int k13 = incommingVector.aClass5_1450.getUnsignedByteS(incommingVector);
+                int k13 = Buffer.aClass5_1450.getUnsignedByteS(incommingVector);
                 int j19 = incommingVector.readIntLE();
                 anIntArray1096[i5] = j19;
                 anIntArray1110[i5] = k13;
@@ -1998,7 +1996,7 @@ label0:
             if(currentOpcode == 136)
             {
                 anInt1313 = incommingVector.readUByte();
-                anInt1314 = incommingVector.aClass5_1450.getUnsignedByteS(incommingVector);
+                anInt1314 = Buffer.aClass5_1450.getUnsignedByteS(incommingVector);
                 while(incommingVector.position < opcodeSize)
                 {
                     int l5 = incommingVector.readUByte();
@@ -2010,7 +2008,7 @@ label0:
             if(currentOpcode == 120)
             {
                 int i6 = incommingVector.readUShortBE();
-                boolean flag = incommingVector.aClass5_1450.getUnsignedByteS(incommingVector) == 1;
+                boolean flag = Buffer.aClass5_1450.getUnsignedByteS(incommingVector) == 1;
                 RSInterface.getInterface(i6).aBoolean613 = flag;
                 currentOpcode = -1;
                 return true;
@@ -2485,7 +2483,7 @@ label0:
         }
         catch(Exception exception)
         {
-            String s2 = "T2 - " + currentOpcode + "," + anInt970 + "," + anInt971 + " - " + opcodeSize + "," + (anInt989 + ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0]) + "," + (anInt990 + ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0]) + " - ";
+            String s2 = "T2 - " + currentOpcode + "," + anInt970 + "," + anInt971 + " - " + opcodeSize + "," + (anInt989 + myPlayer.anIntArray1629[0]) + "," + (anInt990 + myPlayer.anIntArray1630[0]) + " - ";
             for(int i16 = 0; i16 < opcodeSize && i16 < 50; i16++)
                 s2 = s2 + incommingVector.payload[i16] + ",";
 
@@ -2521,7 +2519,7 @@ label0:
 
             }
 
-            int ai[] = anIntArray910;
+            int[] ai = anIntArray910;
             anIntArray910 = anIntArray911;
             anIntArray911 = ai;
         }
@@ -2553,7 +2551,7 @@ label0:
             return -2;
         try
         {
-            int ai[] = class34.anIntArrayArray654[i];
+            int[] ai = class34.anIntArrayArray654[i];
             int j = 0;
             int k = 0;
             int l = 0;
@@ -2640,9 +2638,9 @@ label0:
                 if(i1 == 17)
                     byte1 = 3;
                 if(i1 == 18)
-                    j1 = (((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 >> 7) + anInt989;
+                    j1 = (myPlayer.anInt1621 >> 7) + anInt989;
                 if(i1 == 19)
-                    j1 = (((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 >> 7) + anInt990;
+                    j1 = (myPlayer.anInt1622 >> 7) + anInt990;
                 if(i1 == 20)
                     j1 = ai[k++];
                 if(byte1 == 0)
@@ -2670,7 +2668,7 @@ label0:
 
     public void method38(int i)
     {
-        byte abyte0[] = aClass10_1077.method193("title.dat", null);
+        byte[] abyte0 = aClass10_1077.method193("title.dat", null);
         Class39_Sub3_Sub4_Sub4 class39_sub3_sub4_sub4 = new Class39_Sub3_Sub4_Sub4(abyte0, this);
         aClass14_1070.method207(-5281);
         class39_sub3_sub4_sub4.method528(0, 0, 1);
@@ -2692,7 +2690,7 @@ label0:
         class39_sub3_sub4_sub4.method528(-128, -171, 1);
         aClass14_1075.method207(-5281);
         class39_sub3_sub4_sub4.method528(-562, -171, 1);
-        int ai[] = new int[class39_sub3_sub4_sub4.anInt1732];
+        int[] ai = new int[class39_sub3_sub4_sub4.anInt1732];
         for(int j = 0; j < class39_sub3_sub4_sub4.anInt1733; j++)
         {
             for(int k = 0; k < class39_sub3_sub4_sub4.anInt1732; k++)
@@ -2762,11 +2760,11 @@ label0:
             if((l & 0x10) != 0)
             {
                 int i1 = buffer.readUByte();
-                int i2 = buffer.aClass5_1450.getUnsignedByteS(buffer);
+                int i2 = Buffer.aClass5_1450.getUnsignedByteS(buffer);
                 npc.method416((byte)16, loopCycle, i1, i2);
                 npc.anInt1593 = loopCycle + 300;
                 npc.anInt1594 = buffer.readUByte();
-                npc.anInt1595 = buffer.aClass5_1450.getUnsignedByteS(buffer);
+                npc.anInt1595 = Buffer.aClass5_1450.getUnsignedByteS(buffer);
             }
             if((l & 4) != 0)
             {
@@ -2791,7 +2789,7 @@ label0:
                 if(j1 == 65535)
                     j1 = -1;
                 int j2 = buffer.readUByte();
-                if(j1 == ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1615 && j1 != -1)
+                if(j1 == npc.anInt1615 && j1 != -1)
                 {
                     int l2 = SEQ.aClass20Array271[j1].anInt285;
                     if(l2 == 1)
@@ -2804,14 +2802,14 @@ label0:
                     if(l2 == 2)
                         npc.anInt1619 = 0;
                 } else
-                if(j1 == -1 || ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1615 == -1 || SEQ.aClass20Array271[j1].anInt279 >= SEQ.aClass20Array271[((Class39_Sub3_Sub2_Sub5) (npc)).anInt1615].anInt279)
+                if(j1 == -1 || npc.anInt1615 == -1 || SEQ.aClass20Array271[j1].anInt279 >= SEQ.aClass20Array271[npc.anInt1615].anInt279)
                 {
                     npc.anInt1615 = j1;
                     npc.anInt1616 = 0;
                     npc.anInt1617 = 0;
                     npc.anInt1618 = j2;
                     npc.anInt1619 = 0;
-                    npc.anInt1614 = ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1604;
+                    npc.anInt1614 = npc.anInt1604;
                 }
             }
             if((l & 1) != 0)
@@ -2821,12 +2819,12 @@ label0:
             }
             if((l & 2) != 0)
             {
-                int k1 = buffer.aClass5_1450.getUnsignedByteS(buffer);
+                int k1 = Buffer.aClass5_1450.getUnsignedByteS(buffer);
                 int k2 = buffer.readUByte();
                 npc.method416((byte)16, loopCycle, k1, k2);
                 npc.anInt1593 = loopCycle + 300;
                 npc.anInt1594 = buffer.readUByte();
-                npc.anInt1595 = buffer.aClass5_1450.getUnsignedByteS(buffer);
+                npc.anInt1595 = Buffer.aClass5_1450.getUnsignedByteS(buffer);
             }
             if((l & 0x20) != 0)
             {
@@ -2836,9 +2834,9 @@ label0:
                 npc.anInt1600 = loopCycle + (l1 & 0xffff);
                 npc.anInt1598 = 0;
                 npc.anInt1599 = 0;
-                if(((Class39_Sub3_Sub2_Sub5) (npc)).anInt1600 > loopCycle)
+                if(npc.anInt1600 > loopCycle)
                     npc.anInt1598 = -1;
-                if(((Class39_Sub3_Sub2_Sub5) (npc)).anInt1597 == 65535)
+                if(npc.anInt1597 == 65535)
                     npc.anInt1597 = -1;
             }
         }
@@ -3231,8 +3229,8 @@ label0:
             Npc npc = aNpcArray899[class39_sub3_sub2_sub5.anInt1620];
             if(npc != null)
             {
-                int l = class39_sub3_sub2_sub5.anInt1621 - ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621;
-                int j1 = class39_sub3_sub2_sub5.anInt1622 - ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622;
+                int l = class39_sub3_sub2_sub5.anInt1621 - npc.anInt1621;
+                int j1 = class39_sub3_sub2_sub5.anInt1622 - npc.anInt1622;
                 if(l != 0 || j1 != 0)
                     class39_sub3_sub2_sub5.anInt1627 = (int)(Math.atan2(l, j1) * 325.94900000000001D) & 0x7ff;
             }
@@ -3245,8 +3243,8 @@ label0:
             Player player = players[i];
             if(player != null)
             {
-                int k1 = class39_sub3_sub2_sub5.anInt1621 - ((Class39_Sub3_Sub2_Sub5) (player)).anInt1621;
-                int l1 = class39_sub3_sub2_sub5.anInt1622 - ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622;
+                int k1 = class39_sub3_sub2_sub5.anInt1621 - player.anInt1621;
+                int l1 = class39_sub3_sub2_sub5.anInt1622 - player.anInt1622;
                 if(k1 != 0 || l1 != 0)
                     class39_sub3_sub2_sub5.anInt1627 = (int)(Math.atan2(k1, l1) * 325.94900000000001D) & 0x7ff;
             }
@@ -3731,7 +3729,7 @@ label0:
                 {
                     int i4 = (anIntArray936[i3] >> 8) * 64 - anInt989;
                     int k5 = (anIntArray936[i3] & 0xff) * 64 - anInt990;
-                    byte abyte0[] = aByteArrayArray1239[i3];
+                    byte[] abyte0 = aByteArrayArray1239[i3];
                     if(abyte0 != null)
                         class22.method262(i4, 6, (anInt1089 - 6) * 8, k5, aClass3Array964, abyte0, (anInt1088 - 6) * 8);
                 }
@@ -3740,7 +3738,7 @@ label0:
                 {
                     int l5 = (anIntArray936[j4] >> 8) * 64 - anInt989;
                     int k7 = (anIntArray936[j4] & 0xff) * 64 - anInt990;
-                    byte abyte2[] = aByteArrayArray1239[j4];
+                    byte[] abyte2 = aByteArrayArray1239[j4];
                     if(abyte2 == null && anInt1089 < 800)
                         class22.method257(64, k7, 64, (byte)1, l5);
                 }
@@ -3755,7 +3753,7 @@ label0:
                 outgoingVector.writeOpcode(30);
                 for(int i6 = 0; i6 < k2; i6++)
                 {
-                    byte abyte1[] = aByteArrayArray1167[i6];
+                    byte[] abyte1 = aByteArrayArray1167[i6];
                     if(abyte1 != null)
                     {
                         int k8 = (anIntArray936[i6] >> 8) * 64 - anInt989;
@@ -4115,7 +4113,7 @@ label0:
         if((k & 0x80) != 0)
         {
             int i1 = buffer.readUByte();
-            byte abyte0[] = new byte[i1];
+            byte[] abyte0 = new byte[i1];
             Buffer buff = new Buffer(abyte0);
             buffer.readBytes(abyte0, i1, 0);
             aClass39_Sub3_Sub3Array878[i] = buff;
@@ -4129,9 +4127,9 @@ label0:
             player.anInt1600 = loopCycle + (j1 & 0xffff);
             player.anInt1598 = 0;
             player.anInt1599 = 0;
-            if(((Class39_Sub3_Sub2_Sub5) (player)).anInt1600 > loopCycle)
+            if(player.anInt1600 > loopCycle)
                 player.anInt1598 = -1;
-            if(((Class39_Sub3_Sub2_Sub5) (player)).anInt1597 == 65535)
+            if(player.anInt1597 == 65535)
                 player.anInt1597 = -1;
         }
         if((k & 1) != 0)
@@ -4140,7 +4138,7 @@ label0:
             if(k1 == 65535)
                 k1 = -1;
             int k2 = buffer.readUByte();
-            if(k1 == ((Class39_Sub3_Sub2_Sub5) (player)).anInt1615 && k1 != -1)
+            if(k1 == player.anInt1615 && k1 != -1)
             {
                 int k3 = SEQ.aClass20Array271[k1].anInt285;
                 if(k3 == 1)
@@ -4153,14 +4151,14 @@ label0:
                 if(k3 == 2)
                     player.anInt1619 = 0;
             } else
-            if(k1 == -1 || ((Class39_Sub3_Sub2_Sub5) (player)).anInt1615 == -1 || SEQ.aClass20Array271[k1].anInt279 >= SEQ.aClass20Array271[((Class39_Sub3_Sub2_Sub5) (player)).anInt1615].anInt279)
+            if(k1 == -1 || player.anInt1615 == -1 || SEQ.aClass20Array271[k1].anInt279 >= SEQ.aClass20Array271[player.anInt1615].anInt279)
             {
                 player.anInt1615 = k1;
                 player.anInt1616 = 0;
                 player.anInt1617 = 0;
                 player.anInt1618 = k2;
                 player.anInt1619 = 0;
-                player.anInt1614 = ((Class39_Sub3_Sub2_Sub5) (player)).anInt1604;
+                player.anInt1614 = player.anInt1604;
             }
         }
         if((k & 0x100) != 0)
@@ -4169,24 +4167,24 @@ label0:
             int l2 = buffer.readUByte();
             player.method416((byte)16, loopCycle, l1, l2);
             player.anInt1593 = loopCycle + 300;
-            player.anInt1594 = buffer.aClass5_1450.getUnsignedByteS(buffer);
+            player.anInt1594 = Buffer.aClass5_1450.getUnsignedByteS(buffer);
             player.anInt1595 = buffer.readUByte();
         }
         if((k & 0x200) != 0)
         {
-            player.anInt1631 = buffer.aClass5_1450.getUnsignedByteS(buffer);
+            player.anInt1631 = Buffer.aClass5_1450.getUnsignedByteS(buffer);
             player.anInt1633 = buffer.readUByte();
             player.anInt1632 = buffer.readUByte();
             player.anInt1634 = buffer.readUByte();
             player.anInt1635 = buffer.readUShortLE() + loopCycle;
             player.anInt1636 = buffer.readUShortBE() + loopCycle;
-            player.anInt1637 = buffer.aClass5_1450.getUnsignedByteS(buffer);
+            player.anInt1637 = Buffer.aClass5_1450.getUnsignedByteS(buffer);
             player.method417(926);
         }
         if((k & 4) != 0)
         {
             player.anInt1620 = buffer.readUShortBE();
-            if(((Class39_Sub3_Sub2_Sub5) (player)).anInt1620 == 65535)
+            if(player.anInt1620 == 65535)
                 player.anInt1620 = -1;
         }
         if((k & 2) != 0)
@@ -4206,13 +4204,13 @@ label0:
         if((k & 8) != 0)
         {
             player.aString1605 = buffer.readString();
-            if(((Class39_Sub3_Sub2_Sub5) (player)).aString1605.charAt(0) == '~')
+            if(player.aString1605.charAt(0) == '~')
             {
-                player.aString1605 = ((Class39_Sub3_Sub2_Sub5) (player)).aString1605.substring(1);
-                sendMessage((byte)-83, ((Class39_Sub3_Sub2_Sub5) (player)).aString1605, 2, player.aString1754);
+                player.aString1605 = player.aString1605.substring(1);
+                sendMessage((byte)-83, player.aString1605, 2, player.aString1754);
             } else
             if(player == myPlayer)
-                sendMessage((byte)-83, ((Class39_Sub3_Sub2_Sub5) (player)).aString1605, 2, player.aString1754);
+                sendMessage((byte)-83, player.aString1605, 2, player.aString1754);
             player.anInt1607 = 0;
             player.anInt1643 = 0;
             player.anInt1628 = 150;
@@ -4355,7 +4353,7 @@ label0:
                 }
 
                 aBoolean1202 = false;
-                Class39_Sub3_Sub2_Sub4 aclass39_sub3_sub2_sub4[] = new Class39_Sub3_Sub2_Sub4[7];
+                Class39_Sub3_Sub2_Sub4[] aclass39_sub3_sub2_sub4 = new Class39_Sub3_Sub2_Sub4[7];
                 int k2 = 0;
                 for(int l2 = 0; l2 < 7; l2++)
                 {
@@ -4374,7 +4372,7 @@ label0:
                     }
 
                 class39_sub3_sub2_sub4.method394(false);
-                class39_sub3_sub2_sub4.method395(SEQ.aClass20Array271[((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1640].anIntArray273[0], 0);
+                class39_sub3_sub2_sub4.method395(SEQ.aClass20Array271[myPlayer.anInt1640].anIntArray273[0], 0);
                 class39_sub3_sub2_sub4.method404(64, 850, -30, -50, -30, true);
                 class34.anInt636 = 5;
                 class34.anInt637 = 0;
@@ -4537,7 +4535,7 @@ label0:
         int j1 = calendar.get(1);
         if(i < 5 || i > 5)
             currentOpcode = -1;
-        String as[] = {
+        String[] as = {
             "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", 
             "Nov", "Dec"
         };
@@ -5089,8 +5087,8 @@ label0:
                     Class39_Sub3_Sub4_Sub3 class39_sub3_sub4_sub3 = Class39_Sub3_Sub4_Sub1.aClass39_Sub3_Sub4_Sub3Array1682[k];
                     int l = class39_sub3_sub4_sub3.anInt1717 * class39_sub3_sub4_sub3.anInt1718 - 1;
                     int i1 = class39_sub3_sub4_sub3.anInt1717 * anInt1111 * 2;
-                    byte abyte0[] = class39_sub3_sub4_sub3.aByteArray1715;
-                    byte abyte1[] = aByteArray840;
+                    byte[] abyte0 = class39_sub3_sub4_sub3.aByteArray1715;
+                    byte[] abyte1 = aByteArray840;
                     for(int j1 = 0; j1 <= l; j1++)
                         abyte1[j1] = abyte0[j1 - i1 & l];
 
@@ -5167,10 +5165,10 @@ label0:
             else
                 k = playerIndices[j];
             Player player = players[k];
-            if(player != null && ((Class39_Sub3_Sub2_Sub5) (player)).anInt1628 > 0)
+            if(player != null && player.anInt1628 > 0)
             {
                 player.anInt1628--;
-                if(((Class39_Sub3_Sub2_Sub5) (player)).anInt1628 == 0)
+                if(player.anInt1628 == 0)
                     player.aString1605 = null;
             }
         }
@@ -5179,10 +5177,10 @@ label0:
         {
             int i1 = anIntArray901[l];
             Npc npc = aNpcArray899[i1];
-            if(npc != null && ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1628 > 0)
+            if(npc != null && npc.anInt1628 > 0)
             {
                 npc.anInt1628--;
-                if(((Class39_Sub3_Sub2_Sub5) (npc)).anInt1628 == 0)
+                if(npc.anInt1628 == 0)
                     npc.aString1605 = null;
             }
         }
@@ -5282,7 +5280,7 @@ label0:
 
     }
 
-    public boolean method80(int i, boolean flag, byte abyte0[])
+    public boolean method80(int i, boolean flag, byte[] abyte0)
     {
         if(!flag)
             anInt1268 = 97;
@@ -5430,11 +5428,11 @@ label0:
             int k = 0x20000000 + (anIntArray901[j] << 14);
             if(npc == null || !npc.method415(true) || npc.aNpcConfig_1772.aBoolean791 != flag || !npc.aNpcConfig_1772.method599((byte)4))
                 continue;
-            int l = ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621 >> 7;
-            int i1 = ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622 >> 7;
+            int l = npc.anInt1621 >> 7;
+            int i1 = npc.anInt1622 >> 7;
             if(l < 0 || l >= 104 || i1 < 0 || i1 >= 104)
                 continue;
-            if(((Class39_Sub3_Sub2_Sub5) (npc)).anInt1608 == 1 && (((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621 & 0x7f) == 64 && (((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622 & 0x7f) == 64)
+            if(npc.anInt1608 == 1 && (npc.anInt1621 & 0x7f) == 64 && (npc.anInt1622 & 0x7f) == 64)
             {
                 if(anIntArrayArray942[l][i1] == anInt1200)
                     continue;
@@ -5442,7 +5440,7 @@ label0:
             }
             if(!npc.aNpcConfig_1772.aBoolean786)
                 k += 0x80000000;
-            aClass31_868.method302(((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622, method21(((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621, ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622, myHeightLevel, 43591), k, ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1623, myHeightLevel, ((Class39_Sub3_Sub2_Sub5) (npc)).aBoolean1592, ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621, false, npc, (((Class39_Sub3_Sub2_Sub5) (npc)).anInt1608 - 1) * 64 + 60);
+            aClass31_868.method302(npc.anInt1622, method21(npc.anInt1621, npc.anInt1622, myHeightLevel, 43591), k, npc.anInt1623, myHeightLevel, npc.aBoolean1592, npc.anInt1621, false, npc, (npc.anInt1608 - 1) * 64 + 60);
         }
 
     }
@@ -5816,12 +5814,12 @@ label0:
             Class4.aBoolean65 = members;
             if(!highMemory) {
                 drawLoadingString("Unpacking sounds", 27936, 90);
-                byte abyte0[] = class10_5.method193("sounds.dat", null);
+                byte[] abyte0 = class10_5.method193("sounds.dat", null);
                 Buffer class39_sub3_sub3 = new Buffer(abyte0);
                 Class12.method197((byte)6, class39_sub3_sub3);
             }
             drawLoadingString("Unpacking interfaces", 27936, 95);
-            Class39_Sub3_Sub4_Sub2 aclass39_sub3_sub4_sub2[] = {
+            Class39_Sub3_Sub4_Sub2[] aclass39_sub3_sub4_sub2 = {
                 aClass39_Sub3_Sub4_Sub2_1097, aClass39_Sub3_Sub4_Sub2_1098, aClass39_Sub3_Sub4_Sub2_1099, aClass39_Sub3_Sub4_Sub2_1100
             };
             RSInterface.method359((byte)0, class10_2, aclass39_sub3_sub4_sub2, class10_1);
@@ -5874,7 +5872,7 @@ label0:
             anIntArray1316 = Class39_Sub3_Sub4_Sub1.anIntArray1680;
             Class39_Sub3_Sub4_Sub1.method487(334, 512, 4);
             anIntArray1317 = Class39_Sub3_Sub4_Sub1.anIntArray1680;
-            int ai[] = new int[9];
+            int[] ai = new int[9];
             for(int k8 = 0; k8 < 9; k8++)
             {
                 int i9 = 128 + k8 * 32 + 15;
@@ -6097,7 +6095,7 @@ label0:
         }
         catch(RuntimeException runtimeexception)
         {
-            Signlink.reporterror("97420, " + l + ", " + i + ", " + runtimeexception.toString());
+            Signlink.reporterror("97420, " + l + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -6141,7 +6139,7 @@ label0:
         boolean flag = true;
         for(int j = 0; j < aByteArrayArray1239.length; j++)
         {
-            byte abyte0[] = aByteArrayArray1167[j];
+            byte[] abyte0 = aByteArrayArray1167[j];
             if(abyte0 != null)
             {
                 int k = (anIntArray936[j] >> 8) * 64 - anInt989;
@@ -6180,16 +6178,12 @@ label0:
         	initializeHighMemory();
         }            
         String s1 = getParameter("free");
-        if(s1 != null && s1.equals("1")) {
-        	members = false;
-        } else {
-        	members = true;
-        }            
+        members = s1 == null || !s1.equals("1");
         method2(503, 765, 4);
         loadRSAKeys();
     }
 
-    public void method94(byte abyte0[], boolean flag, int i)
+    public void method94(byte[] abyte0, boolean flag, int i)
     {
         if(i != 4)
             aClass5ArrayArrayArray950 = null;
@@ -6209,8 +6203,8 @@ label0:
         aClass14_843.method207(-5281);
         if(anInt923 == 2)
         {
-            byte abyte0[] = aClass39_Sub3_Sub4_Sub3_954.aByteArray1715;
-            int ai[] = Class39_Sub3_Sub4.anIntArray1459;
+            byte[] abyte0 = aClass39_Sub3_Sub4_Sub3_954.aByteArray1715;
+            int[] ai = Class39_Sub3_Sub4.anIntArray1459;
             int k2 = abyte0.length;
             for(int i5 = 0; i5 < k2; i5++)
                 if(abyte0[i5] == 0)
@@ -6222,18 +6216,18 @@ label0:
             return;
         }
         int i = anInt928 + anInt1234 & 0x7ff;
-        int j = 48 + ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 / 32;
+        int j = 48 + myPlayer.anInt1621 / 32;
         if(byte0 == 9)
             byte0 = 0;
         else
             anInt1153 = decrypter.getNextKey();
-        int l2 = 464 - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 / 32;
+        int l2 = 464 - myPlayer.anInt1622 / 32;
         aClass39_Sub3_Sub4_Sub4_1220.method534(5, anIntArray1052, j, 25, l2, 256 + anInt881, 146, 35958, 151, i, anIntArray854);
         aClass39_Sub3_Sub4_Sub4_1157.method534(0, anIntArray1021, 25, 0, 25, 256, 33, 35958, 33, anInt928, anIntArray893);
         for(int j5 = 0; j5 < anInt1064; j5++)
         {
-            int k = (anIntArray1065[j5] * 4 + 2) - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 / 32;
-            int i3 = (anIntArray1066[j5] * 4 + 2) - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 / 32;
+            int k = (anIntArray1065[j5] * 4 + 2) - myPlayer.anInt1621 / 32;
+            int i3 = (anIntArray1066[j5] * 4 + 2) - myPlayer.anInt1622 / 32;
             method140(46599, i3, k, aClass39_Sub3_Sub4_Sub4Array1312[j5]);
         }
 
@@ -6244,8 +6238,8 @@ label0:
                 Class5 class5 = aClass5ArrayArrayArray950[myHeightLevel][k5][l5];
                 if(class5 != null)
                 {
-                    int l = (k5 * 4 + 2) - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 / 32;
-                    int j3 = (l5 * 4 + 2) - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 / 32;
+                    int l = (k5 * 4 + 2) - myPlayer.anInt1621 / 32;
+                    int j3 = (l5 * 4 + 2) - myPlayer.anInt1622 / 32;
                     method140(46599, j3, l, aClass39_Sub3_Sub4_Sub4_1036);
                 }
             }
@@ -6262,8 +6256,8 @@ label0:
                     npcConfig = npcConfig.method593(0);
                 if(npcConfig != null && npcConfig.aBoolean818 && npcConfig.aBoolean786)
                 {
-                    int i1 = ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621 / 32 - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 / 32;
-                    int k3 = ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622 / 32 - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 / 32;
+                    int i1 = npc.anInt1621 / 32 - myPlayer.anInt1621 / 32;
+                    int k3 = npc.anInt1622 / 32 - myPlayer.anInt1622 / 32;
                     method140(46599, k3, i1, aClass39_Sub3_Sub4_Sub4_1037);
                 }
             }
@@ -6274,8 +6268,8 @@ label0:
             Player player = players[playerIndices[j6]];
             if(player != null && player.method415(true))
             {
-                int j1 = ((Class39_Sub3_Sub2_Sub5) (player)).anInt1621 / 32 - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 / 32;
-                int l3 = ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622 / 32 - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 / 32;
+                int j1 = player.anInt1621 / 32 - myPlayer.anInt1621 / 32;
+                int l3 = player.anInt1622 / 32 - myPlayer.anInt1622 / 32;
                 boolean flag = false;
                 long l6 = Class37.stringToLong(player.aString1754);
                 for(int k6 = 0; k6 < anInt1190; k6++)
@@ -6286,9 +6280,7 @@ label0:
                     break;
                 }
 
-                boolean flag1 = false;
-                if(myPlayer.anInt1753 != 0 && player.anInt1753 != 0 && myPlayer.anInt1753 == player.anInt1753)
-                    flag1 = true;
+                boolean flag1 = myPlayer.anInt1753 != 0 && player.anInt1753 != 0 && myPlayer.anInt1753 == player.anInt1753;
                 if(flag)
                     method140(46599, l3, j1, aClass39_Sub3_Sub4_Sub4_1039);
                 else
@@ -6306,15 +6298,15 @@ label0:
                 Npc npc_1 = aNpcArray899[anInt883];
                 if(npc_1 != null)
                 {
-                    int k1 = ((Class39_Sub3_Sub2_Sub5) (npc_1)).anInt1621 / 32 - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 / 32;
-                    int i4 = ((Class39_Sub3_Sub2_Sub5) (npc_1)).anInt1622 / 32 - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 / 32;
+                    int k1 = npc_1.anInt1621 / 32 - myPlayer.anInt1621 / 32;
+                    int i4 = npc_1.anInt1622 / 32 - myPlayer.anInt1622 / 32;
                     method110(aClass39_Sub3_Sub4_Sub4_914, aBoolean892, k1, i4);
                 }
             }
             if(anInt1149 == 2)
             {
-                int l1 = ((anInt1133 - anInt989) * 4 + 2) - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 / 32;
-                int j4 = ((anInt1134 - anInt990) * 4 + 2) - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 / 32;
+                int l1 = ((anInt1133 - anInt989) * 4 + 2) - myPlayer.anInt1621 / 32;
+                int j4 = ((anInt1134 - anInt990) * 4 + 2) - myPlayer.anInt1622 / 32;
                 method110(aClass39_Sub3_Sub4_Sub4_914, aBoolean892, l1, j4);
             }
             if(anInt1149 == 10 && anInt1017 >= 0 && anInt1017 < players.length)
@@ -6322,16 +6314,16 @@ label0:
                 Player player = players[anInt1017];
                 if(player != null)
                 {
-                    int i2 = ((Class39_Sub3_Sub2_Sub5) (player)).anInt1621 / 32 - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 / 32;
-                    int k4 = ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622 / 32 - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 / 32;
+                    int i2 = player.anInt1621 / 32 - myPlayer.anInt1621 / 32;
+                    int k4 = player.anInt1622 / 32 - myPlayer.anInt1622 / 32;
                     method110(aClass39_Sub3_Sub4_Sub4_914, aBoolean892, i2, k4);
                 }
             }
         }
         if(anInt1218 != 0)
         {
-            int j2 = (anInt1218 * 4 + 2) - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 / 32;
-            int l4 = (anInt1219 * 4 + 2) - ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 / 32;
+            int j2 = (anInt1218 * 4 + 2) - myPlayer.anInt1621 / 32;
+            int l4 = (anInt1219 * 4 + 2) - myPlayer.anInt1622 / 32;
             method140(46599, l4, j2, aClass39_Sub3_Sub4_Sub4_913);
         }
         Class39_Sub3_Sub4.method478((byte)4, 78, 97, 0xffffff, 3, 3);
@@ -6356,7 +6348,7 @@ label0:
             if(aBooleanArray1018[4] && anIntArray947[4] + 128 > j)
                 j = anIntArray947[4] + 128;
             int l = anInt928 + anInt1269 & 0x7ff;
-            method142(method21(((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622, myHeightLevel, 43591) - 50, -727, l, anInt1225, j, anInt1226, 600 + j * 3);
+            method142(method21(myPlayer.anInt1621, myPlayer.anInt1622, myHeightLevel, 43591) - 50, -727, l, anInt1225, j, anInt1226, 600 + j * 3);
         }
         int k;
         if(!aBoolean853)
@@ -6782,9 +6774,7 @@ label0:
                 } else
                 if(class34_1.anInt638 == 3)
                 {
-                    boolean flag = false;
-                    if(anInt1154 == class34_1.anInt620 || anInt1144 == class34_1.anInt620 || anInt904 == class34_1.anInt620)
-                        flag = true;
+                    boolean flag = anInt1154 == class34_1.anInt620 || anInt1144 == class34_1.anInt620 || anInt904 == class34_1.anInt620;
                     int j3;
                     if(method135(285, class34_1))
                     {
@@ -6813,9 +6803,7 @@ label0:
                 {
                     Class39_Sub3_Sub4_Sub2 class39_sub3_sub4_sub2 = class34_1.aClass39_Sub3_Sub4_Sub2_640;
                     String s = class34_1.message;
-                    boolean flag1 = false;
-                    if(anInt1154 == class34_1.anInt620 || anInt1144 == class34_1.anInt620 || anInt904 == class34_1.anInt620)
-                        flag1 = true;
+                    boolean flag1 = anInt1154 == class34_1.anInt620 || anInt1144 == class34_1.anInt620 || anInt904 == class34_1.anInt620;
                     int j4;
                     if(method135(285, class34_1))
                     {
@@ -7049,9 +7037,9 @@ label0:
                 j1 = j1 * (anInt881 + 256) >> 8;
                 int k1 = k * i1 + j * j1 >> 11;
                 int l1 = k * j1 - j * i1 >> 11;
-                int i2 = ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 + k1 >> 7;
-                int j2 = ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 - l1 >> 7;
-                boolean flag = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 0, 0, true, 1, i2, j2);
+                int i2 = myPlayer.anInt1621 + k1 >> 7;
+                int j2 = myPlayer.anInt1622 - l1 >> 7;
+                boolean flag = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 0, myPlayer.anIntArray1629[0], 0, 0, 0, true, 1, i2, j2);
                 if(flag)
                 {
                     outgoingVector.writeByte(j);
@@ -7061,8 +7049,8 @@ label0:
                     outgoingVector.writeByte(anInt1234);
                     outgoingVector.writeByte(anInt881);
                     outgoingVector.writeByte(89);
-                    outgoingVector.writeShortBE(((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621);
-                    outgoingVector.writeShortBE(((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622);
+                    outgoingVector.writeShortBE(myPlayer.anInt1621);
+                    outgoingVector.writeShortBE(myPlayer.anInt1622);
                     outgoingVector.writeByte(anInt1082);
                     outgoingVector.writeByte(63);
                 }
@@ -7140,7 +7128,7 @@ label0:
             int i1 = class39_sub3_sub3.readUShortBE();
             int l3 = class39_sub3_sub3.readUShortLE();
             byte byte0 = class39_sub3_sub3.readByte();
-            int i9 = class39_sub3_sub3.aClass5_1450.getUnsignedByteS(class39_sub3_sub3);
+            int i9 = Buffer.aClass5_1450.getUnsignedByteS(class39_sub3_sub3);
             int l11 = i9 >> 2;
             int j14 = i9 & 3;
             int j16 = anIntArray1114[l11];
@@ -7209,7 +7197,7 @@ label0:
             int i12 = class39_sub3_sub3.readUByte();
             int k14 = i12 >> 4 & 0xf;
             int k16 = i12 & 7;
-            if(((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0] >= i4 - k14 && ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0] <= i4 + k14 && ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0] >= k6 - k14 && ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0] <= k6 + k14 && aBoolean1321 && !highMemory && anInt979 < 50)
+            if(myPlayer.anIntArray1629[0] >= i4 - k14 && myPlayer.anIntArray1629[0] <= i4 + k14 && myPlayer.anIntArray1630[0] >= k6 - k14 && myPlayer.anIntArray1630[0] <= k6 + k14 && aBoolean1321 && !highMemory && anInt979 < 50)
             {
                 anIntArray1199[anInt979] = j9;
                 anIntArray1080[anInt979] = k16;
@@ -7223,7 +7211,7 @@ label0:
             int j4 = k1 >> 2;
             int l6 = k1 & 3;
             int k9 = anIntArray1114[j4];
-            int j12 = class39_sub3_sub3.aClass5_1450.getUnsignedByteS(class39_sub3_sub3);
+            int j12 = Buffer.aClass5_1450.getUnsignedByteS(class39_sub3_sub3);
             int l14 = anInt1313 + (j12 >> 4 & 7);
             int l16 = anInt1314 + (j12 & 7);
             if(l14 >= 0 && l16 >= 0 && l14 < 104 && l16 < 104)
@@ -7232,7 +7220,7 @@ label0:
         }
         if(i == 220)
         {
-            int l1 = class39_sub3_sub3.aClass5_1450.getUnsignedByteS(class39_sub3_sub3);
+            int l1 = Buffer.aClass5_1450.getUnsignedByteS(class39_sub3_sub3);
             int k4 = anInt1313 + (l1 >> 4 & 7);
             int i7 = anInt1314 + (l1 & 7);
             int l9 = class39_sub3_sub3.readUShortLE();
@@ -7387,8 +7375,8 @@ label0:
                 if(class39_sub3_sub2_sub2.anInt1504 > 0)
                 {
                     Npc npc = aNpcArray899[class39_sub3_sub2_sub2.anInt1504 - 1];
-                    if(npc != null && ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621 >= 0 && ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621 < 13312 && ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622 >= 0 && ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622 < 13312)
-                        class39_sub3_sub2_sub2.method381((byte)7, ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621, method21(((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621, ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622, class39_sub3_sub2_sub2.anInt1505, 43591) - class39_sub3_sub2_sub2.anInt1500, ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622, loopCycle);
+                    if(npc != null && npc.anInt1621 >= 0 && npc.anInt1621 < 13312 && npc.anInt1622 >= 0 && npc.anInt1622 < 13312)
+                        class39_sub3_sub2_sub2.method381((byte)7, npc.anInt1621, method21(npc.anInt1621, npc.anInt1622, class39_sub3_sub2_sub2.anInt1505, 43591) - class39_sub3_sub2_sub2.anInt1500, npc.anInt1622, loopCycle);
                 }
                 if(class39_sub3_sub2_sub2.anInt1504 < 0)
                 {
@@ -7398,8 +7386,8 @@ label0:
                         player = myPlayer;
                     else
                         player = players[j];
-                    if(player != null && ((Class39_Sub3_Sub2_Sub5) (player)).anInt1621 >= 0 && ((Class39_Sub3_Sub2_Sub5) (player)).anInt1621 < 13312 && ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622 >= 0 && ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622 < 13312)
-                        class39_sub3_sub2_sub2.method381((byte)7, ((Class39_Sub3_Sub2_Sub5) (player)).anInt1621, method21(((Class39_Sub3_Sub2_Sub5) (player)).anInt1621, ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622, class39_sub3_sub2_sub2.anInt1505, 43591) - class39_sub3_sub2_sub2.anInt1500, ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622, loopCycle);
+                    if(player != null && player.anInt1621 >= 0 && player.anInt1621 < 13312 && player.anInt1622 >= 0 && player.anInt1622 < 13312)
+                        class39_sub3_sub2_sub2.method381((byte)7, player.anInt1621, method21(player.anInt1621, player.anInt1622, class39_sub3_sub2_sub2.anInt1505, 43591) - class39_sub3_sub2_sub2.anInt1500, player.anInt1622, loopCycle);
                 }
                 class39_sub3_sub2_sub2.method382(false, anInt1111);
                 aClass31_868.method302((int)class39_sub3_sub2_sub2.aDouble1495, (int)class39_sub3_sub2_sub2.aDouble1496, -1, class39_sub3_sub2_sub2.anInt1507, myHeightLevel, false, (int)class39_sub3_sub2_sub2.aDouble1494, false, class39_sub3_sub2_sub2, 60);
@@ -7482,7 +7470,7 @@ label0:
         }
         catch(RuntimeException runtimeexception)
         {
-            Signlink.reporterror("8652, " + i + ", " + l + ", " + runtimeexception.toString());
+            Signlink.reporterror("8652, " + i + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -7729,7 +7717,7 @@ label0:
             Player player = players[j1];
             if(player != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (player)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (player)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, player.anIntArray1629[0], player.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -7744,7 +7732,7 @@ label0:
             Player player = players[j1];
             if(player != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (player)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (player)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, player.anIntArray1629[0], player.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -7797,7 +7785,7 @@ label0:
             Npc npc = aNpcArray899[j1];
             if(npc != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (npc)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (npc)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, npc.anIntArray1629[0], npc.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -7819,7 +7807,7 @@ label0:
             Player class39_sub3_sub2_sub5_sub1_2 = players[j1];
             if(class39_sub3_sub2_sub5_sub1_2 != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub1_2)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub1_2)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, class39_sub3_sub2_sub5_sub1_2.anIntArray1629[0], class39_sub3_sub2_sub5_sub1_2.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -7840,7 +7828,7 @@ label0:
             Npc npc_1 = aNpcArray899[j1];
             if(npc_1 != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (npc_1)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (npc_1)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, npc_1.anIntArray1629[0], npc_1.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -7854,7 +7842,7 @@ label0:
             Player class39_sub3_sub2_sub5_sub1_3 = players[j1];
             if(class39_sub3_sub2_sub5_sub1_3 != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub1_3)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub1_3)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, class39_sub3_sub2_sub5_sub1_3.anIntArray1629[0], class39_sub3_sub2_sub5_sub1_3.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -7884,7 +7872,7 @@ label0:
             Npc class39_sub3_sub2_sub5_sub2_2 = aNpcArray899[j1];
             if(class39_sub3_sub2_sub5_sub2_2 != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub2_2)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub2_2)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, class39_sub3_sub2_sub5_sub2_2.anIntArray1629[0], class39_sub3_sub2_sub5_sub2_2.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -7950,9 +7938,9 @@ label0:
         }
         if(i1 == 669)
         {
-            boolean flag = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 0, 0, false, 2, k, l);
+            boolean flag = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 0, myPlayer.anIntArray1629[0], 0, 0, 0, false, 2, k, l);
             if(!flag)
-                flag = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, k, l);
+                flag = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, k, l);
             anInt919 = super.anInt30;
             anInt920 = super.anInt31;
             anInt922 = 2;
@@ -7988,7 +7976,7 @@ label0:
             Player player_4 = players[j1];
             if(player_4 != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (player_4)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (player_4)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, player_4.anIntArray1629[0], player_4.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -7999,9 +7987,9 @@ label0:
         }
         if(i1 == 78)
         {
-            boolean flag1 = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 0, 0, false, 2, k, l);
+            boolean flag1 = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 0, myPlayer.anIntArray1629[0], 0, 0, 0, false, 2, k, l);
             if(!flag1)
-                flag1 = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, k, l);
+                flag1 = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, k, l);
             anInt919 = super.anInt30;
             anInt920 = super.anInt31;
             anInt922 = 2;
@@ -8016,7 +8004,7 @@ label0:
             Npc class39_sub3_sub2_sub5_sub2_3 = aNpcArray899[j1];
             if(class39_sub3_sub2_sub5_sub2_3 != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub2_3)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub2_3)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, class39_sub3_sub2_sub5_sub2_3.anIntArray1629[0], class39_sub3_sub2_sub5_sub2_3.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -8038,7 +8026,7 @@ label0:
             Npc npc_4 = aNpcArray899[j1];
             if(npc_4 != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (npc_4)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (npc_4)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, npc_4.anIntArray1629[0], npc_4.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -8071,9 +8059,9 @@ label0:
         }
         if(i1 == 163)
         {
-            boolean flag2 = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 0, 0, false, 2, k, l);
+            boolean flag2 = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 0, myPlayer.anIntArray1629[0], 0, 0, 0, false, 2, k, l);
             if(!flag2)
-                flag2 = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, k, l);
+                flag2 = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, k, l);
             anInt919 = super.anInt30;
             anInt920 = super.anInt31;
             anInt922 = 2;
@@ -8107,7 +8095,7 @@ label0:
             Player class39_sub3_sub2_sub5_sub1_5 = players[j1];
             if(class39_sub3_sub2_sub5_sub1_5 != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub1_5)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub1_5)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, class39_sub3_sub2_sub5_sub1_5.anIntArray1629[0], class39_sub3_sub2_sub5_sub1_5.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -8121,9 +8109,9 @@ label0:
         }
         if(i1 == 740)
         {
-            boolean flag3 = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 0, 0, false, 2, k, l);
+            boolean flag3 = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 0, myPlayer.anIntArray1629[0], 0, 0, 0, false, 2, k, l);
             if(!flag3)
-                flag3 = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, k, l);
+                flag3 = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, k, l);
             anInt919 = super.anInt30;
             anInt920 = super.anInt31;
             anInt922 = 2;
@@ -8138,7 +8126,7 @@ label0:
             Npc class39_sub3_sub2_sub5_sub2_5 = aNpcArray899[j1];
             if(class39_sub3_sub2_sub5_sub2_5 != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub2_5)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub2_5)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, class39_sub3_sub2_sub5_sub2_5.anIntArray1629[0], class39_sub3_sub2_sub5_sub2_5.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -8232,7 +8220,7 @@ label0:
             Player player_6 = players[j1];
             if(player_6 != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (player_6)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (player_6)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, player_6.anIntArray1629[0], player_6.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -8339,9 +8327,9 @@ label0:
         }
         if(i1 == 550)
         {
-            boolean flag4 = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 0, 0, false, 2, k, l);
+            boolean flag4 = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 0, myPlayer.anIntArray1629[0], 0, 0, 0, false, 2, k, l);
             if(!flag4)
-                flag4 = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, k, l);
+                flag4 = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, k, l);
             anInt919 = super.anInt30;
             anInt920 = super.anInt31;
             anInt922 = 2;
@@ -8377,7 +8365,7 @@ label0:
                     Player player_7 = players[playerIndices[k3]];
                     if(player_7 == null || player_7.aString1754 == null || !player_7.aString1754.equalsIgnoreCase(s10))
                         continue;
-                    calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (player_7)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (player_7)).anIntArray1630[0]);
+                    calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, player_7.anIntArray1629[0], player_7.anIntArray1630[0]);
                     if(i1 == 119)
                     {
                         anInt1002 += j1;
@@ -8496,9 +8484,9 @@ label0:
         }
         if(i1 == 126)
         {
-            boolean flag5 = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 0, 0, false, 2, k, l);
+            boolean flag5 = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 0, myPlayer.anIntArray1629[0], 0, 0, 0, false, 2, k, l);
             if(!flag5)
-                flag5 = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, k, l);
+                flag5 = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, k, l);
             anInt919 = super.anInt30;
             anInt920 = super.anInt31;
             anInt922 = 2;
@@ -8539,7 +8527,7 @@ label0:
             Npc npc_7 = aNpcArray899[j1];
             if(npc_7 != null)
             {
-                calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, ((Class39_Sub3_Sub2_Sub5) (npc_7)).anIntArray1629[0], ((Class39_Sub3_Sub2_Sub5) (npc_7)).anIntArray1630[0]);
+                calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, npc_7.anIntArray1629[0], npc_7.anIntArray1630[0]);
                 anInt919 = super.anInt30;
                 anInt920 = super.anInt31;
                 anInt922 = 2;
@@ -8551,9 +8539,9 @@ label0:
         }
         if(i1 == 922)
         {
-            boolean flag6 = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 0, 0, false, 2, k, l);
+            boolean flag6 = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 0, myPlayer.anIntArray1629[0], 0, 0, 0, false, 2, k, l);
             if(!flag6)
-                flag6 = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 1, 0, false, 2, k, l);
+                flag6 = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 1, myPlayer.anIntArray1629[0], 0, 1, 0, false, 2, k, l);
             anInt919 = super.anInt30;
             anInt920 = super.anInt31;
             anInt922 = 2;
@@ -8860,7 +8848,7 @@ label0:
         {
             int i1 = Class31.anInt511;
             int l1 = Class31.anInt512;
-            boolean flag = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 0, 0, true, 0, i1, l1);
+            boolean flag = calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], 0, myPlayer.anIntArray1629[0], 0, 0, 0, true, 0, i1, l1);
             Class31.anInt511 = -1;
             if(flag)
             {
@@ -8991,8 +8979,8 @@ label0:
         {
             int j = anInt1209 >> 7;
             int k = anInt1211 >> 7;
-            int l = ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 >> 7;
-            int i1 = ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 >> 7;
+            int l = myPlayer.anInt1621 >> 7;
+            int i1 = myPlayer.anInt1622 >> 7;
             if((aByteArrayArrayArray1076[myHeightLevel][j][k] & 4) != 0)
                 i = myHeightLevel;
             int j1;
@@ -9059,7 +9047,7 @@ label0:
                 }
             }
         }
-        if((aByteArrayArrayArray1076[myHeightLevel][((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 >> 7][((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 >> 7] & 4) != 0)
+        if((aByteArrayArrayArray1076[myHeightLevel][myPlayer.anInt1621 >> 7][myPlayer.anInt1622 >> 7] & 4) != 0)
             i = myHeightLevel;
         return i;
     }
@@ -9235,7 +9223,7 @@ label0:
                 socket.fillBuffer(incommingVector.payload, 0, 8);
                 incommingVector.position = 0;
                 serverKey = incommingVector.readLongBE();
-                int isaacSeed[] = new int[4];
+                int[] isaacSeed = new int[4];
                 isaacSeed[0] = (int)(Math.random() * 99999999D);
                 isaacSeed[1] = (int)(Math.random() * 99999999D);
                 isaacSeed[2] = (int)(serverKey >> 32);
@@ -9757,7 +9745,7 @@ label0:
         }
         catch(RuntimeException runtimeexception)
         {
-            Signlink.reporterror("44197, " + l + ", " + flag + ", " + runtimeexception.toString());
+            Signlink.reporterror("44197, " + l + ", " + flag + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -9849,10 +9837,10 @@ label0:
             int k2 = class27.anInt399;
             if(l1 != 0)
                 k2 = (k2 << l1 & 0xf) + (k2 >> 4 - l1);
-            calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], i2, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], k2, j2, 0, false, 2, k, i);
+            calculateWalkingRoute(584, 0, myPlayer.anIntArray1630[0], i2, myPlayer.anIntArray1629[0], k2, j2, 0, false, 2, k, i);
         } else
         {
-            calculateWalkingRoute(584, l1, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 0, k1 + 1, false, 2, k, i);
+            calculateWalkingRoute(584, l1, myPlayer.anIntArray1630[0], 0, myPlayer.anIntArray1629[0], 0, 0, k1 + 1, false, 2, k, i);
         }
         anInt919 = super.anInt30;
         anInt920 = super.anInt31;
@@ -9872,7 +9860,7 @@ label0:
             int k3 = k;
             if(k1 > 0)
                 k3 = j1;
-            int ai[] = aClass39_Sub3_Sub4_Sub4_1220.anIntArray1731;
+            int[] ai = aClass39_Sub3_Sub4_Sub4_1220.anIntArray1731;
             int k4 = 24624 + i * 4 + (103 - l) * 512 * 4;
             int i5 = k1 >> 14 & 0x7fff;
             Class27 class27_2 = Class27.method272(i5);
@@ -9984,7 +9972,7 @@ label0:
                 int l4 = 0xeeeeee;
                 if(k1 > 0)
                     l4 = 0xee0000;
-                int ai1[] = aClass39_Sub3_Sub4_Sub4_1220.anIntArray1731;
+                int[] ai1 = aClass39_Sub3_Sub4_Sub4_1220.anIntArray1731;
                 int l5 = 24624 + i * 4 + (103 - l) * 512 * 4;
                 if(l2 == 0 || l2 == 2)
                 {
@@ -10062,7 +10050,7 @@ label0:
 
     public void method127(int i, byte byte0)
     {
-        int ai[] = aClass39_Sub3_Sub4_Sub4_1220.anIntArray1731;
+        int[] ai = aClass39_Sub3_Sub4_Sub4_1220.anIntArray1731;
         if(byte0 == 0)
             byte0 = 0;
         else
@@ -10144,7 +10132,7 @@ label0:
                         {
                             byte byte1 = 104;
                             byte byte2 = 104;
-                            int ai1[][] = aClass3Array964[myHeightLevel].anIntArrayArray59;
+                            int[][] ai1 = aClass3Array964[myHeightLevel].anIntArrayArray59;
                             for(int j4 = 0; j4 < 10; j4++)
                             {
                                 int k4 = (int)(Math.random() * 4D);
@@ -10325,7 +10313,7 @@ label0:
     	return;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         try {
             System.out.println("RS2 user client - release #" + Constants.BUILD_NUMBER);
             if(args.length != 5) {
@@ -10700,7 +10688,7 @@ label0:
         {
             for(int l4 = 1; l4 > 0; l4++);
         }
-        int ai[][] = aClass3Array964[myHeightLevel].anIntArrayArray59;
+        int[][] ai = aClass3Array964[myHeightLevel].anIntArrayArray59;
         while(i4 != l3) 
         {
             j3 = anIntArray1222[i4];
@@ -11015,19 +11003,19 @@ label0:
             if(k1 == 1)
             {
                 Npc npc = aNpcArray899[l1];
-                if(npc.aNpcConfig_1772.aByte820 == 1 && (((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621 & 0x7f) == 64 && (((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622 & 0x7f) == 64)
+                if(npc.aNpcConfig_1772.aByte820 == 1 && (npc.anInt1621 & 0x7f) == 64 && (npc.anInt1622 & 0x7f) == 64)
                 {
                     for(int j2 = 0; j2 < anInt900; j2++)
                     {
                         Npc npc_1 = aNpcArray899[anIntArray901[j2]];
-                        if(npc_1 != null && npc_1 != npc && npc_1.aNpcConfig_1772.aByte820 == 1 && ((Class39_Sub3_Sub2_Sub5) (npc_1)).anInt1621 == ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621 && ((Class39_Sub3_Sub2_Sub5) (npc_1)).anInt1622 == ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622)
+                        if(npc_1 != null && npc_1 != npc && npc_1.aNpcConfig_1772.aByte820 == 1 && npc_1.anInt1621 == npc.anInt1621 && npc_1.anInt1622 == npc.anInt1622)
                             method129(0, anIntArray901[j2], npc_1.aNpcConfig_1772, j1, i1);
                     }
 
                     for(int l2 = 0; l2 < playerCount; l2++)
                     {
                         Player player = players[playerIndices[l2]];
-                        if(player != null && ((Class39_Sub3_Sub2_Sub5) (player)).anInt1621 == ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1621 && ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622 == ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1622)
+                        if(player != null && player.anInt1621 == npc.anInt1621 && player.anInt1622 == npc.anInt1622)
                             method150(i1, j1, playerIndices[l2], -810, player);
                     }
 
@@ -11037,19 +11025,19 @@ label0:
             if(k1 == 0)
             {
                 Player player = players[l1];
-                if((((Class39_Sub3_Sub2_Sub5) (player)).anInt1621 & 0x7f) == 64 && (((Class39_Sub3_Sub2_Sub5) (player)).anInt1622 & 0x7f) == 64)
+                if((player.anInt1621 & 0x7f) == 64 && (player.anInt1622 & 0x7f) == 64)
                 {
                     for(int k2 = 0; k2 < anInt900; k2++)
                     {
                         Npc class39_sub3_sub2_sub5_sub2_2 = aNpcArray899[anIntArray901[k2]];
-                        if(class39_sub3_sub2_sub5_sub2_2 != null && class39_sub3_sub2_sub5_sub2_2.aNpcConfig_1772.aByte820 == 1 && ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub2_2)).anInt1621 == ((Class39_Sub3_Sub2_Sub5) (player)).anInt1621 && ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub2_2)).anInt1622 == ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622)
+                        if(class39_sub3_sub2_sub5_sub2_2 != null && class39_sub3_sub2_sub5_sub2_2.aNpcConfig_1772.aByte820 == 1 && class39_sub3_sub2_sub5_sub2_2.anInt1621 == player.anInt1621 && class39_sub3_sub2_sub5_sub2_2.anInt1622 == player.anInt1622)
                             method129(0, anIntArray901[k2], class39_sub3_sub2_sub5_sub2_2.aNpcConfig_1772, j1, i1);
                     }
 
                     for(int i3 = 0; i3 < playerCount; i3++)
                     {
                         Player class39_sub3_sub2_sub5_sub1_2 = players[playerIndices[i3]];
-                        if(class39_sub3_sub2_sub5_sub1_2 != null && class39_sub3_sub2_sub5_sub1_2 != player && ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub1_2)).anInt1621 == ((Class39_Sub3_Sub2_Sub5) (player)).anInt1621 && ((Class39_Sub3_Sub2_Sub5) (class39_sub3_sub2_sub5_sub1_2)).anInt1622 == ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622)
+                        if(class39_sub3_sub2_sub5_sub1_2 != null && class39_sub3_sub2_sub5_sub1_2 != player && class39_sub3_sub2_sub5_sub1_2.anInt1621 == player.anInt1621 && class39_sub3_sub2_sub5_sub1_2.anInt1622 == player.anInt1622)
                             method150(i1, j1, playerIndices[i3], -810, class39_sub3_sub2_sub5_sub1_2);
                     }
 
@@ -11795,12 +11783,12 @@ label0:
                         myPlayer.anInt1643 = i3;
                         myPlayer.anInt1628 = 150;
                         if(anInt1155 == 2)
-                            sendMessage((byte)-83, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).aString1605, 2, "@cr2@" + myPlayer.aString1754);
+                            sendMessage((byte)-83, myPlayer.aString1605, 2, "@cr2@" + myPlayer.aString1754);
                         else
                         if(anInt1155 == 1)
-                            sendMessage((byte)-83, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).aString1605, 2, "@cr1@" + myPlayer.aString1754);
+                            sendMessage((byte)-83, myPlayer.aString1605, 2, "@cr1@" + myPlayer.aString1754);
                         else
-                            sendMessage((byte)-83, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).aString1605, 2, myPlayer.aString1754);
+                            sendMessage((byte)-83, myPlayer.aString1605, 2, myPlayer.aString1754);
                         if(anInt995 == 2)
                         {
                             anInt995 = 3;
@@ -11961,14 +11949,14 @@ label0:
         }
         catch(RuntimeException runtimeexception)
         {
-            Signlink.reporterror("4898, " + i + ", " + l + ", " + runtimeexception.toString());
+            Signlink.reporterror("4898, " + i + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
     public void method146(boolean flag, int i)
     {
-        if(((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621 >> 7 == anInt1218 && ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622 >> 7 == anInt1219)
+        if(myPlayer.anInt1621 >> 7 == anInt1218 && myPlayer.anInt1622 >> 7 == anInt1219)
             anInt1218 = 0;
         int j = playerCount;
         if(i != 0)
@@ -11990,28 +11978,26 @@ label0:
             }
             if(player == null || !player.method415(true))
                 continue;
-            player.aBoolean1757 = false;
-            if((highMemory && playerCount > 50 || playerCount > 200) && !flag && ((Class39_Sub3_Sub2_Sub5) (player)).anInt1624 == ((Class39_Sub3_Sub2_Sub5) (player)).anInt1640)
-                player.aBoolean1757 = true;
-            int i1 = ((Class39_Sub3_Sub2_Sub5) (player)).anInt1621 >> 7;
-            int j1 = ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622 >> 7;
+            player.aBoolean1757 = (highMemory && playerCount > 50 || playerCount > 200) && !flag && player.anInt1624 == player.anInt1640;
+            int i1 = player.anInt1621 >> 7;
+            int j1 = player.anInt1622 >> 7;
             if(i1 < 0 || i1 >= 104 || j1 < 0 || j1 >= 104)
                 continue;
             if(player.aClass39_Sub3_Sub2_Sub4_1743 != null && loopCycle >= player.anInt1738 && loopCycle < player.anInt1739)
             {
                 player.aBoolean1757 = false;
-                player.anInt1762 = method21(((Class39_Sub3_Sub2_Sub5) (player)).anInt1621, ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622, myHeightLevel, 43591);
-                aClass31_868.method303(player.anInt1752, player, player.anInt1749, myHeightLevel, ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622, ((Class39_Sub3_Sub2_Sub5) (player)).anInt1623, 60, l, player.anInt1751, player.anInt1750, player.anInt1762, ((Class39_Sub3_Sub2_Sub5) (player)).anInt1621, -16624);
+                player.anInt1762 = method21(player.anInt1621, player.anInt1622, myHeightLevel, 43591);
+                aClass31_868.method303(player.anInt1752, player, player.anInt1749, myHeightLevel, player.anInt1622, player.anInt1623, 60, l, player.anInt1751, player.anInt1750, player.anInt1762, player.anInt1621, -16624);
                 continue;
             }
-            if((((Class39_Sub3_Sub2_Sub5) (player)).anInt1621 & 0x7f) == 64 && (((Class39_Sub3_Sub2_Sub5) (player)).anInt1622 & 0x7f) == 64)
+            if((player.anInt1621 & 0x7f) == 64 && (player.anInt1622 & 0x7f) == 64)
             {
                 if(anIntArrayArray942[i1][j1] == anInt1200)
                     continue;
                 anIntArrayArray942[i1][j1] = anInt1200;
             }
-            player.anInt1762 = method21(((Class39_Sub3_Sub2_Sub5) (player)).anInt1621, ((Class39_Sub3_Sub2_Sub5) (player)).anInt1622, myHeightLevel, 43591);
-            aClass31_868.method302(((Class39_Sub3_Sub2_Sub5) (player)).anInt1622, player.anInt1762, l, ((Class39_Sub3_Sub2_Sub5) (player)).anInt1623, myHeightLevel, ((Class39_Sub3_Sub2_Sub5) (player)).aBoolean1592, ((Class39_Sub3_Sub2_Sub5) (player)).anInt1621, false, player, 60);
+            player.anInt1762 = method21(player.anInt1621, player.anInt1622, myHeightLevel, 43591);
+            aClass31_868.method302(player.anInt1622, player.anInt1762, l, player.anInt1623, myHeightLevel, player.aBoolean1592, player.anInt1621, false, player, 60);
         }
 
     }
@@ -12215,7 +12201,7 @@ label0:
     {
         if(byte0 != -83)
             currentOpcode = -1;
-        byte abyte0[] = null;
+        byte[] abyte0 = null;
         int l = 5;
         try
         {
@@ -12246,7 +12232,7 @@ label0:
             {
                 int k1 = 0;
                 DataInputStream datainputstream = method57(s1 + k);
-                byte abyte1[] = new byte[6];
+                byte[] abyte1 = new byte[6];
                 datainputstream.readFully(abyte1, 0, 6);
                 Buffer class39_sub3_sub3 = new Buffer(abyte1);
                 class39_sub3_sub3.position = 3;
@@ -12581,47 +12567,47 @@ label0:
 
     public static int anInt838;
     public Buffer loginBlock;
-    public byte aByteArray840[];
+    public byte[] aByteArray840;
     public long aLong841;
     public Class14 aClass14_842;
     public Class14 aClass14_843;
     public Class14 aClass14_844;
     public Class14 aClass14_845;
     public int anInt846;
-    public int anIntArray847[];
+    public int[] anIntArray847;
     public boolean aBoolean848;
     public boolean aBoolean849;
     public int anInt850;
     public byte aByte851;
-    public int anIntArray852[];
+    public int[] anIntArray852;
     public boolean aBoolean853;
-    public int anIntArray854[];
+    public int[] anIntArray854;
     public static int anInt855;
     public int anInt856;
     public int anInt857;
     public int anInt858;
-    public int anIntArray859[];
-    public int anIntArray860[];
-    public int anIntArray861[];
-    public int anIntArray862[];
-    public int anIntArray863[];
-    public int anIntArray864[];
-    public int anIntArray865[];
-    public String aStringArray866[];
+    public int[] anIntArray859;
+    public int[] anIntArray860;
+    public int[] anIntArray861;
+    public int[] anIntArray862;
+    public int[] anIntArray863;
+    public int[] anIntArray864;
+    public int[] anIntArray865;
+    public String[] aStringArray866;
     public boolean aBoolean867;
     public Class31 aClass31_868;
-    public Class39_Sub3_Sub4_Sub3 aClass39_Sub3_Sub4_Sub3Array869[];
-    public int anIntArray870[];
+    public Class39_Sub3_Sub4_Sub3[] aClass39_Sub3_Sub4_Sub3Array869;
+    public int[] anIntArray870;
     public int anInt871;
     public int myPlayerIndex;
-    public Player players[];
+    public Player[] players;
     public int playerCount;
-    public int playerIndices[]; //Pl. of index :o
+    public int[] playerIndices; //Pl. of index :o
     public int anInt876;
-    public int anIntArray877[];
-    public Buffer aClass39_Sub3_Sub3Array878[];
-    public long aLongArray879[];
-    public static int anIntArray880[];
+    public int[] anIntArray877;
+    public Buffer[] aClass39_Sub3_Sub3Array878;
+    public long[] aLongArray879;
+    public static int[] anIntArray880;
     public int anInt881;
     public int anInt882;
     public int anInt883;
@@ -12634,15 +12620,15 @@ label0:
     public boolean aBoolean890;
     public int anInt891;
     public boolean aBoolean892;
-    public int anIntArray893[];
+    public int[] anIntArray893;
     public static int anInt894;
-    public int anIntArray895[];
+    public int[] anIntArray895;
     public boolean aBoolean896;
     public int anInt897;
     public Buffer aClass39_Sub3_Sub3_898;
-    public Npc aNpcArray899[];
+    public Npc[] aNpcArray899;
     public int anInt900;
-    public int anIntArray901[];
+    public int[] anIntArray901;
     public int anInt902;
     public int anInt903;
     public int anInt904;
@@ -12651,15 +12637,15 @@ label0:
     public int anInt907;
     public int anInt908;
     public String aString909;
-    public int anIntArray910[];
-    public int anIntArray911[];
-    public Class39_Sub3_Sub4_Sub4 aClass39_Sub3_Sub4_Sub4Array912[];
+    public int[] anIntArray910;
+    public int[] anIntArray911;
+    public Class39_Sub3_Sub4_Sub4[] aClass39_Sub3_Sub4_Sub4Array912;
     public Class39_Sub3_Sub4_Sub4 aClass39_Sub3_Sub4_Sub4_913;
     public Class39_Sub3_Sub4_Sub4 aClass39_Sub3_Sub4_Sub4_914;
     public int anInt915;
     public boolean aBoolean916;
     public int anInt917;
-    public int anIntArray918[];
+    public int[] anIntArray918;
     public int anInt919;
     public int anInt920;
     public int anInt921;
@@ -12677,21 +12663,21 @@ label0:
     public int anInt933;
     public int anInt934;
     public int anInt935;
-    public int anIntArray936[];
-    public int anIntArray937[];
-    public int anIntArray938[];
+    public int[] anIntArray936;
+    public int[] anIntArray937;
+    public int[] anIntArray938;
     public int anInt939;
     public boolean aBoolean940;
-    public int anIntArray941[];
-    public int anIntArrayArray942[][];
-    public int anIntArray943[];
+    public int[] anIntArray941;
+    public int[][] anIntArrayArray942;
+    public int[] anIntArray943;
     public int anInt944;
     public static boolean aBoolean945;
-    public Class39_Sub3_Sub4_Sub4 aClass39_Sub3_Sub4_Sub4Array946[];
-    public int anIntArray947[];
+    public Class39_Sub3_Sub4_Sub4[] aClass39_Sub3_Sub4_Sub4Array946;
+    public int[] anIntArray947;
     public int anInt948;
     public int anInt949;
-    public Class5 aClass5ArrayArrayArray950[][][];
+    public Class5[][][] aClass5ArrayArrayArray950;
     public int anInt951;
     public boolean aBoolean952;
     public Class39_Sub3_Sub4_Sub3 aClass39_Sub3_Sub4_Sub3_953;
@@ -12705,8 +12691,8 @@ label0:
     public int anInt961;
     public int anInt962;
     public int anInt963;
-    public Class3 aClass3Array964[];
-    public String aStringArray965[];
+    public Class3[] aClass3Array964;
+    public String[] aStringArray965;
     public boolean aBoolean966;
     public int anInt967;
     public int anInt968;
@@ -12721,15 +12707,15 @@ label0:
     public int anInt977;
     public int anInt978;
     public int anInt979;
-    public String aStringArray980[];
-    public boolean aBooleanArray981[];
+    public String[] aStringArray980;
+    public boolean[] aBooleanArray981;
     public int anInt982;
     public byte aByte983;
     public Class39_Sub3_Sub4_Sub3 aClass39_Sub3_Sub4_Sub3_984;
     public Class39_Sub3_Sub4_Sub3 aClass39_Sub3_Sub4_Sub3_985;
     public Class39_Sub3_Sub4_Sub3 aClass39_Sub3_Sub4_Sub3_986;
     public int anInt987;
-    public int anIntArrayArray988[][];
+    public int[][] anIntArrayArray988;
     public int anInt989;
     public int anInt990;
     public int anInt991;
@@ -12739,18 +12725,18 @@ label0:
     public int anInt995;
     public String aString996;
     public int anInt997;
-    public String aStringArray998[];
-    public int anIntArray999[];
+    public String[] aStringArray998;
+    public int[] anIntArray999;
     public int anInt1000;
     public boolean aBoolean1001;
     public static int anInt1002;
     public static int loopCycle;
     public int anInt1004;
     public int anInt1005;
-    public int anIntArray1006[];
-    public int anIntArray1007[];
-    public int anIntArray1008[];
-    public int anIntArray1009[];
+    public int[] anIntArray1006;
+    public int[] anIntArray1007;
+    public int[] anIntArray1008;
+    public int[] anIntArray1009;
     public int anInt1010;
     public int anInt1011;
     public String aString1012;
@@ -12759,9 +12745,9 @@ label0:
     public volatile boolean aBoolean1015;
     public int anInt1016;
     public int anInt1017;
-    public boolean aBooleanArray1018[];
+    public boolean[] aBooleanArray1018;
     public int anInt1019;
-    public static final int anIntArrayArray1020[][] = {
+    public static final int[][] anIntArrayArray1020 = {
         {
             6798, 107, 10283, 16, 4797, 7744, 5799, 4634, 33697, 22433, 
             2983, 54193
@@ -12777,14 +12763,14 @@ label0:
             4550, 4537, 5681, 5673, 5790, 6806, 8076, 4574
         }
     };
-    public int anIntArray1021[];
+    public int[] anIntArray1021;
     public boolean aBoolean1022;
     public String aString1023;
-    public int anIntArray1024[];
+    public int[] anIntArray1024;
     public Class39_Sub3_Sub4_Sub4 aClass39_Sub3_Sub4_Sub4_1025;
     public int anInt1026;
-    public int anIntArray1027[];
-    public int anIntArray1028[];
+    public int[] anIntArray1027;
+    public int[] anIntArray1028;
     public int anInt1029;
     public int anInt1030;
     public int anInt1031;
@@ -12806,9 +12792,9 @@ label0:
     public static boolean highMemory;
     public int anInt1048;
     public int anInt1049;
-    public long aLongArray1050[];
+    public long[] aLongArray1050;
     public long aLong1051;
-    public int anIntArray1052[];
+    public int[] anIntArray1052;
     public int anInt1053;
     public int anInt1054;
     public int anInt1055;
@@ -12817,12 +12803,12 @@ label0:
     public int anInt1058;
     public byte aByte1059;
     public int anInt1060;
-    public int anIntArrayArrayArray1061[][][];
-    public Class13 aClass13Array1062[];
+    public int[][][] anIntArrayArrayArray1061;
+    public Class13[] aClass13Array1062;
     public boolean needDrawTabArea;
     public int anInt1064;
-    public int anIntArray1065[];
-    public int anIntArray1066[];
+    public int[] anIntArray1065;
+    public int[] anIntArray1066;
     public Class14 aClass14_1067;
     public Class14 aClass14_1068;
     public Class14 aClass14_1069;
@@ -12832,18 +12818,18 @@ label0:
     public Class14 aClass14_1073;
     public Class14 aClass14_1074;
     public Class14 aClass14_1075;
-    public byte aByteArrayArrayArray1076[][][];
+    public byte[][][] aByteArrayArrayArray1076;
     public Class10 aClass10_1077;
     public int anInt1078;
     public int anInt1079;
-    public int anIntArray1080[];
+    public int[] anIntArray1080;
     public static int anInt1081 = 523;
     public int anInt1082;
     public int anInt1083;
     public boolean aBoolean1084;
     public int anInt1085;
-    public Class39_Sub3_Sub4_Sub4 aClass39_Sub3_Sub4_Sub4Array1086[];
-    public int anIntArray1087[];
+    public Class39_Sub3_Sub4_Sub4[] aClass39_Sub3_Sub4_Sub4Array1086;
+    public int[] anIntArray1087;
     public int anInt1088;
     public int anInt1089;
     public String loginScreenTextLine1;
@@ -12851,12 +12837,12 @@ label0:
     public int anInt1092;
     public int anInt1093;
     public int anInt1094;
-    public int anIntArray1096[];
+    public int[] anIntArray1096;
     public Class39_Sub3_Sub4_Sub2 aClass39_Sub3_Sub4_Sub2_1097;
     public Class39_Sub3_Sub4_Sub2 aClass39_Sub3_Sub4_Sub2_1098;
     public Class39_Sub3_Sub4_Sub2 aClass39_Sub3_Sub4_Sub2_1099;
     public Class39_Sub3_Sub4_Sub2 aClass39_Sub3_Sub4_Sub2_1100;
-    public int anIntArrayArray1101[][];
+    public int[][] anIntArrayArray1101;
     public boolean aBoolean1102;
     public int anInt1103;
     public RSSocket socket;
@@ -12865,31 +12851,31 @@ label0:
     public int anInt1107;
     public int anInt1108;
     public long serverKey;
-    public int anIntArray1110[];
+    public int[] anIntArray1110;
     public int anInt1111;
     public static BigInteger rsaModulus = new BigInteger("7162900525229798032761816791230527296329313291232324290237849263501208207972894053929065636522363163621000728841182238772712427862772219676577293600221789");
     public int anInt1113;
-    public final int anIntArray1114[] = {
+    public final int[] anIntArray1114 = {
         0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 
         2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
         2, 2, 3
     };
     public Socket aSocket1115;
     public int anInt1116;
-    public int anIntArray1117[];
+    public int[] anIntArray1117;
     public int anInt1118;
-    public Class39_Sub3_Sub4_Sub4 aClass39_Sub3_Sub4_Sub4Array1119[];
-    public int anIntArray1120[];
-    public int anIntArray1121[];
-    public int anIntArray1122[];
-    public int anIntArray1123[];
+    public Class39_Sub3_Sub4_Sub4[] aClass39_Sub3_Sub4_Sub4Array1119;
+    public int[] anIntArray1120;
+    public int[] anIntArray1121;
+    public int[] anIntArray1122;
+    public int[] anIntArray1123;
     public boolean aBoolean1124;
     public String aString1125;
-    public Class39_Sub3_Sub4_Sub3 aClass39_Sub3_Sub4_Sub3Array1126[];
+    public Class39_Sub3_Sub4_Sub3[] aClass39_Sub3_Sub4_Sub3Array1126;
     public int anInt1127;
     public int myHeightLevel;
     public int anInt1129;
-    public Class39_Sub3_Sub4_Sub4 aClass39_Sub3_Sub4_Sub4Array1130[];
+    public Class39_Sub3_Sub4_Sub4[] aClass39_Sub3_Sub4_Sub4Array1130;
     public String aString1131;
     public boolean aBoolean1132;
     public int anInt1133;
@@ -12926,7 +12912,7 @@ label0:
     public static int anInt1164;
     public byte aByte1165;
     public int anInt1166;
-    public byte aByteArrayArray1167[][];
+    public byte[][] aByteArrayArray1167;
     public int anInt1168;
     public int anInt1169;
     public int anInt1170;
@@ -12938,11 +12924,11 @@ label0:
     public int anInt1176;
     public String enteredUsername;
     public String aString1178;
-    public int anIntArrayArrayArray1179[][][];
+    public int[][][] anIntArrayArrayArray1179;
     public int anInt1180;
     public RSInterface aClass34_1181;
     public byte aByte1182;
-    public int anIntArray1183[] = {
+    public int[] anIntArray1183 = {
         0xffff00, 0xff0000, 65280, 65535, 0xff00ff, 0xffffff
     };
     public int anInt1184;
@@ -12953,21 +12939,21 @@ label0:
     public int anInt1189;
     public int anInt1190;
     public int anInt1191;
-    public int anIntArray1192[];
-    public String aStringArray1193[];
-    public String aStringArray1194[];
+    public int[] anIntArray1192;
+    public String[] aStringArray1193;
+    public String[] aStringArray1194;
     public int anInt1195;
     public int anInt1196;
     public byte aByte1197;
     public boolean aBoolean1198;
-    public int anIntArray1199[];
+    public int[] anIntArray1199;
     public int anInt1200;
     public String aString1201;
     public boolean aBoolean1202;
     public int anInt1203;
-    public Class39_Sub3_Sub4_Sub4 aClass39_Sub3_Sub4_Sub4Array1204[];
-    public static int anIntArray1205[];
-    public int anIntArray1206[];
+    public Class39_Sub3_Sub4_Sub4[] aClass39_Sub3_Sub4_Sub4Array1204;
+    public static int[] anIntArray1205;
+    public int[] anIntArray1206;
     public static int anInt1207;
     public int anInt1208;
     public int anInt1209;
@@ -12977,14 +12963,14 @@ label0:
     public int anInt1213;
     public CRC32 crc32;
     public int anInt1215;
-    public String aStringArray1216[];
+    public String[] aStringArray1216;
     public static int anInt1217 = 388;
     public int anInt1218;
     public int anInt1219;
     public Class39_Sub3_Sub4_Sub4 aClass39_Sub3_Sub4_Sub4_1220;
     public static int anInt1221;
-    public int anIntArray1222[];
-    public int anIntArray1223[];
+    public int[] anIntArray1222;
+    public int[] anIntArray1223;
     public static String aString1224 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"\243$%^&*()-_=+[{]};:'@#~,<.>/?\\| ";
     public int anInt1225;
     public int anInt1226;
@@ -13000,7 +12986,7 @@ label0:
     public static int anInt1236;
     public int anInt1237;
     public int anInt1238;
-    public byte aByteArrayArray1239[][];
+    public byte[][] aByteArrayArray1239;
     public Class14 aClass14_1240;
     public Class14 aClass14_1241;
     public Class14 aClass14_1242;
@@ -13021,9 +13007,9 @@ label0:
     public int anInt1257;
     public int anInt1258;
     public int anInt1259;
-    public Class39_Sub3_Sub4_Sub3 aClass39_Sub3_Sub4_Sub3Array1260[];
+    public Class39_Sub3_Sub4_Sub3[] aClass39_Sub3_Sub4_Sub3Array1260;
     public int anInt1261;
-    public int anIntArray1262[] = {
+    public int[] anIntArray1262 = {
         17, 24, 34, 40
     };
     public int anInt1263;
@@ -13048,7 +13034,7 @@ label0:
     public int anInt1282;
     public int anInt1283;
     public final int anInt1284 = 100;
-    public int anIntArray1285[];
+    public int[] anIntArray1285;
     public boolean aBoolean1286;
     public boolean aBoolean1287;
     public Buffer outgoingVector;
@@ -13064,26 +13050,26 @@ label0:
     public int anInt1298;
     public int anInt1299;
     public int anInt1300;
-    public Class39_Sub3_Sub4_Sub3 aClass39_Sub3_Sub4_Sub3Array1301[];
+    public Class39_Sub3_Sub4_Sub3[] aClass39_Sub3_Sub4_Sub3Array1301;
     public int anInt1302;
     public volatile boolean aBoolean1303;
     public int anInt1304;
     public Class5 aClass5_1305;
     public int anInt1306;
     public ISAACCipher decrypter;
-    public int anIntArray1308[];
-    public int archiveChecksums[];
+    public int[] anIntArray1308;
+    public int[] archiveChecksums;
     public int anInt1310;
     public Class5 aClass5_1311;
-    public Class39_Sub3_Sub4_Sub4 aClass39_Sub3_Sub4_Sub4Array1312[];
+    public Class39_Sub3_Sub4_Sub4[] aClass39_Sub3_Sub4_Sub4Array1312;
     public int anInt1313;
     public int anInt1314;
-    public int anIntArray1315[];
-    public int anIntArray1316[];
-    public int anIntArray1317[];
-    public int anIntArray1318[];
+    public int[] anIntArray1315;
+    public int[] anIntArray1316;
+    public int[] anIntArray1317;
+    public int[] anIntArray1318;
     public boolean aBoolean1319;
-    public static final int anIntArray1320[] = {
+    public static final int[] anIntArray1320 = {
         9104, 10275, 7595, 3610, 7975, 8526, 918, 38802, 24466, 10145, 
         58654, 5027, 1457, 16565, 34991, 25486
     };
@@ -13093,7 +13079,7 @@ label0:
     public int anInt1324;
     public int anInt1325;
     public String aString1326;
-    public int tabInterfaceIds[] = {
+    public int[] tabInterfaceIds = {
         -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
         -1, -1, -1, -1, -1
     };
