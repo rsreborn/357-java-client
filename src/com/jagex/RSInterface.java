@@ -128,8 +128,8 @@ public class RSInterface
             for(int i3 = 0; i3 < l1; i3++)
             {
                 class34.anIntArray650[i3] = class39_sub3_sub3.readUShortBE();
-                class34.anIntArray582[i3] = class39_sub3_sub3.writeSmart();
-                class34.anIntArray647[i3] = class39_sub3_sub3.writeSmart();
+                class34.anIntArray582[i3] = class39_sub3_sub3.readShortBE();
+                class34.anIntArray647[i3] = class39_sub3_sub3.readShortBE();
             }
 
         }
@@ -156,8 +156,8 @@ public class RSInterface
                 int j3 = class39_sub3_sub3.readUByte();
                 if(j3 == 1)
                 {
-                    class34.anIntArray583[i2] = class39_sub3_sub3.writeSmart();
-                    class34.anIntArray577[i2] = class39_sub3_sub3.writeSmart();
+                    class34.anIntArray583[i2] = class39_sub3_sub3.readShortBE();
+                    class34.anIntArray577[i2] = class39_sub3_sub3.readShortBE();
                     String s1 = class39_sub3_sub3.readString();
                     if(s1.length() > 0)
                     {
@@ -252,8 +252,8 @@ public class RSInterface
                 class34.aClass39_Sub3_Sub4_Sub2_640 = aClass39_Sub3_Sub4_Sub2Array599[k2];
             class34.aBoolean628 = class39_sub3_sub3.readUByte() == 1;
             class34.anInt594 = class39_sub3_sub3.readIntBE();
-            class34.anInt615 = class39_sub3_sub3.writeSmart();
-            class34.anInt627 = class39_sub3_sub3.writeSmart();
+            class34.anInt615 = class39_sub3_sub3.readShortBE();
+            class34.anInt627 = class39_sub3_sub3.readShortBE();
             class34.aBoolean639 = class39_sub3_sub3.readUByte() == 1;
             class34.aStringArray630 = new String[5];
             for(int j4 = 0; j4 < 5; j4++)

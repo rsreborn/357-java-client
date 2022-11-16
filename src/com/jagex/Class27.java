@@ -339,13 +339,13 @@ label0:
                     anInt399 = class39_sub3_sub3.readUByte();
                 else
                 if(k == 70)
-                    anInt388 = class39_sub3_sub3.writeSmart();
+                    anInt388 = class39_sub3_sub3.readShortBE();
                 else
                 if(k == 71)
-                    anInt402 = class39_sub3_sub3.writeSmart();
+                    anInt402 = class39_sub3_sub3.readShortBE();
                 else
                 if(k == 72)
-                    anInt387 = class39_sub3_sub3.writeSmart();
+                    anInt387 = class39_sub3_sub3.readShortBE();
                 else
                 if(k == 73)
                     aBoolean360 = true;

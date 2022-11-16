@@ -85,21 +85,21 @@ public class Class50
                 if(i1 < 13)
                     k = i1;
                 else
-                    class39_sub3_sub3.putByte(i1);
+                    class39_sub3_sub3.writeByte(i1);
             } else
             if(i1 < 13)
             {
-                class39_sub3_sub3.putByte((k << 4) + i1);
+                class39_sub3_sub3.writeByte((k << 4) + i1);
                 k = -1;
             } else
             {
-                class39_sub3_sub3.putByte((k << 4) + (i1 >> 4));
+                class39_sub3_sub3.writeByte((k << 4) + (i1 >> 4));
                 k = i1 & 0xf;
             }
         }
 
         if(k != -1)
-            class39_sub3_sub3.putByte(k << 4);
+            class39_sub3_sub3.writeByte(k << 4);
     }
 
     public static String method603(String s, boolean flag)

@@ -39,7 +39,7 @@ public class Buffer extends Class39_Sub3 {
         payload[position++] = (byte) (opcode + isaacCipher.getNextKey());
     }
 
-    public void putByte(int i) {
+    public void writeByte(int i) {
         payload[position++] = (byte) i;
     }
 
@@ -114,7 +114,7 @@ public class Buffer extends Class39_Sub3 {
         return ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] & 0xff);
     }
 
-    public int writeSmart() {
+    public int readShortBE() {
         position += 2;
         int i = ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] & 0xff);
         if (i > 32767)
@@ -215,57 +215,13 @@ public class Buffer extends Class39_Sub3 {
         BigInteger encrypted = raw.modPow(key, modulus);
         byte[] finalData = encrypted.toByteArray();
         position = 0;
-        putByte(finalData.length);
+        writeByte(finalData.length);
         writeBytes(finalData, 0, finalData.length);
-    }
-
-    public void writeByteA(int value) {
-        payload[position++] = (byte) (value + 128);
-    }
-
-    public void writeByteS(int value) {
-        payload[position++] = (byte) (128 - value);
-    }
-
-    public int readUByteA() {
-        return payload[position++] - 128 & 0xff;
-    }
-
-    public int readUByteC() {
-        return -payload[position++] & 0xff;
-    }
-
-    public byte readByteC() {
-        return (byte) (-payload[position++]);
-    }
-
-    public byte readByteS() {
-        return (byte) (128 - payload[position++]);
-    }
-
-    public void writeShortBEA(int value) {
-        payload[position++] = (byte) (value >> 8);
-        payload[position++] = (byte) (value + 128);
-    }
-
-    public void writeShortLEA(int value) {
-        payload[position++] = (byte) (value + 128);
-        payload[position++] = (byte) (value >> 8);
     }
 
     public int readUShortLE() {
         position += 2;
         return ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] & 0xff);
-    }
-
-    public int readUShortA() {
-        position += 2;
-        return ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] - 128 & 0xff);
-    }
-
-    public int readUShortLEA() {
-        position += 2;
-        return ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] - 128 & 0xff);
     }
 
     public int readShortLE() {
@@ -276,50 +232,13 @@ public class Buffer extends Class39_Sub3 {
         return value;
     }
 
-    public int readShortLEA() {
-        position += 2;
-        int j = ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] - 128 & 0xff);
-        if (j > 32767)
-            j -= 0x10000;
-        return j;
-    }
-
-    public int readUMediumBE() { //FIXME: Fucked up offsets.
+    public int readUMediumBE() {
         position += 3;
         return ((payload[position - 3] & 0xff) << 16) + ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] & 0xff);
-    }
-
-    public void method467(int i) { //FIXME: int 1 or int 2. (Only used once for packet 48, so it doesn't really matter)
-        payload[position++] = (byte) (i >> 8);
-        payload[position++] = (byte) i;
-        payload[position++] = (byte) (i >> 24);
-        payload[position++] = (byte) (i >> 16);
     }
 
     public int readIntLE() {
         position += 4;
         return ((payload[position - 1] & 0xff) << 24) + ((payload[position - 2] & 0xff) << 16) + ((payload[position - 3] & 0xff) << 8) + (payload[position - 4] & 0xff);
-    }
-
-    public int method469() { //FIXME: GetInt1 or getInt2.
-        position += 4;
-        return ((payload[position - 2] & 0xff) << 24) + ((payload[position - 1] & 0xff) << 16) + ((payload[position - 4] & 0xff) << 8) + (payload[position - 3] & 0xff);
-    }
-
-    public int method470(byte byte0) { //FIXME: getInt1 or getInt2.
-        position += 4;
-        return ((payload[position - 3] & 0xff) << 24) + ((payload[position - 4] & 0xff) << 16) + ((payload[position - 1] & 0xff) << 8) + (payload[position - 2] & 0xff);
-    }
-
-    public void writeBytesA(byte[] data, int offset, int length) {
-        for (int index = offset; index < offset + length; index++) {
-            payload[position++] = (byte) (data[index] + 128);
-        }
-    }
-
-    public void getReverseBytes(byte[] data, int offset, int length) {
-        for (int index = (offset + length) - 1; index >= offset; index--) {
-            data[index] = payload[position++];
-        }
     }
 }

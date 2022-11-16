@@ -70,7 +70,7 @@ public class Game extends GameApplet {
         }
         buffer.finishBitAccess();
         if(i <= 0)
-            outgoingVector.putByte(200);
+            outgoingVector.writeByte(200);
     }
 
     public void parseTrackedNpcMovement(Buffer buffer) {
@@ -627,9 +627,9 @@ label0:
                 aBoolean887 = true;
                 aBoolean993 = true;
                 outgoingVector.writeOpcode(50);
-                outgoingVector.putByte(anInt995);
-                outgoingVector.putByte(anInt1103);
-                outgoingVector.putByte(anInt1195);
+                outgoingVector.writeByte(anInt995);
+                outgoingVector.writeByte(anInt1103);
+                outgoingVector.writeByte(anInt1195);
             }
             if(super.anInt30 >= 135 && super.anInt30 <= 235 && super.anInt31 >= 467 && super.anInt31 <= 499)
             {
@@ -637,9 +637,9 @@ label0:
                 aBoolean887 = true;
                 aBoolean993 = true;
                 outgoingVector.writeOpcode(50);
-                outgoingVector.putByte(anInt995);
-                outgoingVector.putByte(anInt1103);
-                outgoingVector.putByte(anInt1195);
+                outgoingVector.writeByte(anInt995);
+                outgoingVector.writeByte(anInt1103);
+                outgoingVector.writeByte(anInt1195);
             }
             if(super.anInt30 >= 273 && super.anInt30 <= 373 && super.anInt31 >= 467 && super.anInt31 <= 499)
             {
@@ -647,9 +647,9 @@ label0:
                 aBoolean887 = true;
                 aBoolean993 = true;
                 outgoingVector.writeOpcode(50);
-                outgoingVector.putByte(anInt995);
-                outgoingVector.putByte(anInt1103);
-                outgoingVector.putByte(anInt1195);
+                outgoingVector.writeByte(anInt995);
+                outgoingVector.writeByte(anInt1103);
+                outgoingVector.writeByte(anInt1195);
             }
             if(super.anInt30 >= 412 && super.anInt30 <= 512 && super.anInt31 >= 467 && super.anInt31 <= 499)
             {
@@ -1170,7 +1170,7 @@ label0:
                 {
                     int k24 = incommingVector.readUByte();
                     if(k24 == 255)
-                        k24 = incommingVector.method470((byte)0);
+                        k24 = incommingVector.readIntBE();
                     class34.anIntArray612[l21] = incommingVector.readUShortBE();
                     class34.anIntArray603[l21] = k24;
                 }
@@ -1186,7 +1186,7 @@ label0:
             }
             if(currentOpcode == 169)
             {
-                anInt1313 = incommingVector.readUByteA();
+                anInt1313 = incommingVector.readUByte();
                 anInt1314 = incommingVector.readUByte();
                 for(int l = anInt1313; l < anInt1313 + 8; l++)
                 {
@@ -1482,8 +1482,8 @@ label0:
             }
             if(currentOpcode == 193)
             {
-                int k1 = incommingVector.readShortLEA();
-                int i11 = incommingVector.readUShortA();
+                int k1 = incommingVector.readShortLE();
+                int i11 = incommingVector.readUShortBE();
                 RSInterface class34_3 = RSInterface.getInterface(i11);
 		System.out.println("k1: " + k1 + ", i11: " + i11);
                 if(class34_3.anInt589 != k1 || k1 == -1)
@@ -1561,7 +1561,7 @@ label0:
             }
             if(currentOpcode == 235) //Display two interfaces or something.
             {
-                int i2 = incommingVector.readUShortA();
+                int i2 = incommingVector.readUShortBE();
                 int j11 = incommingVector.readUShortBE();
                 if(anInt1208 != -1)
                 {
@@ -1604,7 +1604,7 @@ label0:
             if(currentOpcode == 251)
             {
                 byte byte0 = incommingVector.readByte();
-                int k11 = incommingVector.readUShortLEA();
+                int k11 = incommingVector.readUShortLE();
                 anIntArray870[k11] = byte0;
                 if(anIntArray943[k11] != byte0)
                 {
@@ -1632,7 +1632,7 @@ label0:
             {
                 if(tabId == 12)
                     needDrawTabArea = true;
-                anInt1150 = incommingVector.writeSmart();
+                anInt1150 = incommingVector.readShortBE();
                 currentOpcode = -1;
                 return true;
             }
@@ -1640,7 +1640,7 @@ label0:
             {
                 String s = incommingVector.readString();
                 int l11 = incommingVector.aClass5_1450.getUnsignedByteS(incommingVector);
-                int l17 = incommingVector.readUByteC();
+                int l17 = incommingVector.readUByte();
                 if(l17 >= 1 && l17 <= 5)
                 {
                     if(s.equalsIgnoreCase("null"))
@@ -1673,8 +1673,8 @@ label0:
             }
             if(currentOpcode == 18)
             {
-                int i3 = incommingVector.readUShortA();
-                int j12 = incommingVector.readUShortLEA();
+                int i3 = incommingVector.readUShortBE();
+                int j12 = incommingVector.readUShortLE();
                 RSInterface.getInterface(i3).anInt636 = 2;
                 RSInterface.getInterface(i3).anInt637 = j12;
                 currentOpcode = -1;
@@ -1683,7 +1683,7 @@ label0:
             if(currentOpcode == 146)
             {
                 anInt1232 = incommingVector.readUByte();
-                anInt1282 = incommingVector.readUShortLEA();
+                anInt1282 = incommingVector.readUShortLE();
                 currentOpcode = -1;
                 return true;
             }
@@ -1765,7 +1765,7 @@ label0:
             }
             if(currentOpcode == 110)
             {
-                int j3 = incommingVector.readUShortLEA();
+                int j3 = incommingVector.readUShortLE();
                 int k12 = incommingVector.readUShortBE();
                 RSInterface class34_4 = RSInterface.getInterface(k12);
                 if(class34_4 != null && class34_4.anInt638 == 0)
@@ -1782,8 +1782,8 @@ label0:
             if(currentOpcode == 85)
             {
                 int k3 = incommingVector.readUShortBE();
-                int l12 = incommingVector.readUShortA();
-                int j18 = incommingVector.readUShortA();
+                int l12 = incommingVector.readUShortBE();
+                int j18 = incommingVector.readUShortBE();
                 int i23 = incommingVector.readUShortBE();
                 RSInterface.getInterface(k3).anInt618 = l12;
                 RSInterface.getInterface(k3).anInt619 = j18;
@@ -1822,7 +1822,7 @@ label0:
             }
             if(currentOpcode == 102)
             {
-                anInt1313 = incommingVector.readUByteC();
+                anInt1313 = incommingVector.readUByte();
                 anInt1314 = incommingVector.aClass5_1450.getUnsignedByteS(incommingVector);
                 currentOpcode = -1;
                 return true;
@@ -1897,7 +1897,7 @@ label0:
             }
             if(currentOpcode == 124) //Show interface.
             {
-                int k4 = incommingVector.readUShortLEA();
+                int k4 = incommingVector.readUShortLE();
                 method143(k4, 1);
                 if(anInt951 != -1)
                 {
@@ -1935,7 +1935,7 @@ label0:
             if(currentOpcode == 200)
             {
                 needDrawTabArea = true;
-                int i5 = incommingVector.readUByteC();
+                int i5 = incommingVector.readUByte();
                 int k13 = incommingVector.aClass5_1450.getUnsignedByteS(incommingVector);
                 int j19 = incommingVector.readIntLE();
                 anIntArray1096[i5] = j19;
@@ -1950,7 +1950,7 @@ label0:
             }
             if(currentOpcode == 217)
             {
-                int j5 = incommingVector.readShortLEA();
+                int j5 = incommingVector.readShortLE();
                 if(j5 >= 0)
                     method143(j5, 1);
                 if(j5 != anInt1129)
@@ -1978,7 +1978,7 @@ label0:
             }
             if(currentOpcode == 236)
             {
-                anInt1019 = incommingVector.readUByteA();
+                anInt1019 = incommingVector.readUByte();
                 if(anInt1019 == tabId)
                 {
                     if(anInt1019 == 3)
@@ -2111,14 +2111,14 @@ label0:
              */
             if(currentOpcode == 10)
             {
-                anInt1237 = incommingVector.readUShortLEA() * 30;
+                anInt1237 = incommingVector.readUShortLE() * 30;
                 currentOpcode = -1;
                 return true;
             }
             if(currentOpcode == 175)
             {
                 int i7 = incommingVector.readUShortBE();
-                int j14 = incommingVector.readUShortA();
+                int j14 = incommingVector.readUShortBE();
                 RSInterface.getInterface(i7).anInt636 = 1;
                 RSInterface.getInterface(i7).anInt637 = j14;
                 currentOpcode = -1;
@@ -2147,17 +2147,17 @@ label0:
             }
             if(currentOpcode == 39)
             {
-                anInt1053 = incommingVector.readUShortA();
-                anInt1078 = incommingVector.readUShortA();
+                anInt1053 = incommingVector.readUShortBE();
+                anInt1078 = incommingVector.readUShortBE();
                 anInt1258 = incommingVector.readUShortLE();
                 anInt1170 = incommingVector.readUShortBE();
-                anInt1329 = incommingVector.readUShortA();
-                incommingVector.readUShortLEA();
+                anInt1329 = incommingVector.readUShortBE();
+                incommingVector.readUShortLE();
                 anInt1011 = incommingVector.readIntLE();
                 anInt978 = incommingVector.readUShortBE();
-                anInt1302 = incommingVector.readUShortLEA();
+                anInt1302 = incommingVector.readUShortLE();
                 anInt1034 = incommingVector.readUShortLE();
-                incommingVector.readUByteC();
+                incommingVector.readUByte();
                 Signlink.dnslookup(Class37.method371(anInt1011, aByte1291));
                 currentOpcode = -1;
                 return true;
@@ -2165,7 +2165,7 @@ label0:
             if(currentOpcode == 9) //Send interface
             {
                 int k7 = incommingVector.readUShortBE();
-                int k14 = incommingVector.readUShortLEA();
+                int k14 = incommingVector.readUShortLE();
                 method143(k7, 1);
                 if(k14 != -1)
                     method143(k14, 1);
@@ -2342,7 +2342,7 @@ label0:
             }
             if(currentOpcode == 6)
             {
-                int k8 = incommingVector.writeSmart();
+                int k8 = incommingVector.readShortBE();
                 if(k8 != anInt1106)
                 {
                     method15((byte)6, anInt1106);
@@ -2435,7 +2435,7 @@ label0:
             if(currentOpcode == 243)
             {
                 int k9 = incommingVector.readUShortBE();
-                int k15 = incommingVector.readUShortA();
+                int k15 = incommingVector.readUShortBE();
                 int j21 = incommingVector.readUShortLE();
                 RSInterface.getInterface(k15).anInt635 = (k9 << 16) + j21;
                 currentOpcode = -1;
@@ -2468,8 +2468,8 @@ label0:
             if(currentOpcode == 246)
             {
                 int i10 = incommingVector.readShortLE();
-                int l15 = incommingVector.readUShortLEA();
-                int k21 = incommingVector.readShortLEA();
+                int l15 = incommingVector.readUShortLE();
+                int k21 = incommingVector.readShortLE();
                 RSInterface class34_5 = RSInterface.getInterface(l15);
                 class34_5.anInt631 = k21;
                 class34_5.anInt586 = i10;
@@ -2756,7 +2756,7 @@ label0:
             int l = buffer.readUByte();
             if((l & 0x40) != 0)
             {
-                npc.anInt1649 = buffer.readUShortLEA();
+                npc.anInt1649 = buffer.readUShortLE();
                 npc.anInt1650 = buffer.readUShortLE();
             }
             if((l & 0x10) != 0)
@@ -2790,7 +2790,7 @@ label0:
                 int j1 = buffer.readUShortLE();
                 if(j1 == 65535)
                     j1 = -1;
-                int j2 = buffer.readUByteC();
+                int j2 = buffer.readUByte();
                 if(j1 == ((Class39_Sub3_Sub2_Sub5) (npc)).anInt1615 && j1 != -1)
                 {
                     int l2 = SEQ.aClass20Array271[j1].anInt285;
@@ -2825,13 +2825,13 @@ label0:
                 int k2 = buffer.readUByte();
                 npc.method416((byte)16, loopCycle, k1, k2);
                 npc.anInt1593 = loopCycle + 300;
-                npc.anInt1594 = buffer.readUByteC();
+                npc.anInt1594 = buffer.readUByte();
                 npc.anInt1595 = buffer.aClass5_1450.getUnsignedByteS(buffer);
             }
             if((l & 0x20) != 0)
             {
                 npc.anInt1597 = buffer.readUShortLE();
-                int l1 = buffer.method469();
+                int l1 = buffer.readIntBE();
                 npc.anInt1601 = l1 >> 16;
                 npc.anInt1600 = loopCycle + (l1 & 0xffff);
                 npc.anInt1598 = 0;
@@ -3494,7 +3494,7 @@ label0:
             {
                 anInt1019 = -1;
                 outgoingVector.writeOpcode(218);
-                outgoingVector.putByte(tabId);
+                outgoingVector.writeByte(tabId);
             }
             aBoolean1188 = false;
             aClass14_1242.method207(-5281);
@@ -3702,7 +3702,7 @@ label0:
             {
                 anInt1207 = 0;
                 outgoingVector.writeOpcode(110);
-                outgoingVector.putByte(183);
+                outgoingVector.writeByte(183);
             }
             Class39_Sub3_Sub4_Sub1.method488(0);
             method83(-751);
@@ -4066,9 +4066,9 @@ label0:
             currentOpcode = buffer.readUByte();
         if((k & 0x40) != 0)
         {
-            int l = buffer.readUShortA();
-            int j2 = buffer.readUByteC();
-            int j3 = buffer.readUByteA();
+            int l = buffer.readUShortBE();
+            int j2 = buffer.readUByte();
+            int j3 = buffer.readUByte();
             int l3 = buffer.position;
             if(player.aString1754 != null && player.aBoolean1755)
             {
@@ -4089,7 +4089,7 @@ label0:
                     try
                     {
                         aClass39_Sub3_Sub3_898.position = 0;
-                        buffer.getReverseBytes(aClass39_Sub3_Sub3_898.payload, 0, j3);
+                        buffer.readBytes(aClass39_Sub3_Sub3_898.payload, 0, j3);
                         aClass39_Sub3_Sub3_898.position = 0;
                         String s = Class50.method601(aClass39_Sub3_Sub3_898, j3, 0);
                         s = Class44.method556(s, true);
@@ -4123,8 +4123,8 @@ label0:
         }
         if((k & 0x400) != 0)
         {
-            player.anInt1597 = buffer.readUShortLEA();
-            int j1 = buffer.method470((byte)0);
+            player.anInt1597 = buffer.readUShortLE();
+            int j1 = buffer.readIntBE();
             player.anInt1601 = j1 >> 16;
             player.anInt1600 = loopCycle + (j1 & 0xffff);
             player.anInt1598 = 0;
@@ -4139,7 +4139,7 @@ label0:
             int k1 = buffer.readUShortLE();
             if(k1 == 65535)
                 k1 = -1;
-            int k2 = buffer.readUByteA();
+            int k2 = buffer.readUByte();
             if(k1 == ((Class39_Sub3_Sub2_Sub5) (player)).anInt1615 && k1 != -1)
             {
                 int k3 = SEQ.aClass20Array271[k1].anInt285;
@@ -4170,38 +4170,38 @@ label0:
             player.method416((byte)16, loopCycle, l1, l2);
             player.anInt1593 = loopCycle + 300;
             player.anInt1594 = buffer.aClass5_1450.getUnsignedByteS(buffer);
-            player.anInt1595 = buffer.readUByteA();
+            player.anInt1595 = buffer.readUByte();
         }
         if((k & 0x200) != 0)
         {
             player.anInt1631 = buffer.aClass5_1450.getUnsignedByteS(buffer);
-            player.anInt1633 = buffer.readUByteC();
+            player.anInt1633 = buffer.readUByte();
             player.anInt1632 = buffer.readUByte();
-            player.anInt1634 = buffer.readUByteC();
-            player.anInt1635 = buffer.readUShortLEA() + loopCycle;
-            player.anInt1636 = buffer.readUShortA() + loopCycle;
+            player.anInt1634 = buffer.readUByte();
+            player.anInt1635 = buffer.readUShortLE() + loopCycle;
+            player.anInt1636 = buffer.readUShortBE() + loopCycle;
             player.anInt1637 = buffer.aClass5_1450.getUnsignedByteS(buffer);
             player.method417(926);
         }
         if((k & 4) != 0)
         {
-            player.anInt1620 = buffer.readUShortA();
+            player.anInt1620 = buffer.readUShortBE();
             if(((Class39_Sub3_Sub2_Sub5) (player)).anInt1620 == 65535)
                 player.anInt1620 = -1;
         }
         if((k & 2) != 0)
         {
-            player.anInt1649 = buffer.readUShortLEA();
+            player.anInt1649 = buffer.readUShortLE();
             player.anInt1650 = buffer.readUShortLE();
         }
         if((k & 0x10) != 0)
         {
-            int i2 = buffer.readUByteA();
-            int i3 = buffer.readUByteC();
+            int i2 = buffer.readUByte();
+            int i3 = buffer.readUByte();
             player.method416((byte)16, loopCycle, i2, i3);
             player.anInt1593 = loopCycle + 300;
-            player.anInt1594 = buffer.readUByteC();
-            player.anInt1595 = buffer.readUByteC();
+            player.anInt1594 = buffer.readUByte();
+            player.anInt1595 = buffer.readUByte();
         }
         if((k & 8) != 0)
         {
@@ -5158,7 +5158,7 @@ label0:
     public void method78(int i)
     {
         if(i < 6 || i > 6)
-            outgoingVector.putByte(65);
+            outgoingVector.writeByte(65);
         for(int j = -1; j < playerCount; j++)
         {
             int k;
@@ -7054,17 +7054,17 @@ label0:
                 boolean flag = calculateWalkingRoute(584, 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1630[0], 0, ((Class39_Sub3_Sub2_Sub5) (myPlayer)).anIntArray1629[0], 0, 0, 0, true, 1, i2, j2);
                 if(flag)
                 {
-                    outgoingVector.putByte(j);
-                    outgoingVector.putByte(k);
+                    outgoingVector.writeByte(j);
+                    outgoingVector.writeByte(k);
                     outgoingVector.writeShortBE(anInt928);
-                    outgoingVector.putByte(57);
-                    outgoingVector.putByte(anInt1234);
-                    outgoingVector.putByte(anInt881);
-                    outgoingVector.putByte(89);
+                    outgoingVector.writeByte(57);
+                    outgoingVector.writeByte(anInt1234);
+                    outgoingVector.writeByte(anInt881);
+                    outgoingVector.writeByte(89);
                     outgoingVector.writeShortBE(((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1621);
                     outgoingVector.writeShortBE(((Class39_Sub3_Sub2_Sub5) (myPlayer)).anInt1622);
-                    outgoingVector.putByte(anInt1082);
-                    outgoingVector.putByte(63);
+                    outgoingVector.writeByte(anInt1082);
+                    outgoingVector.writeByte(63);
                 }
             }
         }
@@ -7081,7 +7081,7 @@ label0:
             int l5 = anInt1314 + (j & 7);
             int j8 = i3 + class39_sub3_sub3.readByte();
             int i11 = l5 + class39_sub3_sub3.readByte();
-            int k13 = class39_sub3_sub3.writeSmart();
+            int k13 = class39_sub3_sub3.readShortBE();
             int l15 = class39_sub3_sub3.readUShortBE();
             int j17 = class39_sub3_sub3.readUByte() * 4;
             int i18 = class39_sub3_sub3.readUByte() * 4;
@@ -7103,12 +7103,12 @@ label0:
         }
         if(i == 173)
         {
-            int k = class39_sub3_sub3.readUShortLEA();
-            int j3 = class39_sub3_sub3.readUShortA();
-            int i6 = class39_sub3_sub3.readUByteC();
+            int k = class39_sub3_sub3.readUShortLE();
+            int j3 = class39_sub3_sub3.readUShortBE();
+            int i6 = class39_sub3_sub3.readUByte();
             int k8 = anInt1313 + (i6 >> 4 & 7);
             int j11 = anInt1314 + (i6 & 7);
-            int l13 = class39_sub3_sub3.readUShortA();
+            int l13 = class39_sub3_sub3.readUShortBE();
             if(k8 >= 0 && j11 >= 0 && k8 < 104 && j11 < 104 && l13 != anInt1282)
             {
                 Class39_Sub3_Sub2_Sub3 class39_sub3_sub2_sub3_2 = new Class39_Sub3_Sub2_Sub3();
@@ -7123,7 +7123,7 @@ label0:
         }
         if(i == 241)
         {
-            int l = class39_sub3_sub3.readUShortLEA();
+            int l = class39_sub3_sub3.readUShortLE();
             int k3 = class39_sub3_sub3.readUByte();
             int j6 = anInt1313 + (k3 >> 4 & 7);
             int l8 = anInt1314 + (k3 & 7);
@@ -7137,19 +7137,19 @@ label0:
         }
         if(i == 1)
         {
-            int i1 = class39_sub3_sub3.readUShortA();
+            int i1 = class39_sub3_sub3.readUShortBE();
             int l3 = class39_sub3_sub3.readUShortLE();
-            byte byte0 = class39_sub3_sub3.readByteC();
+            byte byte0 = class39_sub3_sub3.readByte();
             int i9 = class39_sub3_sub3.aClass5_1450.getUnsignedByteS(class39_sub3_sub3);
             int l11 = i9 >> 2;
             int j14 = i9 & 3;
             int j16 = anIntArray1114[l11];
-            byte byte1 = class39_sub3_sub3.readByteS();
-            int j18 = class39_sub3_sub3.readUShortA();
-            int i19 = class39_sub3_sub3.readUShortA();
-            byte byte2 = class39_sub3_sub3.readByteC();
-            byte byte3 = class39_sub3_sub3.readByteC();
-            int l20 = class39_sub3_sub3.readUByteC();
+            byte byte1 = class39_sub3_sub3.readByte();
+            int j18 = class39_sub3_sub3.readUShortBE();
+            int i19 = class39_sub3_sub3.readUShortBE();
+            byte byte2 = class39_sub3_sub3.readByte();
+            byte byte3 = class39_sub3_sub3.readByte();
+            int l20 = class39_sub3_sub3.readUByte();
             int i21 = anInt1313 + (l20 >> 4 & 7);
             int k21 = anInt1314 + (l20 & 7);
             Player player;
@@ -7356,8 +7356,8 @@ label0:
         }
         if(i == 51)
         {
-            int l2 = class39_sub3_sub3.readUShortLEA();
-            int k5 = class39_sub3_sub3.readUByteC();
+            int l2 = class39_sub3_sub3.readUShortLE();
+            int k5 = class39_sub3_sub3.readUByte();
             int i8 = anInt1313 + (k5 >> 4 & 7);
             int l10 = anInt1314 + (k5 & 7);
             int j13 = class39_sub3_sub3.readUShortBE();
@@ -7581,12 +7581,12 @@ label0:
         if(k == 326)
         {
             outgoingVector.writeOpcode(140);
-            outgoingVector.putByte(aBoolean1286 ? 0 : 1);
+            outgoingVector.writeByte(aBoolean1286 ? 0 : 1);
             for(int j1 = 0; j1 < 7; j1++)
-                outgoingVector.putByte(anIntArray1117[j1]);
+                outgoingVector.writeByte(anIntArray1117[j1]);
 
             for(int i2 = 0; i2 < 5; i2++)
-                outgoingVector.putByte(anIntArray852[i2]);
+                outgoingVector.writeByte(anIntArray852[i2]);
 
             return true;
         }
@@ -7599,8 +7599,8 @@ label0:
             {
                 outgoingVector.writeOpcode(187);
                 outgoingVector.writeLongBE(Class37.stringToLong(aString1012));
-                outgoingVector.putByte(k - 601);
-                outgoingVector.putByte(aBoolean1319 ? 1 : 0);
+                outgoingVector.writeByte(k - 601);
+                outgoingVector.writeByte(aBoolean1319 ? 1 : 0);
             }
         }
         return false;
@@ -7717,12 +7717,12 @@ label0:
         if(i1 == 695 && method124(l, j1, k, -41819))
         {
             outgoingVector.writeOpcode(106);
-            outgoingVector.writeShortLEA(anInt908);
+            outgoingVector.writeShortLE(anInt908);
             outgoingVector.writeShortBE(l + anInt990);
             outgoingVector.writeShortLE(k + anInt989);
-            outgoingVector.writeShortBEA(anInt907);
+            outgoingVector.writeShortBE(anInt907);
             outgoingVector.writeShortLE(anInt906);
-            outgoingVector.writeShortBEA(j1 >> 14 & 0x7fff);
+            outgoingVector.writeShortBE(j1 >> 14 & 0x7fff);
         }
         if(i1 == 822)
         {
@@ -7735,8 +7735,8 @@ label0:
                 anInt922 = 2;
                 anInt921 = 0;
                 outgoingVector.writeOpcode(190);
-                outgoingVector.writeShortBEA(anInt1324);
-                outgoingVector.writeShortLEA(j1);
+                outgoingVector.writeShortBE(anInt1324);
+                outgoingVector.writeShortLE(j1);
             }
         }
         if(i1 == 716)
@@ -7811,7 +7811,7 @@ label0:
                     anInt1171 = 0;
                 }
                 outgoingVector.writeOpcode(18);
-                outgoingVector.writeShortBEA(j1);
+                outgoingVector.writeShortBE(j1);
             }
         }
         if(i1 == 480)
@@ -7897,13 +7897,13 @@ label0:
                     anInt1290 = 0;
                 }
                 outgoingVector.writeOpcode(148);
-                outgoingVector.writeShortLEA(j1);
+                outgoingVector.writeShortLE(j1);
             }
         }
         if(i1 == 125)
         {
             outgoingVector.writeOpcode(90);
-            outgoingVector.writeShortLEA(j1);
+            outgoingVector.writeShortLE(j1);
             outgoingVector.writeShortLE(k);
             outgoingVector.writeShortLE(l);
             anInt960 = 0;
@@ -7920,10 +7920,10 @@ label0:
         if(i1 == 183 && method124(l, j1, k, -41819))
         {
             outgoingVector.writeOpcode(55);
-            outgoingVector.writeShortLEA(j1 >> 14 & 0x7fff);
+            outgoingVector.writeShortLE(j1 >> 14 & 0x7fff);
             outgoingVector.writeShortBE(k + anInt989);
             outgoingVector.writeShortLE(l + anInt990);
-            outgoingVector.writeShortBEA(anInt1324);
+            outgoingVector.writeShortBE(anInt1324);
         }
         if(i1 == 138 || i1 == 997 || i1 == 154 || i1 == 837)
         {
@@ -7958,14 +7958,14 @@ label0:
             anInt922 = 2;
             anInt921 = 0;
             outgoingVector.writeOpcode(172);
-            outgoingVector.writeShortLEA(j1);
-            outgoingVector.writeShortLEA(k + anInt989);
+            outgoingVector.writeShortLE(j1);
+            outgoingVector.writeShortLE(k + anInt989);
             outgoingVector.writeShortBE(l + anInt990);
         }
         if(i1 == 551)
         {
             outgoingVector.writeOpcode(8);
-            outgoingVector.writeShortBEA(j1);
+            outgoingVector.writeShortBE(j1);
             outgoingVector.writeShortLE(k);
             outgoingVector.writeShortBE(l);
             anInt960 = 0;
@@ -8007,9 +8007,9 @@ label0:
             anInt922 = 2;
             anInt921 = 0;
             outgoingVector.writeOpcode(119);
-            outgoingVector.writeShortBEA(k + anInt989);
-            outgoingVector.writeShortLEA(j1);
-            outgoingVector.writeShortLEA(l + anInt990);
+            outgoingVector.writeShortBE(k + anInt989);
+            outgoingVector.writeShortLE(j1);
+            outgoingVector.writeShortLE(l + anInt990);
         }
         if(i1 == 59)
         {
@@ -8022,7 +8022,7 @@ label0:
                 anInt922 = 2;
                 anInt921 = 0;
                 outgoingVector.writeOpcode(57);
-                outgoingVector.writeShortLEA(j1);
+                outgoingVector.writeShortLE(j1);
             }
         }
         if(i1 == 1103)
@@ -8031,7 +8031,7 @@ label0:
             outgoingVector.writeOpcode(109);
             outgoingVector.writeShortLE(l + anInt990);
             outgoingVector.writeShortLE(k + anInt989);
-            outgoingVector.writeShortBEA(j1 >> 14 & 0x7fff);
+            outgoingVector.writeShortBE(j1 >> 14 & 0x7fff);
         }
         if(i1 == 354)
         {
@@ -8044,7 +8044,7 @@ label0:
                 anInt922 = 2;
                 anInt921 = 0;
                 outgoingVector.writeOpcode(49);
-                outgoingVector.writeShortBEA(j1);
+                outgoingVector.writeShortBE(j1);
             }
         }
         if(i1 == 1977)
@@ -8080,7 +8080,7 @@ label0:
             anInt921 = 0;
             outgoingVector.writeOpcode(86);
             outgoingVector.writeShortBE(anInt906);
-            outgoingVector.writeShortLEA(j1);
+            outgoingVector.writeShortLE(j1);
             outgoingVector.writeShortLE(anInt908);
             outgoingVector.writeShortBE(anInt907);
             outgoingVector.writeShortLE(k + anInt989);
@@ -8114,8 +8114,8 @@ label0:
                 anInt921 = 0;
                 outgoingVector.writeOpcode(130);
                 outgoingVector.writeShortBE(anInt907);
-                outgoingVector.writeShortLEA(j1);
-                outgoingVector.writeShortLEA(anInt908);
+                outgoingVector.writeShortLE(j1);
+                outgoingVector.writeShortLE(anInt908);
                 outgoingVector.writeShortLE(anInt906);
             }
         }
@@ -8129,9 +8129,9 @@ label0:
             anInt922 = 2;
             anInt921 = 0;
             outgoingVector.writeOpcode(192);
-            outgoingVector.writeShortLEA(l + anInt990);
-            outgoingVector.writeShortLEA(k + anInt989);
-            outgoingVector.writeShortLEA(j1);
+            outgoingVector.writeShortLE(l + anInt990);
+            outgoingVector.writeShortLE(k + anInt989);
+            outgoingVector.writeShortLE(j1);
         }
         if(i1 == 708)
         {
@@ -8144,18 +8144,18 @@ label0:
                 anInt922 = 2;
                 anInt921 = 0;
                 outgoingVector.writeOpcode(235);
-                outgoingVector.writeShortLEA(anInt907);
-                outgoingVector.writeShortLEA(anInt906);
-                outgoingVector.writeShortLEA(j1);
+                outgoingVector.writeShortLE(anInt907);
+                outgoingVector.writeShortLE(anInt906);
+                outgoingVector.writeShortLE(j1);
                 outgoingVector.writeShortBE(anInt908);
             }
         }
         if(i1 == 840)
         {
             outgoingVector.writeOpcode(131);
-            outgoingVector.writeShortLEA(k);
+            outgoingVector.writeShortLE(k);
             outgoingVector.writeShortBE(l);
-            outgoingVector.writeShortBEA(j1);
+            outgoingVector.writeShortBE(j1);
             anInt960 = 0;
             anInt961 = l;
             anInt962 = k;
@@ -8195,7 +8195,7 @@ label0:
             }
             method124(l, j1, k, -41819);
             outgoingVector.writeOpcode(145);
-            outgoingVector.writeShortLEA(k + anInt989);
+            outgoingVector.writeShortLE(k + anInt989);
             outgoingVector.writeShortLE(l + anInt990);
             outgoingVector.writeShortLE(j1 >> 14 & 0x7fff);
         }
@@ -8258,7 +8258,7 @@ label0:
                 anInt1236 = 0;
             }
             outgoingVector.writeOpcode(242);
-            outgoingVector.writeShortBEA(k);
+            outgoingVector.writeShortBE(k);
             outgoingVector.writeShortLE(j1);
             outgoingVector.writeShortLE(l);
             anInt960 = 0;
@@ -8273,9 +8273,9 @@ label0:
         if(i1 == 261)
         {
             outgoingVector.writeOpcode(183);
-            outgoingVector.writeShortBEA(k);
-            outgoingVector.writeShortBEA(l);
-            outgoingVector.writeShortLEA(j1);
+            outgoingVector.writeShortBE(k);
+            outgoingVector.writeShortBE(l);
+            outgoingVector.writeShortLE(j1);
             outgoingVector.writeShortLE(anInt1324);
             anInt960 = 0;
             anInt961 = l;
@@ -8321,13 +8321,13 @@ label0:
             if(anInt1221 >= 78)
             {
                 outgoingVector.writeOpcode(72);
-                outgoingVector.putByte(127);
+                outgoingVector.writeByte(127);
                 anInt1221 = 0;
             }
             outgoingVector.writeOpcode(28);
-            outgoingVector.writeShortLEA(l);
+            outgoingVector.writeShortLE(l);
             outgoingVector.writeShortLE(j1);
-            outgoingVector.writeShortLEA(k);
+            outgoingVector.writeShortLE(k);
             anInt960 = 0;
             anInt961 = l;
             anInt962 = k;
@@ -8347,10 +8347,10 @@ label0:
             anInt922 = 2;
             anInt921 = 0;
             outgoingVector.writeOpcode(250);
-            outgoingVector.writeShortLEA(anInt1324);
+            outgoingVector.writeShortLE(anInt1324);
             outgoingVector.writeShortLE(k + anInt989);
             outgoingVector.writeShortLE(l + anInt990);
-            outgoingVector.writeShortLEA(j1);
+            outgoingVector.writeShortLE(j1);
         }
         if(i1 == 1415)
         {
@@ -8407,8 +8407,8 @@ label0:
         {
             outgoingVector.writeOpcode(243);
             outgoingVector.writeShortBE(l);
-            outgoingVector.writeShortBEA(k);
-            outgoingVector.writeShortBEA(j1);
+            outgoingVector.writeShortBE(k);
+            outgoingVector.writeShortBE(j1);
             anInt960 = 0;
             anInt961 = l;
             anInt962 = k;
@@ -8452,16 +8452,16 @@ label0:
         {
             method124(l, j1, k, -41819);
             outgoingVector.writeOpcode(41);
-            outgoingVector.writeShortBEA(j1 >> 14 & 0x7fff);
+            outgoingVector.writeShortBE(j1 >> 14 & 0x7fff);
             outgoingVector.writeShortLE(l + anInt990);
-            outgoingVector.writeShortBEA(k + anInt989);
+            outgoingVector.writeShortBE(k + anInt989);
         }
         if(i1 == 773)
         {
             outgoingVector.writeOpcode(35);
-            outgoingVector.writeShortLEA(k);
+            outgoingVector.writeShortLE(k);
             outgoingVector.writeShortLE(l);
-            outgoingVector.writeShortBEA(j1);
+            outgoingVector.writeShortBE(j1);
             anInt960 = 0;
             anInt961 = l;
             anInt962 = k;
@@ -8483,7 +8483,7 @@ label0:
             }
             outgoingVector.writeOpcode(33);
             outgoingVector.writeShortLE(j1);
-            outgoingVector.writeShortLEA(k);
+            outgoingVector.writeShortLE(k);
             outgoingVector.writeShortBE(l);
             anInt960 = 0;
             anInt961 = l;
@@ -8522,9 +8522,9 @@ label0:
             outgoingVector.writeShortLE(anInt908);
             outgoingVector.writeShortLE(l);
             outgoingVector.writeShortLE(anInt906);
-            outgoingVector.writeShortBEA(j1);
-            outgoingVector.writeShortBEA(anInt907);
-            outgoingVector.writeShortBEA(k);
+            outgoingVector.writeShortBE(j1);
+            outgoingVector.writeShortBE(anInt907);
+            outgoingVector.writeShortBE(k);
             anInt960 = 0;
             anInt961 = l;
             anInt962 = k;
@@ -8545,8 +8545,8 @@ label0:
                 anInt922 = 2;
                 anInt921 = 0;
                 outgoingVector.writeOpcode(83);
-                outgoingVector.writeShortLEA(j1);
-                outgoingVector.writeShortLEA(anInt1324);
+                outgoingVector.writeShortLE(j1);
+                outgoingVector.writeShortLE(anInt1324);
             }
         }
         if(i1 == 922)
@@ -8560,13 +8560,13 @@ label0:
             anInt921 = 0;
             outgoingVector.writeOpcode(100);
             outgoingVector.writeShortBE(j1);
-            outgoingVector.writeShortLEA(k + anInt989);
+            outgoingVector.writeShortLE(k + anInt989);
             outgoingVector.writeShortLE(l + anInt990);
         }
         if(i1 == 616)
         {
             outgoingVector.writeOpcode(24);
-            outgoingVector.writeShortLEA(j1);
+            outgoingVector.writeShortLE(j1);
             outgoingVector.writeShortLE(k);
             outgoingVector.writeShortLE(l);
             anInt960 = 0;
@@ -8606,7 +8606,7 @@ label0:
                 if(super.anInt29 != 0 || aClass8_1151.anInt157 >= 40)
                 {
                     outgoingVector.writeOpcode(80);
-                    outgoingVector.putByte(0);
+                    outgoingVector.writeByte(0);
                     int k2 = outgoingVector.position;
                     int k3 = 0;
                     for(int k4 = 0; k4 < aClass8_1151.anInt157; k4++)
@@ -8706,7 +8706,7 @@ label0:
                 k5 = 1;
             int i6 = (int)l;
             outgoingVector.writeOpcode(48);
-            outgoingVector.method467((i6 << 20) + (k5 << 19) + l4);
+            outgoingVector.writeIntBE((i6 << 20) + (k5 << 19) + l4);
         }
         if(anInt1227 > 0)
             anInt1227--;
@@ -8718,19 +8718,19 @@ label0:
             aBoolean1228 = false;
             outgoingVector.writeOpcode(23);
             outgoingVector.writeShortLE(anInt928);
-            outgoingVector.writeShortLEA(anInt927);
+            outgoingVector.writeShortLE(anInt927);
         }
         if(super.aBoolean20 && !aBoolean1287)
         {
             aBoolean1287 = true;
             outgoingVector.writeOpcode(240);
-            outgoingVector.putByte(1);
+            outgoingVector.writeByte(1);
         }
         if(!super.aBoolean20 && aBoolean1287)
         {
             aBoolean1287 = false;
             outgoingVector.writeOpcode(240);
-            outgoingVector.putByte(0);
+            outgoingVector.writeByte(0);
         }
         method92(-14);
         method90(aByte1294);
@@ -8746,21 +8746,21 @@ label0:
         {
             anInt1186 = 0;
             outgoingVector.writeOpcode(2);
-            outgoingVector.putByte(0);
+            outgoingVector.writeByte(0);
             int k = outgoingVector.position;
-            outgoingVector.putByte(49);
+            outgoingVector.writeByte(49);
             if((int)(Math.random() * 2D) == 0)
                 outgoingVector.writeShortBE(39379);
             if((int)(Math.random() * 2D) == 0)
                 outgoingVector.writeShortBE(41943);
             outgoingVector.writeShortBE(58974);
-            outgoingVector.putByte((int)(Math.random() * 256D));
-            outgoingVector.putByte((int)(Math.random() * 256D));
+            outgoingVector.writeByte((int)(Math.random() * 256D));
+            outgoingVector.writeByte((int)(Math.random() * 256D));
             outgoingVector.writeShortBE((int)(Math.random() * 65536D));
             outgoingVector.writeShortBE(51515);
-            outgoingVector.putByte(17);
+            outgoingVector.writeByte(17);
             if((int)(Math.random() * 2D) == 0)
-                outgoingVector.putByte(167);
+                outgoingVector.writeByte(167);
             outgoingVector.writeSizeByte(outgoingVector.position - k);
         }
         anInt1111++;
@@ -8836,8 +8836,8 @@ label0:
                         }
                         outgoingVector.writeOpcode(207);
                         outgoingVector.writeShortBE(anInt1013);
-                        outgoingVector.writeShortBEA(anInt1331);
-                        outgoingVector.putByte(k1);
+                        outgoingVector.writeShortBE(anInt1331);
+                        outgoingVector.writeByte(k1);
                         outgoingVector.writeShortLE(anInt1330);
                     }
                 } else
@@ -9223,8 +9223,8 @@ label0:
             long nameLong = Class37.stringToLong(username);
             int namePart = (int)(nameLong >> 16 & 31L);
             outgoingVector.position = 0;
-            outgoingVector.putByte(14);
-            outgoingVector.putByte(namePart);
+            outgoingVector.writeByte(14);
+            outgoingVector.writeByte(namePart);
             socket.queueBytes((byte)68, 0, 2, outgoingVector.payload);
             for(int j = 0; j < 8; j++) {
             	socket.readByte();
@@ -9241,7 +9241,7 @@ label0:
                 isaacSeed[2] = (int)(serverKey >> 32);
                 isaacSeed[3] = (int)serverKey;
                 outgoingVector.position = 0;
-                outgoingVector.putByte(10);
+                outgoingVector.writeByte(10);
                 outgoingVector.writeIntBE(isaacSeed[0]);
                 outgoingVector.writeIntBE(isaacSeed[1]);
                 outgoingVector.writeIntBE(isaacSeed[2]);
@@ -9251,11 +9251,11 @@ label0:
                 outgoingVector.writeString(password);
                 outgoingVector.encrypt(rsaKey, rsaModulus);
                 loginBlock.position = 0;
-                loginBlock.putByte(reconnecting ? 18 : 16);
-                loginBlock.putByte(outgoingVector.position + 36 + 1 + 1 + 2);
-                loginBlock.putByte(255);
+                loginBlock.writeByte(reconnecting ? 18 : 16);
+                loginBlock.writeByte(outgoingVector.position + 36 + 1 + 1 + 2);
+                loginBlock.writeByte(255);
                 loginBlock.writeShortBE(Constants.BUILD_NUMBER);
-                loginBlock.putByte(highMemory ? 1 : 0);
+                loginBlock.writeByte(highMemory ? 1 : 0);
                 for(int index = 0; index < 9; index++) {
                 	loginBlock.writeIntBE(archiveChecksums[index]);
                 }
@@ -10090,20 +10090,20 @@ label0:
         {
             anInt855 = 0;
             outgoingVector.writeOpcode(26);
-            outgoingVector.putByte(0);
+            outgoingVector.writeByte(0);
             int j1 = outgoingVector.position;
             outgoingVector.writeShortBE((int)(Math.random() * 65536D));
-            outgoingVector.putByte(189);
+            outgoingVector.writeByte(189);
             outgoingVector.writeShortBE(45212);
             outgoingVector.writeShortBE((int)(Math.random() * 65536D));
             if((int)(Math.random() * 2D) == 0)
-                outgoingVector.putByte(89);
-            outgoingVector.putByte(94);
-            outgoingVector.putByte(10);
+                outgoingVector.writeByte(89);
+            outgoingVector.writeByte(94);
+            outgoingVector.writeByte(10);
             outgoingVector.writeShortBE(54243);
-            outgoingVector.putByte(88);
+            outgoingVector.writeByte(88);
             if((int)(Math.random() * 2D) == 0)
-                outgoingVector.putByte(32);
+                outgoingVector.writeByte(32);
             outgoingVector.writeSizeByte(outgoingVector.position - j1);
         }
         int k1 = ((238 + (int)(Math.random() * 20D)) - 10 << 16) + ((238 + (int)(Math.random() * 20D)) - 10 << 8) + ((238 + (int)(Math.random() * 20D)) - 10);
@@ -10860,30 +10860,30 @@ label0:
             if(i2 == 0)
             {
                 outgoingVector.writeOpcode(66);
-                outgoingVector.putByte(k4 + k4 + 3);
+                outgoingVector.writeByte(k4 + k4 + 3);
             }
             if(i2 == 1)
             {
                 outgoingVector.writeOpcode(77);
-                outgoingVector.putByte(k4 + k4 + 3 + 14);
+                outgoingVector.writeByte(k4 + k4 + 3 + 14);
             }
             if(i2 == 2)
             {
                 outgoingVector.writeOpcode(213);
-                outgoingVector.putByte(k4 + k4 + 3);
+                outgoingVector.writeByte(k4 + k4 + 3);
             }
             anInt1218 = anIntArray1222[0];
             anInt1219 = anIntArray1223[0];
             for(int j7 = 1; j7 < k4; j7++)
             {
                 i4--;
-                outgoingVector.putByte(anIntArray1222[i4] - k6);
-                outgoingVector.writeByteA(anIntArray1223[i4] - i7);
+                outgoingVector.writeByte(anIntArray1222[i4] - k6);
+                outgoingVector.writeByte(anIntArray1223[i4] - i7);
             }
 
-            outgoingVector.writeShortBEA(k6 + anInt989);
+            outgoingVector.writeShortBE(k6 + anInt989);
             outgoingVector.writeShortLE(i7 + anInt990);
-            outgoingVector.putByte(super.anIntArray33[5] != 1 ? 0 : 1); //Isrunning
+            outgoingVector.writeByte(super.anIntArray33[5] != 1 ? 0 : 1); //Isrunning
             return true;
         }
         return i2 != 1;
@@ -11543,7 +11543,7 @@ label0:
                     if(anInt1180 == 3 && aString1023.length() > 0)
                     {
                         outgoingVector.writeOpcode(56);
-                        outgoingVector.putByte(0);
+                        outgoingVector.writeByte(0);
                         int k = outgoingVector.position;
                         outgoingVector.writeLongBE(aLong841);
                         Class50.method602(outgoingVector, 8378, aString1023);
@@ -11556,9 +11556,9 @@ label0:
                             anInt1103 = 1;
                             aBoolean887 = true;
                             outgoingVector.writeOpcode(50);
-                            outgoingVector.putByte(anInt995);
-                            outgoingVector.putByte(anInt1103);
-                            outgoingVector.putByte(anInt1195);
+                            outgoingVector.writeByte(anInt995);
+                            outgoingVector.writeByte(anInt1103);
+                            outgoingVector.writeByte(anInt1195);
                         }
                     }
                     if(anInt1180 == 4 && anInt1168 < 100)
@@ -11686,7 +11686,7 @@ label0:
                     if(aString1125.startsWith("::"))
                     {
                         outgoingVector.writeOpcode(225);
-                        outgoingVector.putByte(aString1125.length() - 1);
+                        outgoingVector.writeByte(aString1125.length() - 1);
                         outgoingVector.writeString(aString1125.substring(2));
                     } else
                     {
@@ -11780,13 +11780,13 @@ label0:
                             aString1125 = aString1125.substring(6);
                         }
                         outgoingVector.writeOpcode(91);
-                        outgoingVector.putByte(0);
+                        outgoingVector.writeByte(0);
                         int j3 = outgoingVector.position;
-                        outgoingVector.writeByteA(i3);
+                        outgoingVector.writeByte(i3);
                         aClass39_Sub3_Sub3_898.position = 0;
                         Class50.method602(aClass39_Sub3_Sub3_898, 8378, aString1125);
-                        outgoingVector.writeBytesA(aClass39_Sub3_Sub3_898.payload, 0, aClass39_Sub3_Sub3_898.position);
-                        outgoingVector.writeByteS(j2);
+                        outgoingVector.writeBytes(aClass39_Sub3_Sub3_898.payload, 0, aClass39_Sub3_Sub3_898.position);
+                        outgoingVector.writeByte(j2);
                         outgoingVector.writeSizeByte(outgoingVector.position - j3);
                         aString1125 = Class50.method603(aString1125, true);
                         aString1125 = Class44.method556(aString1125, true);
@@ -11806,9 +11806,9 @@ label0:
                             anInt995 = 3;
                             aBoolean887 = true;
                             outgoingVector.writeOpcode(50);
-                            outgoingVector.putByte(anInt995);
-                            outgoingVector.putByte(anInt1103);
-                            outgoingVector.putByte(anInt1195);
+                            outgoingVector.writeByte(anInt995);
+                            outgoingVector.writeByte(anInt1103);
+                            outgoingVector.writeByte(anInt1195);
                         }
                     }
                     aString1125 = "";
@@ -11972,7 +11972,7 @@ label0:
             anInt1218 = 0;
         int j = playerCount;
         if(i != 0)
-            outgoingVector.putByte(151);
+            outgoingVector.writeByte(151);
         if(flag)
             j = 1;
         for(int k = 0; k < j; k++)
@@ -12096,7 +12096,7 @@ label0:
     public void method148(int i, int j)
     {
         while(i >= 0) 
-            outgoingVector.putByte(239);
+            outgoingVector.writeByte(239);
         Signlink.wavevol = j;
     }
 
