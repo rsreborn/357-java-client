@@ -9,7 +9,7 @@ public class SEQ
     public static void initialize(byte byte0, Class10 class10)
     {
         Buffer class39_sub3_sub3 = new Buffer(class10.method193("seq.dat", null));
-        anInt270 = class39_sub3_sub3.readShort();
+        anInt270 = class39_sub3_sub3.readUShortBE();
         if(byte0 != 6)
             anInt269 = 72;
         if(aClass20Array271 == null)
@@ -56,16 +56,16 @@ public class SEQ
                 anIntArray275 = new int[anInt272];
                 for(int k = 0; k < anInt272; k++)
                 {
-                    anIntArray273[k] = class39_sub3_sub3.readShort();
-                    anIntArray274[k] = class39_sub3_sub3.readShort();
+                    anIntArray273[k] = class39_sub3_sub3.readUShortBE();
+                    anIntArray274[k] = class39_sub3_sub3.readUShortBE();
                     if(anIntArray274[k] == 65535)
                         anIntArray274[k] = -1;
-                    anIntArray275[k] = class39_sub3_sub3.readShort();
+                    anIntArray275[k] = class39_sub3_sub3.readUShortBE();
                 }
 
             } else
             if(j == 2)
-                anInt276 = class39_sub3_sub3.readShort();
+                anInt276 = class39_sub3_sub3.readUShortBE();
             else
             if(j == 3)
             {
@@ -83,10 +83,10 @@ public class SEQ
                 anInt279 = class39_sub3_sub3.readUByte();
             else
             if(j == 6)
-                anInt280 = class39_sub3_sub3.readShort();
+                anInt280 = class39_sub3_sub3.readUShortBE();
             else
             if(j == 7)
-                anInt281 = class39_sub3_sub3.readShort();
+                anInt281 = class39_sub3_sub3.readUShortBE();
             else
             if(j == 8)
                 anInt282 = class39_sub3_sub3.readUByte();

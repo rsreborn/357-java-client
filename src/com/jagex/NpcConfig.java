@@ -45,30 +45,30 @@ public class NpcConfig
                 int l = class39_sub3_sub3.readUByte();
                 anIntArray806 = new int[l];
                 for(int l1 = 0; l1 < l; l1++)
-                    anIntArray806[l1] = class39_sub3_sub3.readShort();
+                    anIntArray806[l1] = class39_sub3_sub3.readUShortBE();
 
             } else
             if(k == 2)
                 aString821 = class39_sub3_sub3.readString();
             else
             if(k == 3)
-                aByteArray789 = class39_sub3_sub3.getRs2StringBytes();
+                aByteArray789 = class39_sub3_sub3.readStringBytes();
             else
             if(k == 12)
-                aByte820 = class39_sub3_sub3.getByte();
+                aByte820 = class39_sub3_sub3.readByte();
             else
             if(k == 13)
-                anInt817 = class39_sub3_sub3.readShort();
+                anInt817 = class39_sub3_sub3.readUShortBE();
             else
             if(k == 14)
-                anInt813 = class39_sub3_sub3.readShort();
+                anInt813 = class39_sub3_sub3.readUShortBE();
             else
             if(k == 17)
             {
-                anInt813 = class39_sub3_sub3.readShort();
-                anInt787 = class39_sub3_sub3.readShort();
-                anInt811 = class39_sub3_sub3.readShort();
-                anInt807 = class39_sub3_sub3.readShort();
+                anInt813 = class39_sub3_sub3.readUShortBE();
+                anInt787 = class39_sub3_sub3.readUShortBE();
+                anInt811 = class39_sub3_sub3.readUShortBE();
+                anInt807 = class39_sub3_sub3.readUShortBE();
             } else
             if(k >= 30 && k < 40)
             {
@@ -85,8 +85,8 @@ public class NpcConfig
                 anIntArray802 = new int[i1];
                 for(int i2 = 0; i2 < i1; i2++)
                 {
-                    anIntArray804[i2] = class39_sub3_sub3.readShort();
-                    anIntArray802[i2] = class39_sub3_sub3.readShort();
+                    anIntArray804[i2] = class39_sub3_sub3.readUShortBE();
+                    anIntArray802[i2] = class39_sub3_sub3.readUShortBE();
                 }
 
             } else
@@ -95,58 +95,58 @@ public class NpcConfig
                 int j1 = class39_sub3_sub3.readUByte();
                 anIntArray809 = new int[j1];
                 for(int j2 = 0; j2 < j1; j2++)
-                    anIntArray809[j2] = class39_sub3_sub3.readShort();
+                    anIntArray809[j2] = class39_sub3_sub3.readUShortBE();
 
             } else
             if(k == 90)
-                anInt794 = class39_sub3_sub3.readShort();
+                anInt794 = class39_sub3_sub3.readUShortBE();
             else
             if(k == 91)
-                anInt812 = class39_sub3_sub3.readShort();
+                anInt812 = class39_sub3_sub3.readUShortBE();
             else
             if(k == 92)
-                anInt788 = class39_sub3_sub3.readShort();
+                anInt788 = class39_sub3_sub3.readUShortBE();
             else
             if(k == 93)
                 aBoolean818 = false;
             else
             if(k == 95)
-                anInt805 = class39_sub3_sub3.readShort();
+                anInt805 = class39_sub3_sub3.readUShortBE();
             else
             if(k == 97)
-                anInt796 = class39_sub3_sub3.readShort();
+                anInt796 = class39_sub3_sub3.readUShortBE();
             else
             if(k == 98)
-                anInt793 = class39_sub3_sub3.readShort();
+                anInt793 = class39_sub3_sub3.readUShortBE();
             else
             if(k == 99)
                 aBoolean791 = true;
             else
             if(k == 100)
-                anInt779 = class39_sub3_sub3.getByte();
+                anInt779 = class39_sub3_sub3.readByte();
             else
             if(k == 101)
-                anInt792 = class39_sub3_sub3.getByte() * 5;
+                anInt792 = class39_sub3_sub3.readByte() * 5;
             else
             if(k == 102)
-                anInt799 = class39_sub3_sub3.readShort();
+                anInt799 = class39_sub3_sub3.readUShortBE();
             else
             if(k == 103)
-                anInt803 = class39_sub3_sub3.readShort();
+                anInt803 = class39_sub3_sub3.readUShortBE();
             else
             if(k == 106)
             {
-                anInt798 = class39_sub3_sub3.readShort();
+                anInt798 = class39_sub3_sub3.readUShortBE();
                 if(anInt798 == 65535)
                     anInt798 = -1;
-                anInt784 = class39_sub3_sub3.readShort();
+                anInt784 = class39_sub3_sub3.readUShortBE();
                 if(anInt784 == 65535)
                     anInt784 = -1;
                 int k1 = class39_sub3_sub3.readUByte();
                 anIntArray785 = new int[k1 + 1];
                 for(int k2 = 0; k2 <= k1; k2++)
                 {
-                    anIntArray785[k2] = class39_sub3_sub3.readShort();
+                    anIntArray785[k2] = class39_sub3_sub3.readUShortBE();
                     if(anIntArray785[k2] == 65535)
                         anIntArray785[k2] = -1;
                 }
@@ -171,13 +171,13 @@ public class NpcConfig
     {
         aClass39_Sub3_Sub3_814 = new Buffer(class10.method193("npc.dat", null));
         Buffer class39_sub3_sub3 = new Buffer(class10.method193("npc.idx", null));
-        anInt800 = class39_sub3_sub3.readShort();
+        anInt800 = class39_sub3_sub3.readUShortBE();
         anIntArray801 = new int[anInt800];
         int i = 2;
         for(int j = 0; j < anInt800; j++)
         {
             anIntArray801[j] = i;
-            i += class39_sub3_sub3.readShort();
+            i += class39_sub3_sub3.readUShortBE();
         }
 
         aNpcConfigArray795 = new NpcConfig[20];
@@ -251,7 +251,7 @@ public class NpcConfig
 
         anInt783 = (anInt783 + 1) % 20;
         NpcConfig npcConfig = aNpcConfigArray795[anInt783] = new NpcConfig();
-        aClass39_Sub3_Sub3_814.currentOffset = anIntArray801[i];
+        aClass39_Sub3_Sub3_814.position = anIntArray801[i];
         npcConfig.aLong780 = i;
         npcConfig.method594(5, aClass39_Sub3_Sub3_814);
         return npcConfig;

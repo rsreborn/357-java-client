@@ -9,7 +9,7 @@ public class SpotAnim
     public static void initialize(byte byte0, Class10 class10)
     {
         Buffer class39_sub3_sub3 = new Buffer(class10.method193("spotanim.dat", null));
-        anInt187 = class39_sub3_sub3.readShort();
+        anInt187 = class39_sub3_sub3.readUShortBE();
         if(aClass11Array188 == null)
             aClass11Array188 = new SpotAnim[anInt187];
         for(int i = 0; i < anInt187; i++)
@@ -34,22 +34,22 @@ public class SpotAnim
             if(j == 0)
                 return;
             if(j == 1)
-                anInt190 = class39_sub3_sub3.readShort();
+                anInt190 = class39_sub3_sub3.readUShortBE();
             else
             if(j == 2)
             {
-                anInt191 = class39_sub3_sub3.readShort();
+                anInt191 = class39_sub3_sub3.readUShortBE();
                 if(SEQ.aClass20Array271 != null)
                     aClass20_192 = SEQ.aClass20Array271[anInt191];
             } else
             if(j == 4)
-                anInt195 = class39_sub3_sub3.readShort();
+                anInt195 = class39_sub3_sub3.readUShortBE();
             else
             if(j == 5)
-                anInt196 = class39_sub3_sub3.readShort();
+                anInt196 = class39_sub3_sub3.readUShortBE();
             else
             if(j == 6)
-                anInt197 = class39_sub3_sub3.readShort();
+                anInt197 = class39_sub3_sub3.readUShortBE();
             else
             if(j == 7)
                 anInt198 = class39_sub3_sub3.readUByte();
@@ -58,10 +58,10 @@ public class SpotAnim
                 anInt199 = class39_sub3_sub3.readUByte();
             else
             if(j >= 40 && j < 50)
-                anIntArray193[j - 40] = class39_sub3_sub3.readShort();
+                anIntArray193[j - 40] = class39_sub3_sub3.readUShortBE();
             else
             if(j >= 50 && j < 60)
-                anIntArray194[j - 50] = class39_sub3_sub3.readShort();
+                anIntArray194[j - 50] = class39_sub3_sub3.readUShortBE();
             else
                 System.out.println("Error unrecognised spotanim config code: " + j);
         } while(true);

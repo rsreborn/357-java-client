@@ -8,7 +8,7 @@ public class Class45
     public static void method584(byte byte0, Class10 class10)
     {
         Buffer class39_sub3_sub3 = new Buffer(class10.method193("flo.dat", null));
-        anInt753 = class39_sub3_sub3.readShort();
+        anInt753 = class39_sub3_sub3.readUShortBE();
         if(byte0 != 6)
             return;
         if(aClass45Array754 == null)
@@ -35,7 +35,7 @@ public class Class45
                 return;
             if(k == 1)
             {
-                anInt756 = class39_sub3_sub3.getTribyte();
+                anInt756 = class39_sub3_sub3.readMediumBE();
                 method586(anInt756, 548);
             } else
             if(k == 2)
@@ -56,7 +56,7 @@ public class Class45
                 int i1 = anInt761;
                 int j1 = anInt762;
                 int k1 = anInt763;
-                int l1 = class39_sub3_sub3.getTribyte();
+                int l1 = class39_sub3_sub3.readMediumBE();
                 method586(l1, 548);
                 anInt760 = l;
                 anInt761 = i1;

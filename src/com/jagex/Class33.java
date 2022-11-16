@@ -17,37 +17,37 @@ public class Class33
     public static void method347(byte byte0, byte abyte0[])
     {
         Buffer class39_sub3_sub3 = new Buffer(abyte0);
-        class39_sub3_sub3.currentOffset = abyte0.length - 8;
-        int i = class39_sub3_sub3.readShort();
-        int j = class39_sub3_sub3.readShort();
-        int k = class39_sub3_sub3.readShort();
-        int l = class39_sub3_sub3.readShort();
+        class39_sub3_sub3.position = abyte0.length - 8;
+        int i = class39_sub3_sub3.readUShortBE();
+        int j = class39_sub3_sub3.readUShortBE();
+        int k = class39_sub3_sub3.readUShortBE();
+        int l = class39_sub3_sub3.readUShortBE();
         int i1 = 0;
         Buffer class39_sub3_sub3_1 = new Buffer(abyte0);
         if(byte0 != -111)
             anInt567 = -338;
-        class39_sub3_sub3_1.currentOffset = i1;
+        class39_sub3_sub3_1.position = i1;
         i1 += i + 2;
         Buffer class39_sub3_sub3_2 = new Buffer(abyte0);
-        class39_sub3_sub3_2.currentOffset = i1;
+        class39_sub3_sub3_2.position = i1;
         i1 += j;
         Buffer class39_sub3_sub3_3 = new Buffer(abyte0);
-        class39_sub3_sub3_3.currentOffset = i1;
+        class39_sub3_sub3_3.position = i1;
         i1 += k;
         Buffer class39_sub3_sub3_4 = new Buffer(abyte0);
-        class39_sub3_sub3_4.currentOffset = i1;
+        class39_sub3_sub3_4.position = i1;
         i1 += l;
         Buffer class39_sub3_sub3_5 = new Buffer(abyte0);
-        class39_sub3_sub3_5.currentOffset = i1;
+        class39_sub3_sub3_5.position = i1;
         Class49 class49 = new Class49(453, class39_sub3_sub3_5);
-        int j1 = class39_sub3_sub3_1.readShort();
+        int j1 = class39_sub3_sub3_1.readUShortBE();
         int ai[] = new int[500];
         int ai1[] = new int[500];
         int ai2[] = new int[500];
         int ai3[] = new int[500];
         for(int k1 = 0; k1 < j1; k1++)
         {
-            int l1 = class39_sub3_sub3_1.readShort();
+            int l1 = class39_sub3_sub3_1.readUShortBE();
             Class33 class33 = aClass33Array568[l1] = new Class33();
             class33.anInt569 = class39_sub3_sub3_4.readUByte();
             class33.aClass49_570 = class49;
@@ -79,15 +79,15 @@ public class Class33
                     if(class49.anIntArray830[l2] == 3)
                         c = '\200';
                     if((i3 & 1) != 0)
-                        ai1[k2] = class39_sub3_sub3_3.method448();
+                        ai1[k2] = class39_sub3_sub3_3.readSmart();
                     else
                         ai1[k2] = c;
                     if((i3 & 2) != 0)
-                        ai2[k2] = class39_sub3_sub3_3.method448();
+                        ai2[k2] = class39_sub3_sub3_3.readSmart();
                     else
                         ai2[k2] = c;
                     if((i3 & 4) != 0)
-                        ai3[k2] = class39_sub3_sub3_3.method448();
+                        ai3[k2] = class39_sub3_sub3_3.readSmart();
                     else
                         ai3[k2] = c;
                     j2 = l2;

@@ -9,7 +9,7 @@ public class Class42
     {
         Buffer class39_sub3_sub3 = new Buffer(class10.method193("varp.dat", null));
         anInt711 = 0;
-        anInt709 = class39_sub3_sub3.readShort();
+        anInt709 = class39_sub3_sub3.readUShortBE();
         if(byte0 != 6)
             return;
         if(aClass42Array710 == null)
@@ -23,7 +23,7 @@ public class Class42
             aClass42Array710[i].method545(class39_sub3_sub3, i, anInt707);
         }
 
-        if(class39_sub3_sub3.currentOffset != class39_sub3_sub3.payload.length)
+        if(class39_sub3_sub3.position != class39_sub3_sub3.payload.length)
             System.out.println("varptype load mismatch");
     }
 
@@ -51,7 +51,7 @@ public class Class42
                 aBoolean717 = false;
             else
             if(k == 5)
-                anInt718 = class39_sub3_sub3.readShort();
+                anInt718 = class39_sub3_sub3.readUShortBE();
             else
             if(k == 6)
                 aBoolean719 = true;

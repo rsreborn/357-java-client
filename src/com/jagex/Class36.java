@@ -27,8 +27,8 @@ public class Class36
         anIntArray668 = new int[anInt666];
         for(int j = 0; j < anInt666; j++)
         {
-            anIntArray667[j] = class39_sub3_sub3.readShort();
-            anIntArray668[j] = class39_sub3_sub3.readShort();
+            anIntArray667[j] = class39_sub3_sub3.readUShortBE();
+            anIntArray668[j] = class39_sub3_sub3.readUShortBE();
         }
 
         if(i == 0);

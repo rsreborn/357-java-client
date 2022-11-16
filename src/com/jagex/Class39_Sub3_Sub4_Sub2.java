@@ -27,24 +27,24 @@ public class Class39_Sub3_Sub4_Sub2 extends Class39_Sub3_Sub4
             aBoolean1693 = !aBoolean1693;
         Buffer class39_sub3_sub3_1 = new Buffer(class10.method193("index.dat", null));
         byte byte1 = -1;
-        class39_sub3_sub3_1.currentOffset = class39_sub3_sub3.readShort() + 4;
+        class39_sub3_sub3_1.position = class39_sub3_sub3.readUShortBE() + 4;
         int j = class39_sub3_sub3_1.readUByte();
         if(j > 0)
-            class39_sub3_sub3_1.currentOffset += 3 * (j - 1);
+            class39_sub3_sub3_1.position += 3 * (j - 1);
         for(int k = 0; k < 256; k++)
         {
             int i = k;
             anIntArray1700[k] = class39_sub3_sub3_1.readUByte();
             anIntArray1701[k] = class39_sub3_sub3_1.readUByte();
-            int l = anIntArray1698[k] = class39_sub3_sub3_1.readShort();
-            int i1 = anIntArray1699[k] = class39_sub3_sub3_1.readShort();
+            int l = anIntArray1698[k] = class39_sub3_sub3_1.readUShortBE();
+            int i1 = anIntArray1699[k] = class39_sub3_sub3_1.readUShortBE();
             int j1 = class39_sub3_sub3_1.readUByte();
             int k1 = l * i1;
             aByteArrayArray1697[k] = new byte[k1];
             if(j1 == 0)
             {
                 for(int l1 = 0; l1 < k1; l1++)
-                    aByteArrayArray1697[k][l1] = class39_sub3_sub3.getByte();
+                    aByteArrayArray1697[k][l1] = class39_sub3_sub3.readByte();
 
             } else
             if(j1 == 1)
@@ -52,7 +52,7 @@ public class Class39_Sub3_Sub4_Sub2 extends Class39_Sub3_Sub4
                 for(int i2 = 0; i2 < l; i2++)
                 {
                     for(int k2 = 0; k2 < i1; k2++)
-                        aByteArrayArray1697[k][i2 + k2 * l] = class39_sub3_sub3.getByte();
+                        aByteArrayArray1697[k][i2 + k2 * l] = class39_sub3_sub3.readByte();
 
                 }
 

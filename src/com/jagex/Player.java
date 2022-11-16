@@ -7,10 +7,10 @@ public class Player extends Class39_Sub3_Sub2_Sub5
 
     public void syncAppearance(boolean flag, Buffer class39_sub3_sub3)
     {
-        class39_sub3_sub3.currentOffset = 0;
+        class39_sub3_sub3.position = 0;
         anInt1748 = class39_sub3_sub3.readUByte();
-        anInt1765 = class39_sub3_sub3.getByte();
-        anInt1764 = class39_sub3_sub3.getByte();
+        anInt1765 = class39_sub3_sub3.readByte();
+        anInt1764 = class39_sub3_sub3.readByte();
         aNpcConfig_1756 = null;
         anInt1753 = 0;
         for(int i = 0; i < 12; i++)
@@ -25,7 +25,7 @@ public class Player extends Class39_Sub3_Sub2_Sub5
             anIntArray1760[i] = (j << 8) + l;
             if(i == 0 && anIntArray1760[0] == 65535)
             {
-                aNpcConfig_1756 = NpcConfig.getDefinition(class39_sub3_sub3.readShort());
+                aNpcConfig_1756 = NpcConfig.getDefinition(class39_sub3_sub3.readUShortBE());
                 break;
             }
             if(anIntArray1760[i] >= 512 && anIntArray1760[i] - 512 < Class4.anInt92)
@@ -44,34 +44,34 @@ public class Player extends Class39_Sub3_Sub2_Sub5
             anIntArray1746[k] = i1;
         }
 
-        super.anInt1640 = class39_sub3_sub3.readShort();
+        super.anInt1640 = class39_sub3_sub3.readUShortBE();
         if(super.anInt1640 == 65535)
             super.anInt1640 = -1;
-        super.anInt1641 = class39_sub3_sub3.readShort();
+        super.anInt1641 = class39_sub3_sub3.readUShortBE();
         if(super.anInt1641 == 65535)
             super.anInt1641 = -1;
-        super.anInt1644 = class39_sub3_sub3.readShort();
+        super.anInt1644 = class39_sub3_sub3.readUShortBE();
         if(super.anInt1644 == 65535)
             super.anInt1644 = -1;
-        super.anInt1645 = class39_sub3_sub3.readShort();
+        super.anInt1645 = class39_sub3_sub3.readUShortBE();
         if(super.anInt1645 == 65535)
             super.anInt1645 = -1;
-        super.anInt1646 = class39_sub3_sub3.readShort();
+        super.anInt1646 = class39_sub3_sub3.readUShortBE();
         if(super.anInt1646 == 65535)
             super.anInt1646 = -1;
-        super.anInt1647 = class39_sub3_sub3.readShort();
+        super.anInt1647 = class39_sub3_sub3.readUShortBE();
         if(super.anInt1647 == 65535)
             super.anInt1647 = -1;
-        super.anInt1603 = class39_sub3_sub3.readShort();
+        super.anInt1603 = class39_sub3_sub3.readUShortBE();
         if(super.anInt1603 == 65535)
             super.anInt1603 = -1;
-        aString1754 = Class37.method372(Class37.method369(-39, class39_sub3_sub3.getLong()), false);
+        aString1754 = Class37.method372(Class37.method369(-39, class39_sub3_sub3.readLongBE()), false);
         anInt1768 = class39_sub3_sub3.readUByte();
         if(flag)
         {
             for(int j1 = 1; j1 > 0; j1++);
         }
-        anInt1759 = class39_sub3_sub3.readShort();
+        anInt1759 = class39_sub3_sub3.readUShortBE();
         aBoolean1755 = true;
         aLong1758 = 0L;
         int k1 = anIntArray1760[5];

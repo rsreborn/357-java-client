@@ -15,7 +15,7 @@ public class Class6
         {
             for(int i = 1; i > 0; i++);
         }
-        anInt121 = class39_sub3_sub3.readShort();
+        anInt121 = class39_sub3_sub3.readUShortBE();
         if(aClass6Array122 == null)
             aClass6Array122 = new Class6[anInt121];
         for(int j = 0; j < anInt121; j++)
@@ -27,7 +27,7 @@ public class Class6
                 Class42.aClass42Array710[aClass6Array122[j].anInt124].aBoolean722 = true;
         }
 
-        if(class39_sub3_sub3.currentOffset != class39_sub3_sub3.payload.length)
+        if(class39_sub3_sub3.position != class39_sub3_sub3.payload.length)
             System.out.println("varbit load mismatch");
     }
 
@@ -42,7 +42,7 @@ public class Class6
                 return;
             if(k == 1)
             {
-                anInt124 = class39_sub3_sub3.readShort();
+                anInt124 = class39_sub3_sub3.readUShortBE();
                 anInt125 = class39_sub3_sub3.readUByte();
                 anInt126 = class39_sub3_sub3.readUByte();
             } else

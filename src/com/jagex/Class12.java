@@ -25,7 +25,7 @@ public class Class12
         Class32.method342();
         do
         {
-            int j = class39_sub3_sub3.readShort();
+            int j = class39_sub3_sub3.readUShortBE();
             if(j == 65535)
                 return;
             aClass12Array202[j] = new Class12(0);
@@ -55,14 +55,14 @@ public class Class12
             int k = class39_sub3_sub3.readUByte();
             if(k != 0)
             {
-                class39_sub3_sub3.currentOffset--;
+                class39_sub3_sub3.position--;
                 aClass32Array206[j] = new Class32();
                 aClass32Array206[j].method345(5, class39_sub3_sub3);
             }
         }
 
-        anInt207 = class39_sub3_sub3.readShort();
-        anInt208 = class39_sub3_sub3.readShort();
+        anInt207 = class39_sub3_sub3.readUShortBE();
+        anInt208 = class39_sub3_sub3.readUShortBE();
         if(i < 5 || i > 5)
             throw new NullPointerException();
         else
@@ -97,23 +97,23 @@ public class Class12
     public Buffer method201(byte byte0, int i)
     {
         int j = method202(i);
-        aClass39_Sub3_Sub3_205.currentOffset = 0;
-        aClass39_Sub3_Sub3_205.putInt(0x52494646);
-        aClass39_Sub3_Sub3_205.putLEInt(36 + j);
-        aClass39_Sub3_Sub3_205.putInt(0x57415645);
+        aClass39_Sub3_Sub3_205.position = 0;
+        aClass39_Sub3_Sub3_205.writeIntBE(0x52494646);
+        aClass39_Sub3_Sub3_205.writeIntLE(36 + j);
+        aClass39_Sub3_Sub3_205.writeIntBE(0x57415645);
         if(byte0 != -1)
             anInt201 = 269;
-        aClass39_Sub3_Sub3_205.putInt(0x666d7420);
-        aClass39_Sub3_Sub3_205.putLEInt(16);
-        aClass39_Sub3_Sub3_205.putLEShort(1);
-        aClass39_Sub3_Sub3_205.putLEShort(1);
-        aClass39_Sub3_Sub3_205.putLEInt(22050);
-        aClass39_Sub3_Sub3_205.putLEInt(22050);
-        aClass39_Sub3_Sub3_205.putLEShort(1);
-        aClass39_Sub3_Sub3_205.putLEShort(8);
-        aClass39_Sub3_Sub3_205.putInt(0x64617461);
-        aClass39_Sub3_Sub3_205.putLEInt(j);
-        aClass39_Sub3_Sub3_205.currentOffset += j;
+        aClass39_Sub3_Sub3_205.writeIntBE(0x666d7420);
+        aClass39_Sub3_Sub3_205.writeIntLE(16);
+        aClass39_Sub3_Sub3_205.writeShortLE(1);
+        aClass39_Sub3_Sub3_205.writeShortLE(1);
+        aClass39_Sub3_Sub3_205.writeIntLE(22050);
+        aClass39_Sub3_Sub3_205.writeIntLE(22050);
+        aClass39_Sub3_Sub3_205.writeShortLE(1);
+        aClass39_Sub3_Sub3_205.writeShortLE(8);
+        aClass39_Sub3_Sub3_205.writeIntBE(0x64617461);
+        aClass39_Sub3_Sub3_205.writeIntLE(j);
+        aClass39_Sub3_Sub3_205.position += j;
         return aClass39_Sub3_Sub3_205;
     }
 

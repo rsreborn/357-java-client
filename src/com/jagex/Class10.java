@@ -18,8 +18,8 @@ public class Class10
     public void method192(int i, byte abyte0[])
     {
         Buffer class39_sub3_sub3 = new Buffer(abyte0);
-        int j = class39_sub3_sub3.getTribyte();
-        int k = class39_sub3_sub3.getTribyte();
+        int j = class39_sub3_sub3.readMediumBE();
+        int k = class39_sub3_sub3.readMediumBE();
         if(k != j)
         {
             byte abyte1[] = new byte[j];
@@ -32,7 +32,7 @@ public class Class10
             aByteArray179 = abyte0;
             aBoolean185 = false;
         }
-        anInt180 = class39_sub3_sub3.readShort();
+        anInt180 = class39_sub3_sub3.readUShortBE();
         anIntArray181 = new int[anInt180];
         anIntArray182 = new int[anInt180];
         anIntArray183 = new int[anInt180];
@@ -41,12 +41,12 @@ public class Class10
         {
             for(int l = 1; l > 0; l++);
         }
-        int i1 = class39_sub3_sub3.currentOffset + anInt180 * 10;
+        int i1 = class39_sub3_sub3.position + anInt180 * 10;
         for(int j1 = 0; j1 < anInt180; j1++)
         {
             anIntArray181[j1] = class39_sub3_sub3.readIntBE();
-            anIntArray182[j1] = class39_sub3_sub3.getTribyte();
-            anIntArray183[j1] = class39_sub3_sub3.getTribyte();
+            anIntArray182[j1] = class39_sub3_sub3.readMediumBE();
+            anIntArray183[j1] = class39_sub3_sub3.readMediumBE();
             anIntArray184[j1] = i1;
             i1 += anIntArray183[j1];
         }

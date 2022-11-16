@@ -48,11 +48,11 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
             return;
         }
         Buffer class39_sub3_sub3 = new Buffer(abyte0);
-        class39_sub3_sub3.currentOffset = abyte0.length - 18;
+        class39_sub3_sub3.position = abyte0.length - 18;
         Class25 class25_1 = aClass25Array1560[j] = new Class25();
         class25_1.aByteArray334 = abyte0;
-        class25_1.anInt335 = class39_sub3_sub3.readShort();
-        class25_1.anInt336 = class39_sub3_sub3.readShort();
+        class25_1.anInt335 = class39_sub3_sub3.readUShortBE();
+        class25_1.anInt336 = class39_sub3_sub3.readUShortBE();
         class25_1.anInt337 = class39_sub3_sub3.readUByte();
         int k = class39_sub3_sub3.readUByte();
         int l = class39_sub3_sub3.readUByte();
@@ -61,10 +61,10 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
         if(i != 4)
             aBoolean1512 = !aBoolean1512;
         int k1 = class39_sub3_sub3.readUByte();
-        int l1 = class39_sub3_sub3.readShort();
-        int i2 = class39_sub3_sub3.readShort();
-        int j2 = class39_sub3_sub3.readShort();
-        int k2 = class39_sub3_sub3.readShort();
+        int l1 = class39_sub3_sub3.readUShortBE();
+        int i2 = class39_sub3_sub3.readUShortBE();
+        int j2 = class39_sub3_sub3.readUShortBE();
+        int k2 = class39_sub3_sub3.readUShortBE();
         int l2 = 0;
         class25_1.anInt338 = l2;
         l2 += class25_1.anInt335;
@@ -192,15 +192,15 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
             anIntArray1555 = new int[anInt1530];
         anIntArray1540 = new int[anInt1530];
         Buffer class39_sub3_sub3 = new Buffer(class25.aByteArray334);
-        class39_sub3_sub3.currentOffset = class25.anInt338;
+        class39_sub3_sub3.position = class25.anInt338;
         Buffer class39_sub3_sub3_1 = new Buffer(class25.aByteArray334);
-        class39_sub3_sub3_1.currentOffset = class25.anInt339;
+        class39_sub3_sub3_1.position = class25.anInt339;
         Buffer class39_sub3_sub3_2 = new Buffer(class25.aByteArray334);
-        class39_sub3_sub3_2.currentOffset = class25.anInt340;
+        class39_sub3_sub3_2.position = class25.anInt340;
         Buffer class39_sub3_sub3_3 = new Buffer(class25.aByteArray334);
-        class39_sub3_sub3_3.currentOffset = class25.anInt341;
+        class39_sub3_sub3_3.position = class25.anInt341;
         Buffer class39_sub3_sub3_4 = new Buffer(class25.aByteArray334);
-        class39_sub3_sub3_4.currentOffset = class25.anInt342;
+        class39_sub3_sub3_4.position = class25.anInt342;
         int j = 0;
         int k = 0;
         int l = 0;
@@ -211,13 +211,13 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
             int j1 = class39_sub3_sub3.readUByte();
             int l1 = 0;
             if((j1 & 1) != 0)
-                l1 = class39_sub3_sub3_1.method448();
+                l1 = class39_sub3_sub3_1.readSmart();
             int j2 = 0;
             if((j1 & 2) != 0)
-                j2 = class39_sub3_sub3_2.method448();
+                j2 = class39_sub3_sub3_2.readSmart();
             int l2 = 0;
             if((j1 & 4) != 0)
-                l2 = class39_sub3_sub3_3.method448();
+                l2 = class39_sub3_sub3_3.readSmart();
             anIntArray1527[i1] = j + l1;
             anIntArray1528[i1] = k + j2;
             anIntArray1529[i1] = l + l2;
@@ -228,14 +228,14 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
                 anIntArray1554[i1] = class39_sub3_sub3_4.readUByte();
         }
 
-        class39_sub3_sub3.currentOffset = class25.anInt345;
-        class39_sub3_sub3_1.currentOffset = class25.anInt346;
-        class39_sub3_sub3_2.currentOffset = class25.anInt347;
-        class39_sub3_sub3_3.currentOffset = class25.anInt348;
-        class39_sub3_sub3_4.currentOffset = class25.anInt349;
+        class39_sub3_sub3.position = class25.anInt345;
+        class39_sub3_sub3_1.position = class25.anInt346;
+        class39_sub3_sub3_2.position = class25.anInt347;
+        class39_sub3_sub3_3.position = class25.anInt348;
+        class39_sub3_sub3_4.position = class25.anInt349;
         for(int k1 = 0; k1 < anInt1530; k1++)
         {
-            anIntArray1540[k1] = class39_sub3_sub3.readShort();
+            anIntArray1540[k1] = class39_sub3_sub3.readUShortBE();
             if(anIntArray1537 != null)
                 anIntArray1537[k1] = class39_sub3_sub3_1.readUByte();
             if(anIntArray1538 != null)
@@ -246,8 +246,8 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
                 anIntArray1555[k1] = class39_sub3_sub3_4.readUByte();
         }
 
-        class39_sub3_sub3.currentOffset = class25.anInt343;
-        class39_sub3_sub3_1.currentOffset = class25.anInt344;
+        class39_sub3_sub3.position = class25.anInt343;
+        class39_sub3_sub3_1.position = class25.anInt344;
         int i2 = 0;
         int k2 = 0;
         int i3 = 0;
@@ -257,11 +257,11 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
             int l3 = class39_sub3_sub3_1.readUByte();
             if(l3 == 1)
             {
-                i2 = class39_sub3_sub3.method448() + j3;
+                i2 = class39_sub3_sub3.readSmart() + j3;
                 j3 = i2;
-                k2 = class39_sub3_sub3.method448() + j3;
+                k2 = class39_sub3_sub3.readSmart() + j3;
                 j3 = k2;
-                i3 = class39_sub3_sub3.method448() + j3;
+                i3 = class39_sub3_sub3.readSmart() + j3;
                 j3 = i3;
                 anIntArray1531[k3] = i2;
                 anIntArray1532[k3] = k2;
@@ -271,7 +271,7 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
             {
                 i2 = i2;
                 k2 = i3;
-                i3 = class39_sub3_sub3.method448() + j3;
+                i3 = class39_sub3_sub3.readSmart() + j3;
                 j3 = i3;
                 anIntArray1531[k3] = i2;
                 anIntArray1532[k3] = k2;
@@ -281,7 +281,7 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
             {
                 i2 = i3;
                 k2 = k2;
-                i3 = class39_sub3_sub3.method448() + j3;
+                i3 = class39_sub3_sub3.readSmart() + j3;
                 j3 = i3;
                 anIntArray1531[k3] = i2;
                 anIntArray1532[k3] = k2;
@@ -292,7 +292,7 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
                 int j4 = i2;
                 i2 = k2;
                 k2 = j4;
-                i3 = class39_sub3_sub3.method448() + j3;
+                i3 = class39_sub3_sub3.readSmart() + j3;
                 j3 = i3;
                 anIntArray1531[k3] = i2;
                 anIntArray1532[k3] = k2;
@@ -300,12 +300,12 @@ public class Class39_Sub3_Sub2_Sub4 extends Class39_Sub3_Sub2
             }
         }
 
-        class39_sub3_sub3.currentOffset = class25.anInt350;
+        class39_sub3_sub3.position = class25.anInt350;
         for(int i4 = 0; i4 < anInt1542; i4++)
         {
-            anIntArray1543[i4] = class39_sub3_sub3.readShort();
-            anIntArray1544[i4] = class39_sub3_sub3.readShort();
-            anIntArray1545[i4] = class39_sub3_sub3.readShort();
+            anIntArray1543[i4] = class39_sub3_sub3.readUShortBE();
+            anIntArray1544[i4] = class39_sub3_sub3.readUShortBE();
+            anIntArray1545[i4] = class39_sub3_sub3.readUShortBE();
         }
 
     }

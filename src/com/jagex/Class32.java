@@ -228,7 +228,7 @@ public class Class32
         int j = class39_sub3_sub3.readUByte();
         if(j != 0)
         {
-            class39_sub3_sub3.currentOffset--;
+            class39_sub3_sub3.position--;
             aClass36_544 = new Class36();
             aClass36_544.method364(5, class39_sub3_sub3);
             aClass36_545 = new Class36();
@@ -237,7 +237,7 @@ public class Class32
         j = class39_sub3_sub3.readUByte();
         if(j != 0)
         {
-            class39_sub3_sub3.currentOffset--;
+            class39_sub3_sub3.position--;
             aClass36_546 = new Class36();
             aClass36_546.method364(5, class39_sub3_sub3);
             aClass36_547 = new Class36();
@@ -246,7 +246,7 @@ public class Class32
         j = class39_sub3_sub3.readUByte();
         if(j != 0)
         {
-            class39_sub3_sub3.currentOffset--;
+            class39_sub3_sub3.position--;
             aClass36_548 = new Class36();
             aClass36_548.method364(5, class39_sub3_sub3);
             aClass36_549 = new Class36();
@@ -254,18 +254,18 @@ public class Class32
         }
         for(int k = 0; k < 10; k++)
         {
-            int l = class39_sub3_sub3.getByteOrShortC();
+            int l = class39_sub3_sub3.readUSmart();
             if(l == 0)
                 break;
             anIntArray550[k] = l;
-            anIntArray551[k] = class39_sub3_sub3.method448();
-            anIntArray552[k] = class39_sub3_sub3.getByteOrShortC();
+            anIntArray551[k] = class39_sub3_sub3.readSmart();
+            anIntArray552[k] = class39_sub3_sub3.readUSmart();
         }
 
-        anInt553 = class39_sub3_sub3.getByteOrShortC();
-        anInt554 = class39_sub3_sub3.getByteOrShortC();
-        anInt557 = class39_sub3_sub3.readShort();
-        anInt558 = class39_sub3_sub3.readShort();
+        anInt553 = class39_sub3_sub3.readUSmart();
+        anInt554 = class39_sub3_sub3.readUSmart();
+        anInt557 = class39_sub3_sub3.readUShortBE();
+        anInt558 = class39_sub3_sub3.readUShortBE();
         aClass46_555 = new Class46();
         aClass36_556 = new Class36();
         if(i < 5 || i > 5)

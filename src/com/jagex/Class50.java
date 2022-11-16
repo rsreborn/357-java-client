@@ -104,12 +104,12 @@ public class Class50
 
     public static String method603(String s, boolean flag)
     {
-        aClass39_Sub3_Sub3_836.currentOffset = 0;
+        aClass39_Sub3_Sub3_836.position = 0;
         method602(aClass39_Sub3_Sub3_836, 8378, s);
         if(!flag)
             aBoolean832 = !aBoolean832;
-        int i = aClass39_Sub3_Sub3_836.currentOffset;
-        aClass39_Sub3_Sub3_836.currentOffset = 0;
+        int i = aClass39_Sub3_Sub3_836.position;
+        aClass39_Sub3_Sub3_836.position = 0;
         String s1 = method601(aClass39_Sub3_Sub3_836, i, 0);
         return s1;
     }

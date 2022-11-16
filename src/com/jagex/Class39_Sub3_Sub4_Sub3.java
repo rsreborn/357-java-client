@@ -18,32 +18,32 @@ public class Class39_Sub3_Sub4_Sub3 extends Class39_Sub3_Sub4
         aBoolean1714 = true;
         Buffer class39_sub3_sub3 = new Buffer(class10.method193(s + ".dat", null));
         Buffer class39_sub3_sub3_1 = new Buffer(class10.method193("index.dat", null));
-        class39_sub3_sub3_1.currentOffset = class39_sub3_sub3.readShort();
-        anInt1721 = class39_sub3_sub3_1.readShort();
-        anInt1722 = class39_sub3_sub3_1.readShort();
+        class39_sub3_sub3_1.position = class39_sub3_sub3.readUShortBE();
+        anInt1721 = class39_sub3_sub3_1.readUShortBE();
+        anInt1722 = class39_sub3_sub3_1.readUShortBE();
         int j = class39_sub3_sub3_1.readUByte();
         anIntArray1716 = new int[j];
         for(int k = 0; k < j - 1; k++)
-            anIntArray1716[k + 1] = class39_sub3_sub3_1.getTribyte();
+            anIntArray1716[k + 1] = class39_sub3_sub3_1.readMediumBE();
 
         for(int l = 0; l < i; l++)
         {
-            class39_sub3_sub3_1.currentOffset += 2;
-            class39_sub3_sub3.currentOffset += class39_sub3_sub3_1.readShort() * class39_sub3_sub3_1.readShort();
-            class39_sub3_sub3_1.currentOffset++;
+            class39_sub3_sub3_1.position += 2;
+            class39_sub3_sub3.position += class39_sub3_sub3_1.readUShortBE() * class39_sub3_sub3_1.readUShortBE();
+            class39_sub3_sub3_1.position++;
         }
 
         anInt1719 = class39_sub3_sub3_1.readUByte();
         anInt1720 = class39_sub3_sub3_1.readUByte();
-        anInt1717 = class39_sub3_sub3_1.readShort();
-        anInt1718 = class39_sub3_sub3_1.readShort();
+        anInt1717 = class39_sub3_sub3_1.readUShortBE();
+        anInt1718 = class39_sub3_sub3_1.readUShortBE();
         int i1 = class39_sub3_sub3_1.readUByte();
         int j1 = anInt1717 * anInt1718;
         aByteArray1715 = new byte[j1];
         if(i1 == 0)
         {
             for(int k1 = 0; k1 < j1; k1++)
-                aByteArray1715[k1] = class39_sub3_sub3.getByte();
+                aByteArray1715[k1] = class39_sub3_sub3.readByte();
 
             return;
         }
@@ -52,7 +52,7 @@ public class Class39_Sub3_Sub4_Sub3 extends Class39_Sub3_Sub4
             for(int l1 = 0; l1 < anInt1717; l1++)
             {
                 for(int i2 = 0; i2 < anInt1718; i2++)
-                    aByteArray1715[l1 + i2 * anInt1717] = class39_sub3_sub3.getByte();
+                    aByteArray1715[l1 + i2 * anInt1717] = class39_sub3_sub3.readByte();
 
             }
 

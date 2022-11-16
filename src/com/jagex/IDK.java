@@ -8,7 +8,7 @@ public class IDK
     public static void initialize(byte byte0, Class10 class10)
     {
         Buffer class39_sub3_sub3 = new Buffer(class10.method193("idk.dat", null));
-        anInt229 = class39_sub3_sub3.readShort();
+        anInt229 = class39_sub3_sub3.readUShortBE();
         if(byte0 != 6)
         {
             for(int i = 1; i > 0; i++);
@@ -41,20 +41,20 @@ public class IDK
                 int k = class39_sub3_sub3.readUByte();
                 anIntArray232 = new int[k];
                 for(int l = 0; l < k; l++)
-                    anIntArray232[l] = class39_sub3_sub3.readShort();
+                    anIntArray232[l] = class39_sub3_sub3.readUShortBE();
 
             } else
             if(j == 3)
                 aBoolean236 = true;
             else
             if(j >= 40 && j < 50)
-                anIntArray233[j - 40] = class39_sub3_sub3.readShort();
+                anIntArray233[j - 40] = class39_sub3_sub3.readUShortBE();
             else
             if(j >= 50 && j < 60)
-                anIntArray234[j - 50] = class39_sub3_sub3.readShort();
+                anIntArray234[j - 50] = class39_sub3_sub3.readUShortBE();
             else
             if(j >= 60 && j < 70)
-                anIntArray235[j - 60] = class39_sub3_sub3.readShort();
+                anIntArray235[j - 60] = class39_sub3_sub3.readUShortBE();
             else
                 System.out.println("Error unrecognised config code: " + j);
         } while(true);

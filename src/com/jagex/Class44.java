@@ -67,7 +67,7 @@ public class Class44
             for(int i = 1; i > 0; i++);
         }
         for(int j = 0; j < anIntArray745.length; j++)
-            anIntArray745[j] = class39_sub3_sub3.readShort();
+            anIntArray745[j] = class39_sub3_sub3.readUShortBE();
 
     }
 

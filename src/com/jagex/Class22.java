@@ -128,14 +128,14 @@ public class Class22
     int i_34_ = -1;
     for (;;)
       {
-	int i_35_ = class39_sub3_sub3.getByteOrShortC ();
+	int i_35_ = class39_sub3_sub3.readUSmart();
 	if (i_35_ == 0)
 	  break;
 	i_34_ += i_35_;
 	int i_36_ = 0;
 	for (;;)
 	  {
-	    int i_37_ = class39_sub3_sub3.getByteOrShortC ();
+	    int i_37_ = class39_sub3_sub3.readUSmart();
 	    if (i_37_ == 0)
 	      break;
 	    i_36_ += i_37_ - 1;
@@ -249,7 +249,7 @@ public class Class22
 	    if (i_58_ <= 49)
 	      {
 		aByteArrayArrayArray289[i][i_56_][i_54_]
-		  = class39_sub3_sub3.getByte ();
+		  = class39_sub3_sub3.readByte();
 		aByteArrayArrayArray299[i][i_56_][i_54_]
 		  = (byte) ((i_58_ - 2) / 4);
 		aByteArrayArrayArray311[i][i_56_][i_54_]
@@ -297,7 +297,7 @@ public class Class22
       {
 	for (;;)
 	  {
-	    int i_64_ = class39_sub3_sub3.getByteOrShortC ();
+	    int i_64_ = class39_sub3_sub3.readUSmart();
 	    if (i_64_ == 0)
 	      break;
 	    i += i_64_;
@@ -305,7 +305,7 @@ public class Class22
 	    class27.method273 ((byte) 8, onDemandClient);
 	    for (;;)
 	      {
-		int i_65_ = class39_sub3_sub3.getByteOrShortC ();
+		int i_65_ = class39_sub3_sub3.readUSmart();
 		if (i_65_ == 0)
 		  break;
 		class39_sub3_sub3.readUByte();
@@ -329,14 +329,14 @@ public class Class22
     int i_68_ = -1;
     for (;;)
       {
-	int i_69_ = class39_sub3_sub3.getByteOrShortC ();
+	int i_69_ = class39_sub3_sub3.readUSmart();
 	if (i_69_ == 0)
 	  break;
 	i_68_ += i_69_;
 	int i_70_ = 0;
 	for (;;)
 	  {
-	    int i_71_ = class39_sub3_sub3.getByteOrShortC ();
+	    int i_71_ = class39_sub3_sub3.readUSmart();
 	    if (i_71_ == 0)
 	      break;
 	    i_70_ += i_71_ - 1;
@@ -1826,7 +1826,7 @@ public class Class22
       throw new NullPointerException ();
     for (;;)
       {
-	int i_275_ = class39_sub3_sub3.getByteOrShortC ();
+	int i_275_ = class39_sub3_sub3.readUSmart();
 	if (i_275_ == 0)
 	  break;
 	i_274_ += i_275_;
@@ -1836,14 +1836,14 @@ public class Class22
 	  {
 	    if (bool_277_)
 	      {
-		int i_278_ = class39_sub3_sub3.getByteOrShortC ();
+		int i_278_ = class39_sub3_sub3.readUSmart();
 		if (i_278_ == 0)
 		  break;
 		class39_sub3_sub3.readUByte();
 	      }
 	    else
 	      {
-		int i_279_ = class39_sub3_sub3.getByteOrShortC ();
+		int i_279_ = class39_sub3_sub3.readUSmart();
 		if (i_279_ == 0)
 		  break;
 		i_276_ += i_279_ - 1;
